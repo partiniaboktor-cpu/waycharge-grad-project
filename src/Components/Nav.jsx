@@ -6,7 +6,7 @@ const Nav = () => {
     return (  <>
     
     <div className='nav'>
-        <img src={wholoelogo} alt="logo" />
+        <img className='language' src={wholoelogo} alt="logo" />
 
     <div className='menu'>
         <p className='menus'>About us</p>

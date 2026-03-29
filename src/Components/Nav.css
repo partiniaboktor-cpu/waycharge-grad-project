@@ -6,7 +6,8 @@
     flex-direction: row;
     gap: 15%;
     width: 100;
-    background-color: #222222;
+    padding-top: 3%;
+ 
 }
 .menu{
       display: flex;
@@ -16,4 +17,11 @@
     flex-direction: row;
     gap: 24px;
     color: white;
+    cursor: pointer;
+}
+.menu:hover{
+    color: #8DC63F;
+}
+.language{
+    cursor: pointer;
 }

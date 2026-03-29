@@ -1,3 +1,47 @@
-.body{
+
+*{
+    margin:0;
+    padding: 0;
     background-color: #222222;
+}
+.hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding-top: 8%;
+}
+.title{
+     font-family: "Aboreto", system-ui;
+  font-weight: 400;
+  font-style: normal;
+color: white;
+font-size: 80px;
+  -webkit-text-stroke: 2.5px white;
+}
+.left-side-hero{
+     display: flex;
+    flex-direction: column;
+}
+.text-hero-left{
+    color: #ffffff75;
+    font-size: 90%;
+    margin-top: 3%;
+    line-height: 130%;
+    font-weight: 100;
+}
+.name-proj{
+    background-color: #ffffff;
+    color: #8DC63F;
+    width: 30%;
+    padding: 2% 0;
+    margin-top: 5%;
+}
+.name-proj:hover{
+    background-color: #8DC63F;
+    color: #ffffff;
+    width: 30%;
+    padding: 2% 0;
+    margin-top: 5%;
 }
