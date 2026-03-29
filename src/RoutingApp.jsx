@@ -1,29 +1,16 @@
-import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from '../src/Pages/Home';
 
-const RoutingApp = () => {
-    return ( <>
-    
+
+function App() {
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
 
       </Routes>
     </BrowserRouter>
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    </> );
+  );
 }
- 
-export default RoutingApp;
+
+export default App;
