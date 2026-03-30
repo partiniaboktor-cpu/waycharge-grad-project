@@ -1,3 +1,29 @@
-.body{
-    background-color: #222222;
+:root {
+
+  /* Colors */
+  --primary-green: #8DC63F;
+  --primary-light-green: #8ec63f10;
+  --bg-dark: #222222;
+  --Main-text-color: #ffffff;
+  --light-text: #ffffff43;
+  
+  /* Typography */
+  --base-font: 'Inter', sans-serif;
+  --main-font: "Aboreto", system-ui;
+  
+
+    /* Font sizes */
+  --title-font: 64px;
+  --paragraph-font: 24px;
+  --text-font: 20px;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--bg-dark);
 }

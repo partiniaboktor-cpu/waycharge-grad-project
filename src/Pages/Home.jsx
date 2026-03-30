@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './Home.css'
 import Nav from '../Components/Nav';
+import Title from '../Common/Title-section.jsx';
+import '../Supabase.jsx'
 
 const Home = () => {
+
     return ( <>
     <Nav />
 
@@ -13,10 +16,11 @@ const Home = () => {
         <button className='name-proj'>WayCharge...</button>
         </div>
 
-        
+{/* 3d car model */}
+
     </div>
 
-    
+    <Title />
     
     </> );
 }

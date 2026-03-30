@@ -1,0 +1,31 @@
+.center-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+.header-title{
+    color: var(--primary-light-green);
+    font-size: 300%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+.header-title2{
+      color: var(--main-text-color);
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-text-color);
+    margin-bottom: 5%;
+}
+/* .view-more{
+    color: #8ec63f;
+    font-size: 10%;
+} */

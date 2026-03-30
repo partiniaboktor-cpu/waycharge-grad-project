@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import './Nav.css'
-import wholoelogo from '../Assets/Img/wholologo.png'
+import wholoelogo from '../Assets/Img/wholologo.svg'
 import language from '../Assets/Icons/language.svg'
 const Nav = () => {
     return (  <>
     
     <div className='nav'>
-        <img className='language' src={wholoelogo} alt="logo" />
+        <img className='logo' src={wholoelogo} alt="logo" />
 
     <div className='menu'>
-        <p className='menus'>About us</p>
-        <p className='menus'>Mobile app</p>
-        <p className='menus'>Stations</p>
-        <p className='menus'>How it works?</p>
-        <p className='menus'>Contact us</p>
-        <p className='menus'>Help</p>
+        <p className='menu1'>About us</p>
+        <p className='menus2'>Mobile app</p>
+        <p className='menus3'>Stations</p>
+        <p className='menus4'>How it works?</p>
+        <p className='menus5'>Contact us</p>
+        <p className='menus6'>Help</p>
     </div>
         
-<img src={language} alt="" />
+<img className='language' src={language} alt="" />
 
     </div>
     
