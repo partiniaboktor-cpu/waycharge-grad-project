@@ -92,3 +92,64 @@ margin-top: 5%;
 .charger-image img {
   width: 300px;
 }
+
+.charging-stations{
+width: 70%;
+margin: 0 auto;
+/* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+height: auto;
+margin-top: 3%;
+}
+.contetnt-charging{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 2%;
+  flex-direction: row;
+}
+.nos{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 5%;
+  flex-direction: column;
+
+}
+.number-one{
+  color: var(--primary-green);
+  font-size: 40px;
+  font-family: var(--base-font);
+  margin-bottom: 60%;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.text-ones{
+    color: var(--Main-text-color);
+  font-size: 30px;
+  font-family: var(--base-font);
+  margin-bottom: 25%;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-weight: 200;
+}
+.dot{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 5%;
+  flex-direction: column;
+}
+.dotss{
+  margin-top: 5%;
+}

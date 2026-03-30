@@ -5,7 +5,8 @@ import Title from '../Common/Title-section.jsx';
 import '../Supabase.jsx'
 import DownloadSection from '../Components/DownloadSection.jsx';
 import charger from '../Assets/Img/charger.svg'
-
+import imggroup from '../Assets/Img/imggroup.svg'
+import dot from '../Assets/Img/dots.svg'
 const Home = () => {
 
     return ( <>
@@ -91,6 +92,34 @@ const Home = () => {
       </div>
 
     </div>
+
+<section className='charging-stations'>
+
+<div className='contetnt-charging'>
+  <div className='dot'>
+  <img src={imggroup} alt="imgggroup" />
+  <img className='dotss' src={dot} alt="imgggroup" />
+
+  </div>
+
+<div className='nos'>
+  <h2 className='number-one'>52+</h2>
+  <h2 className='number-one'>100</h2>
+  <h2 className='number-one'>1000</h2>
+</div>
+
+<div className='nos'>
+  <h2 className='text-ones'>Charging stations</h2>
+  <h2 className='text-ones'>Charging points</h2>
+  <h2 className='text-ones'>Charging points</h2>
+</div>
+
+</div>
+
+
+
+</section>
+
 
 
     
