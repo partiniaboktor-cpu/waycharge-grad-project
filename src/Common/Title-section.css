@@ -14,7 +14,7 @@
     margin-top: 10%;
 }
 .header-title2{
-      color: var(--main-text-color);
+    color: var(--Main-text-color);
     font-size: 150%;
     display: flex;
     justify-content: center;
@@ -22,10 +22,19 @@
     font-family: var(--main-font);
     font-weight: 400;
     font-style: normal;
-    color: var(--main-text-color);
-    margin-bottom: 5%;
+    margin-top: -2%;
 }
-/* .view-more{
-    color: #8ec63f;
-    font-size: 10%;
-} */
+.view-more{
+    color: var(--primary-green);
+    font-size: var(--text-font);
+    margin: 0 20px;
+}
+.arrow{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    text-align: center;
+    padding-top: 1%;
+}
