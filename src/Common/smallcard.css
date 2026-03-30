@@ -1,0 +1,33 @@
+.smallcards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 2%;
+    margin-top: 3%;
+}
+.first{
+    /* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+width: 14%;
+height:100px;
+ display: flex;
+    justify-content: center;
+padding-left: 2%;
+    align-content: center;
+    flex-direction: column;
+}
+.button-one{
+    color: var(--Main-text-color);
+    font-size: var(--text-font);
+    padding: 5% 0;
+    font-size: var(--text-font);
+}
+.nu{
+    color: var(--primary-green);
+    padding-bottom: 5%;
+    font-size: 36px;
+    font-weight: 800;
+}

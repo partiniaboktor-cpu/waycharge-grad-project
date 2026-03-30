@@ -4,9 +4,16 @@ import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
 import '../Supabase.jsx'
 import DownloadSection from '../Components/DownloadSection.jsx';
-import charger from '../Assets/Img/charger.svg'
-import imggroup from '../Assets/Img/imggroup.svg'
-import dot from '../Assets/Img/dots.svg'
+import charger from '../Assets/Img/charger.svg';
+import imggroup from '../Assets/Img/imggroup.svg';
+import dot from '../Assets/Img/dots.svg';
+import Smallcard from '../Common/Smallcard.jsx';
+import charger2 from '../Assets/Img/charging-image.png'
+import locationicon from '../Assets/Icons/location.svg'
+import phoneicon from '../Assets/Icons/phoneIcon.svg'
+import lighteniceon from '../Assets/Icons/lightningIcon.svg'
+import checkinicon from '../Assets/Icons/checkIcon.svg'
+import Blog from '../Common/Blog.jsx'
 const Home = () => {
 
     return ( <>
@@ -116,13 +123,85 @@ const Home = () => {
 
 </div>
 
-
-
 </section>
 
+ <Smallcard />
 
 
+ <Title 
+   t1="Mission & vission" 
+   t2="Mission & vission" 
+   linkText="View More" 
+/>
+
+
+<div className="features-section">
+
+      {/* LEFT IMAGE */}
+      <div className="features-image">
+        <img src={charger2} alt="charger2" />
+      </div>
+
+      {/* RIGHT FEATURES */}
+      <div className="features-grid">
+
+        <div className="feature-card">
+          <div className="icon-box">
+            <img src={locationicon} alt="icon"/>
+          </div>
+          <h3>Find a Station</h3>
+          <p>
+            Use our app to locate the nearest charging station with real-time
+            availability.
+          </p>
+        </div>
+
+        <div className="feature-card">
+          <div className="icon-box">
+            <img src={phoneicon} alt="icon"/>
+          </div>
+          <h3>Connect & pay</h3>
+          <p>
+            Simply scan the QR code and start charging with seamless payment
+            integration.
+          </p>
+        </div>
+
+        <div className="feature-card">
+          <div className="icon-box">
+            <img src={lighteniceon} alt="icon"/>
+          </div>
+          <h3>Fast Charging</h3>
+          <p>
+            Enjoy ultra-fast charging speeds with our advanced DC fast charging
+            technology.
+          </p>
+        </div>
+
+        <div className="feature-card">
+          <div className="icon-box">
+            <img src={checkinicon} alt="icon"/>
+          </div>
+          <h3>Track & go</h3>
+          <p>
+            Monitor your charging progress in real-time and get notified when
+            complete.
+          </p>
+        </div>
+      </div>
+    </div>
+
+ <Title 
+   t1="Blogs" 
+   t2="Blogs" 
+   linkText="View More" 
+/>
+
+<Blog />
     
+<DownloadSection />
+
+
     </> );
 }
  
