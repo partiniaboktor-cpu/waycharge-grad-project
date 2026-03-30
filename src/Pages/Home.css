@@ -222,3 +222,6 @@ width: 70%;
   font-size:15px;
   line-height:1.6;
 }
+.Track{
+  font-family: var(--base-font);
+}

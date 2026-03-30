@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-
+import './Footer.css';
 
 const footer = () => {
     return ( <>
     
-    <div className="container">
-      <div className="left-section">
-        <h2 className="title">⚡ Electric Charges</h2>
+  <div className="footer-container">
+
+      <div className="lefts-section">
+        <h2 className="title-footer">⚡ WayCharge.</h2>
 
         <p className="description">
           Powering your journey with sustainable energy solutions.
@@ -31,30 +32,30 @@ const footer = () => {
         </div>
       </div>
 
-      <div className="right-section">
-        <h3 className="nav-title">Quick Navigation</h3>
+      <div className="rights-section">
+        <h3 className='Quick Navigation'>Quick Navigation</h3>
 
-        <div className="grid">
-          <Card icon="📍" text="About us" />
-          <Card icon="📱" text="Mobile app" />
-          <Card icon="⚡" text="Stations" />
-          <Card icon="✈️" text="How it works?" />
-          <Card icon="✉️" text="Contact us" />
-          <Card icon="❓" text="Help" />
+        <div className="nav-grid">
+
+          <div className="nav-box">📍 About us</div>
+          <div className="nav-box">📱 Mobile app</div>
+          <div className="nav-box">⚡ Stations</div>
+          <div className="nav-box">✈️ How it works?</div>
+          <div className="nav-box">✉️ Contact us</div>
+          <div className="nav-box">❓ Help</div>
+
         </div>
       </div>
 
-      <footer>
-        <p>
-          © 2026 Way Charge. All rights reserved. Charging the future, one
-          station at a time.
-        </p>
+      <div className="bottom-footer">
+        {/* <p>© 2026 Way Charge. All rights reserved. Charging the future, one station at a time.</p> */}
 
-        <div className="links">
+        {/* <div className="links">
           <span>Privacy Policy</span>
           <span>Terms of Service</span>
-        </div>
-      </footer>
+        </div> */}
+      </div>
+
     </div>
     
     
@@ -64,4 +65,4 @@ const footer = () => {
     </> );
 }
  
-export default ;
+export default footer ;

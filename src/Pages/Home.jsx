@@ -14,8 +14,9 @@ import phoneicon from '../Assets/Icons/phoneIcon.svg'
 import lighteniceon from '../Assets/Icons/lightningIcon.svg'
 import checkinicon from '../Assets/Icons/checkIcon.svg'
 import Blog from '../Common/Blog.jsx'
-const Home = () => {
+import Footer from '../Components/Footer.jsx'
 
+const Home = () => {
     return ( <>
     <Nav />
 
@@ -149,8 +150,8 @@ const Home = () => {
           <div className="icon-box">
             <img src={locationicon} alt="icon"/>
           </div>
-          <h3>Find a Station</h3>
-          <p>
+          <h3 className='Track'>Find a Station</h3>
+          <p className='Track'>
             Use our app to locate the nearest charging station with real-time
             availability.
           </p>
@@ -160,8 +161,8 @@ const Home = () => {
           <div className="icon-box">
             <img src={phoneicon} alt="icon"/>
           </div>
-          <h3>Connect & pay</h3>
-          <p>
+          <h3 className='Track'>Connect & pay</h3>
+          <p className='Track'>
             Simply scan the QR code and start charging with seamless payment
             integration.
           </p>
@@ -171,8 +172,8 @@ const Home = () => {
           <div className="icon-box">
             <img src={lighteniceon} alt="icon"/>
           </div>
-          <h3>Fast Charging</h3>
-          <p>
+          <h3 className='Track'>Fast Charging</h3>
+          <p className='Track' >
             Enjoy ultra-fast charging speeds with our advanced DC fast charging
             technology.
           </p>
@@ -182,8 +183,8 @@ const Home = () => {
           <div className="icon-box">
             <img src={checkinicon} alt="icon"/>
           </div>
-          <h3>Track & go</h3>
-          <p>
+          <h3 className='Track'>Track & go</h3>
+          <p className='Track'>
             Monitor your charging progress in real-time and get notified when
             complete.
           </p>
@@ -200,7 +201,7 @@ const Home = () => {
 <Blog />
     
 <DownloadSection />
-
+<Footer />
 
     </> );
 }
