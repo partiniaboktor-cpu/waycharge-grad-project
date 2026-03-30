@@ -15,6 +15,7 @@ import lighteniceon from '../Assets/Icons/lightningIcon.svg'
 import checkinicon from '../Assets/Icons/checkIcon.svg'
 import Blog from '../Common/Blog.jsx'
 import Footer from '../Components/Footer.jsx'
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return ( <>

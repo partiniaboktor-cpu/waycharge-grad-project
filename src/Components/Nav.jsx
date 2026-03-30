@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import './Nav.css'
 import wholoelogo from '../Assets/Img/wholologo.svg'
 import language from '../Assets/Icons/language.svg'
+import { Link } from "react-router-dom";
+
 const Nav = () => {
     return (  <>
     
     <div className='nav'>
-        <img className='logo' src={wholoelogo} alt="logo" />
-
+<Link to="/">
+  <img className='logo' src={wholoelogo} alt="logo" />
+</Link>
     <div className='menu'>
-        <p className='menu1'>About us</p>
+        <Link to="/about" className="menu1">About us</Link>
         <p className='menus2'>Mobile app</p>
         <p className='menus3'>Stations</p>
         <p className='menus4'>How it works?</p>

@@ -1,5 +1,5 @@
 .logo{
-    width: 8%;
+    width: 100%;
     cursor: pointer;
 
 }
@@ -36,6 +36,8 @@
     color: var(--Main-text-color);
     font-size: 18px;
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+
 }
 .menu1:hover{
     color: var(--primary-green);
@@ -47,7 +49,7 @@
     color: var(--Main-text-color);
     font-size: 18px;
         text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-
+text-decoration: none;
 }
 .menus2:hover{
     color: var(--primary-green);
@@ -58,18 +60,21 @@
 .menus3{
     color: var(--Main-text-color);
     font-size: 18px;
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
 
 }
 .menus3:hover{
     color: var(--primary-green);
-      font-size: 20px;
+    font-size: 20px;
     transition: ease-in 0.2s;
 }
 .menus4{
     color: var(--Main-text-color);
     font-size: 18px;
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+
 
 }
 .menus4:hover{
@@ -80,22 +85,26 @@
 .menus5{
     color: var(--Main-text-color);
     font-size: 18px;
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+
 
 }
 .menus5:hover{
     color: var(--primary-green);
-       font-size: 20px;
+    font-size: 20px;
     transition: ease-in 0.2s;
 }
 .menus6{
     color: var(--Main-text-color);
     font-size: 18px;
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+
 
 }
 .menus6:hover{
     color: var(--primary-green);
-       font-size: 20px;
+    font-size: 20px;
     transition: ease-in 0.2s;
 }

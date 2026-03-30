@@ -1,0 +1,201 @@
+/* Container layout */
+.banner-container {
+  display: flex;
+  align-items: center;
+  /* background-color: #121212; Deep charcoal/black */
+  font-family: var(--main-font);
+  min-height: 250px;
+  width: 100%;
+}
+
+/* Green side styling */
+.green-side {
+  background-color: #82bc25; /* The specific EV Lime Green */
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Typography for the green side */
+.text-white {
+  color: #ffffff;
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 0.85; /* Keeps the text stacked tightly */
+}
+
+/* Right side content */
+.content-side {
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The small wide text at the top */
+.sub-header {
+  color: #ffffff;
+  text-transform: lowercase;
+  letter-spacing: 0.6rem; /* Creates the wide spaced look */
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* The big white title */
+.main-title {
+  color: #ffffff;
+  font-size: 5rem;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -2px; /* Pulls letters closer for impact */
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+  .banner-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .green-side {
+    width: 100%;
+    padding: 20px;
+  }
+}
+.aboutus-paragraph{
+    color: #ffffff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5%;
+/* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 300;
+padding: 3% 3%;
+line-height: 150%
+}
+.aboutuss-paragraph{
+    color: #ffffff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 5%;
+font-weight: 300;
+line-height: 150%;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.container3 {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.slider-line3 {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: #ccc;
+}
+
+.slider-dot3 {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  /* Glass effect */
+  background: #ccc;
+  top: -6px;
+}
+
+.left3 { left: 0; }
+.right3 { right: 0; }
+
+.card-wrapper3 {
+  position: absolute;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.string3 {
+  width: 3px;
+  height: 200px;
+  background: #8DC63F;
+  box-shadow: 0 0 10px #8DC63F, 0 0 20px #8DC63F;
+}
+
+.pin3 {
+  width: 14px;
+  height: 14px;
+  background: #8DC63F;
+  border-radius: 50%;
+  margin-top: -5px;
+  box-shadow: 0 0 10px #8DC63F;
+}
+
+.card3 {
+  margin-top: 10px;
+  width: 220px;
+  padding: 20px;
+ /* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+  color: white;
+  transform-origin: top center;
+  animation: swing3 3s ease-in-out infinite alternate;
+}
+
+.card3 h3 {
+  margin: 10px 0;
+}
+
+.card3 p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.icon3 {
+  width: 40px;
+  height: 40px;
+  background: #8DC63F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-radius: 4px;
+}
+.Find3{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes swing3 {
+  from { transform: rotate(-5deg); }
+  to { transform: rotate(5deg); }
+}
+
+/* Positions */
+.card-03 { left: 15%; }
+.card-13 { left: 35%; }
+.card-23 { left: 55%; }
+.card-33 { left: 75%; }
+
+/* Delays */
+.card-03 .card3 { animation-delay: 0s; }
+.card-13 .card3 { animation-delay: 0.5s; }
+.card-23 .card3 { animation-delay: 1s; }
+.card-33 .card3 { animation-delay: 1.5s; }
