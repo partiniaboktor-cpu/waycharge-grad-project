@@ -68,9 +68,9 @@ const Aboutus = () => {
         <div className="string3"></div>
         <div className="pin3"></div>
         <div className="card3">
-          <div className="icon3">📍</div>
-          <h3 className='Find3'>Find a Station</h3>
-          <p className='Find3'>Use our app to locate the nearest charging station with real-time availability.</p>
+          <div className="icon3">📅</div>
+          <h3 className='Find3'>Easy Booking & Scheduling </h3>
+          <p className='Find3'>Drivers can reserve chargers in advance, avoiding waiting lines.</p>
         </div>
       </div>
 
@@ -79,9 +79,9 @@ const Aboutus = () => {
         <div className="string3"></div>
         <div className="pin3"></div>
         <div className="card3">
-          <div className="icon3">📍</div>
-          <h3 className='Find3'>Find a Station</h3>
-          <p className='Find3'>Use our app to locate the nearest charging station with real-time availability.</p>
+          <div className="icon3">💳</div>
+          <h3 className='Find3'>Secure & Seamless Payments </h3>
+          <p className='Find3'>WayCharge integrates multiple payment options so users can pay directly through the app.</p>
         </div>
       </div>
 
@@ -90,9 +90,9 @@ const Aboutus = () => {
         <div className="string3"></div>
         <div className="pin3"></div>
         <div className="card3">
-          <div className="icon3">📍</div>
-          <h3 className='Find3'>Find a Station</h3>
-          <p className='Find3'>Use our app to locate the nearest charging station with real-time availability.</p>
+          <div className="icon3">🚗</div>
+          <h3 className='Find3'>Compatible Charging for Every EV </h3>
+          <p className='Find3'>Different electric vehicles use different connectors.</p>
         </div>
       </div>
 
