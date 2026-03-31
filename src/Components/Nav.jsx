@@ -14,7 +14,7 @@ const Nav = () => {
     <div className='menu'>
         <Link to="/about" className="menu1">About us</Link>
         <Link to="/mobileapp" className='menus2'>Mobile app</Link>
-        <p className='menus3'>Stations</p>
+        <Link to="/stations" className='menus3'>Stations</Link>
         <p className='menus4'>How it works?</p>
         <p className='menus5'>Contact us</p>
         <p className='menus6'>Help</p>

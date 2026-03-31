@@ -8,13 +8,17 @@ import DownloadSection from '../Components/DownloadSection.jsx'
 import Appsec from '../Components/DownloadSection.jsx';
 import appsec from '../Assets/Img/appsc.svg'
 import Footer from '../Components/Footer.jsx';
+import MainTitle from '../Components/MainTitle.jsx';
+
 const Mobileapp = () => {
     return ( <>
     
     <Nav />
     
     <div className="container4">
-      <h1 className="title4">DOWNLOAD APP NOW</h1>
+<MainTitle
+   t1="DOWNLOAD APP NOW" 
+/>
 
       <div className="content4">
         {/* Left Button */}
