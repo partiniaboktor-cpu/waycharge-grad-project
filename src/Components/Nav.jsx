@@ -13,7 +13,7 @@ const Nav = () => {
 </Link>
     <div className='menu'>
         <Link to="/about" className="menu1">About us</Link>
-        <p className='menus2'>Mobile app</p>
+        <Link to="/mobileapp" className='menus2'>Mobile app</Link>
         <p className='menus3'>Stations</p>
         <p className='menus4'>How it works?</p>
         <p className='menus5'>Contact us</p>

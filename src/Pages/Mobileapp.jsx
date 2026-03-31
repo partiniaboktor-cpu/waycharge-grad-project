@@ -6,13 +6,15 @@ import './Mobileapp.css'
 import mobileapp from '../Assets/Img/mobileapp.svg'
 import DownloadSection from '../Components/DownloadSection.jsx'
 import Appsec from '../Components/DownloadSection.jsx';
+import appsec from '../Assets/Img/appsc.svg'
+import Footer from '../Components/Footer.jsx';
 const Mobileapp = () => {
     return ( <>
     
     <Nav />
     
     <div className="container4">
-      <h1 className="title4">DOWNLOAD NOW</h1>
+      <h1 className="title4">DOWNLOAD APP NOW</h1>
 
       <div className="content4">
         {/* Left Button */}
@@ -54,10 +56,11 @@ const Mobileapp = () => {
 
 <div className='sec2'>
     <h1 className='left-text'>The WayCharge app makes EV charging smarter and easier. </h1>
-    <img src={Appsec} alt="app-screenshot" />
+    <img src={appsec} alt="app-screenshot" />
     <h1 className='left-text'>With just a few taps, you can request a portable charger, track its arrival in real time.</h1>
-
 </div>
+
+<Footer />
 
     </> );
 }
