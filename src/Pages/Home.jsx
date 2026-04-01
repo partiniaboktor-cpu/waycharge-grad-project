@@ -13,7 +13,7 @@ import locationicon from '../Assets/Icons/location.svg'
 import phoneicon from '../Assets/Icons/phoneIcon.svg'
 import lighteniceon from '../Assets/Icons/lightningIcon.svg'
 import checkinicon from '../Assets/Icons/checkIcon.svg'
-import Blog from '../Common/Blog.jsx'
+import Blog from '../Common/Blogpart.jsx'
 import Footer from '../Components/Footer.jsx'
 import { Link } from "react-router-dom";
 
@@ -23,7 +23,7 @@ const Home = () => {
 
     <div className='hero'>
         <div className='left-side-hero'>
-        <h1 className='title'>Charge the <br></br>way forward</h1>
+        <h1 className='title-hero'>Charge the <br></br>way forward</h1>
         <p className='text-hero-left'>WayCharge | Powering the path to a cleaner tomorrow. <br></br>High-speed EV charging designed for the modern journey. ️<br></br> Charge the way forward.</p>
         <button className='name-proj'>WayCharge...</button>
         </div>

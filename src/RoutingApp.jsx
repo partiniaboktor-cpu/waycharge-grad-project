@@ -10,6 +10,7 @@ import Help from './Pages/Help';
 import Reviews from './Pages/Reviews';
 import Services from './Pages/Services';
 import Blog from './Pages/Blog';
+import Blogdetail from './Pages/Blogdetail';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Reviews" element={<Reviews />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/Blog" element={<Blog />} />
+        <Route path="/Blogdetail" element={<Blogdetail />} />
 
 
 
