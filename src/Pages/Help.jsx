@@ -65,8 +65,12 @@ const Help = () => {
 <Link to="/Services">
   <button className="faqButton8">Services</button>
 </Link>
+<Link to="/Bundles">
           <button className="faqButton8">Bundles</button>
+</Link>
+<Link to="/Team">
           <button className="faqButton8">Our Team</button>
+</Link>
           <button className="faqButton8">Types of charges</button>
         </div>
 

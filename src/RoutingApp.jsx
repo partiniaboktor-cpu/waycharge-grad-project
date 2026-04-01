@@ -11,6 +11,8 @@ import Reviews from './Pages/Reviews';
 import Services from './Pages/Services';
 import Blog from './Pages/Blog';
 import Blogdetail from './Pages/Blogdetail';
+import Bundles from './Pages/Bundles';
+import Team from './Pages/Team';
 
 function App() {
   return (
@@ -28,7 +30,8 @@ function App() {
         <Route path="/Services" element={<Services />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Blogdetail" element={<Blogdetail />} />
-        <Route path="/bundles" element={<Blogdetail />} />
+        <Route path="/Bundles" element={<Bundles />} />
+        <Route path="/Team" element={<Team />} />
 
 
 
