@@ -26,6 +26,23 @@ const Aboutus = () => {
     
 
     {/* 3d model */}
+
+     <div style={{ width: "100%", height: "500px" }}>
+      <model-viewer
+        src="/station.glb"
+        alt="3D Car"
+        auto-rotate
+        camera-controls
+        ar
+        shadow-intensity="1"
+        exposure="0.8"
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "transparent",
+        }}
+      ></model-viewer>
+    </div>
     
 <Title 
    t1="About us" 

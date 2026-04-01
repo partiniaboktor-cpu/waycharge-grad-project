@@ -12,9 +12,14 @@ font-family: var(--main-font);
 font-weight: 400;
 font-style: normal;
 color: var(--Main-text-color);
-font-size: 80px;
+font-size: 90px;
 -webkit-text-stroke: 2.5px var(--Main-text-color);
 }
+/* .title-hero:hover{
+color: #8ec63f73;
+-webkit-text-stroke: 2.5px #8ec63f73;
+text-shadow: 2px 2px 5px #ffffffab;
+} */
 .left-side-hero{
 display: flex;
 flex-direction: column;
@@ -24,7 +29,7 @@ padding-left: 8%;
 color: var(--light-text);
 font-size: 90%;
 margin-top: 3%;
-line-height: 130%;
+line-height: 140%;
 font-weight: 100;
 
 }
@@ -50,7 +55,7 @@ margin-top: 5%;
   justify-content: center;
   color: white;
   padding: 80px 40px;
-  gap: 60px;
+  gap: 6px;
 }
 .step-titless{
   color: var(--primary-green);
@@ -60,17 +65,22 @@ margin-top: 5%;
   display: flex;
   flex-direction: column;
   gap: 60px;
-  width: 300px;
+  /* width: 300px; */
 }
 
 .stepss {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  /* gap: 15px; */
 }
-
+.brief{
+  line-height: 150%;
+  color: #ccc;
+  font-weight: 200;
+  padding-top: 3%;
+}
 .circles {
-  width: 45px;
+  width: 55px;
   height: 35px;
   border-radius: 50%;
   background: #3a3a3a;

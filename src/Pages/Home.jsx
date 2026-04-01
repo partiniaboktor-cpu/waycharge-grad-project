@@ -74,7 +74,7 @@ const Home = () => {
           <div className="circles">1</div>
           <div>
             <h3 className='step-titless'>Connect</h3>
-            <p>Connect charger cable with car & station.</p>
+            <p className='brief'>Connect charger cable with car & station.</p>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ const Home = () => {
           <div className="circles">2</div>
           <div>
             <h3 className='step-titless'>Start</h3>
-            <p>Start charging session by scanning your phone.</p>
+            <p className='brief'>Start charging session by scanning your phone.</p>
           </div>
         </div>
 
@@ -90,8 +90,7 @@ const Home = () => {
 
 
       {/* CENTER IMAGE */}
-      <div className="charger-image">
-        <div style={{ width: "100%", height: "500px" }}>
+     <div style={{ width: "100%", height: "500px" }}>
       <model-viewer
         src="/charger.glb"
         alt="3D Car"
@@ -107,7 +106,6 @@ const Home = () => {
         }}
       ></model-viewer>
     </div>
-      </div>
 
 
       {/* RIGHT SIDE */}
@@ -117,7 +115,7 @@ const Home = () => {
           <div className="circles">3</div>
           <div>
             <h3 className='step-titless'>Connect</h3>
-            <p>Blue led light indicates start of charging session.</p>
+            <p className='brief'>Blue led light indicates start of charging session.</p>
           </div>
         </div>
 
@@ -125,7 +123,7 @@ const Home = () => {
           <div className="circles">4</div>
           <div>
             <h3 className='step-titless'>Charging complete</h3>
-            <p>Stop charging session by using your phone.</p>
+            <p className='brief'>Stop charging session by using your phone.</p>
           </div>
         </div>
 
