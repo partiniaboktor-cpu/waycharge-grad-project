@@ -13,6 +13,8 @@ import Blog from './Pages/Blog';
 import Blogdetail from './Pages/Blogdetail';
 import Bundles from './Pages/Bundles';
 import Team from './Pages/Team';
+import Chargers from './Chargers';
+import Chargerdetail from './Pages/Chargerdetail';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/Blogdetail" element={<Blogdetail />} />
         <Route path="/Bundles" element={<Bundles />} />
         <Route path="/Team" element={<Team />} />
+        <Route path="/Chargers" element={<Chargers />} />
+        <Route path="/Chargerdetail" element={<Chargerdetail />} />
 
 
 

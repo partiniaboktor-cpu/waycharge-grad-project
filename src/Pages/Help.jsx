@@ -71,7 +71,9 @@ const Help = () => {
 <Link to="/Team">
           <button className="faqButton8">Our Team</button>
 </Link>
+<Link to="/Chargers">
           <button className="faqButton8">Types of charges</button>
+</Link>
         </div>
 
 
