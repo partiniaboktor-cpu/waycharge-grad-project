@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+/* Container */
+.container14 {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Header */
+.header14 {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeIn14 1s ease;
+}
+
+.topText14 {
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* Card */
+.card14 {
+  display: flex;
+  align-items: center;
+/* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  gap: 20px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp14 0.8s ease forwards;
+}
+
+/* Stagger animation */
+.card14:nth-child(2) { animation-delay: 0.2s; }
+.card14:nth-child(3) { animation-delay: 0.4s; }
+.card14:nth-child(4) { animation-delay: 0.6s; }
+.card14:nth-child(5) { animation-delay: 0.8s; }
+.card14:nth-child(6) { animation-delay: 1s; }
+
+/* Hover Glow */
+.card14:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 0 20px #8ec63f43;
+}
+
+/* Image */
+.img14 {
+  width: 100px;
+  border-radius: 6px;
+}
+
+/* Content */
+.content14 {
+  text-align: left;
+}
+
+.title14 {
+  color: #8DC63F;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Button */
+.btn14 {
+  background: #8DC63F;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn14:hover {
+  background: #8DC63F;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn14 {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp14 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

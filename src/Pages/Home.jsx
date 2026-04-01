@@ -23,12 +23,28 @@ const Home = () => {
 
     <div className='hero'>
         <div className='left-side-hero'>
-        <h1 className='title-hero'>Charge the <br></br>way forward</h1>
+        <h1 className='title-hero'>Charge the way forward</h1>
         <p className='text-hero-left'>WayCharge | Powering the path to a cleaner tomorrow. <br></br>High-speed EV charging designed for the modern journey. ️<br></br> Charge the way forward.</p>
         <button className='name-proj'>WayCharge...</button>
         </div>
 
 {/* 3d car model */}
+ <div style={{ width: "100%", height: "500px" }}>
+      <model-viewer
+        src="/3dcar.glb"
+        alt="3D Car"
+        auto-rotate
+        camera-controls
+        ar
+        shadow-intensity="1"
+        exposure="0.8"
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "transparent"
+        }}
+      ></model-viewer>
+    </div>
 
     </div>
 
@@ -49,23 +65,23 @@ const Home = () => {
 />
 
 
- <div className="steps-container">
+ <div className="steps-containerss">
       
       {/* LEFT SIDE */}
-      <div className="steps-left">
+      <div className="steps-lefts">
 
-        <div className="step">
-          <div className="circle">1</div>
+        <div className="stepss">
+          <div className="circles">1</div>
           <div>
-            <h3 className='step-title'>Connect</h3>
+            <h3 className='step-titless'>Connect</h3>
             <p>Connect charger cable with car & station.</p>
           </div>
         </div>
 
-        <div className="step">
-          <div className="circle">2</div>
+        <div className="stepss">
+          <div className="circles">2</div>
           <div>
-            <h3 className='step-title'>Start</h3>
+            <h3 className='step-titless'>Start</h3>
             <p>Start charging session by scanning your phone.</p>
           </div>
         </div>
@@ -75,25 +91,40 @@ const Home = () => {
 
       {/* CENTER IMAGE */}
       <div className="charger-image">
-        <img src={charger} alt="charger" />
+        <div style={{ width: "100%", height: "500px" }}>
+      <model-viewer
+        src="/charger.glb"
+        alt="3D Car"
+        auto-rotate
+        camera-controls
+        ar
+        shadow-intensity="1"
+        exposure="0.8"
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "transparent"
+        }}
+      ></model-viewer>
+    </div>
       </div>
 
 
       {/* RIGHT SIDE */}
-      <div className="steps-right">
+      <div className="steps-rights">
 
-        <div className="step">
-          <div className="circle">3</div>
+        <div className="stepss">
+          <div className="circles">3</div>
           <div>
-            <h3 className='step-title'>Connect</h3>
+            <h3 className='step-titless'>Connect</h3>
             <p>Blue led light indicates start of charging session.</p>
           </div>
         </div>
 
-        <div className="step">
-          <div className="circle">4</div>
+        <div className="stepss">
+          <div className="circles">4</div>
           <div>
-            <h3 className='step-title'>Charging complete</h3>
+            <h3 className='step-titless'>Charging complete</h3>
             <p>Stop charging session by using your phone.</p>
           </div>
         </div>
