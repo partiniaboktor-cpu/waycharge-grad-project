@@ -1,0 +1,120 @@
+.how-section {
+  padding: 100px 50px;
+  /* background: linear-gradient(135deg, #111, #1a1a1a); */
+  color: white;
+}
+
+/* Title */
+.title {
+  font-size: 60px;
+  color: #8DC63F;
+}
+
+/* Description */
+.description {
+  max-width: 600px;
+  color: #ffffff;
+  margin-bottom: 80px;
+  line-height: 40px;
+  padding-left: 6%;
+  font-family: var(--base-font);
+
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  height: 250px;
+}
+
+/* SVG Path */
+.path {
+  position: absolute;
+  width: 100%;
+  margin-top: 7%;
+}
+
+/* Draw animation */
+.draw-path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawLine 2s ease forwards;
+ 
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Steps */
+.step {
+  position: absolute;
+  width: 180px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Delay لكل خطوة */
+.step1 {
+  left: 5%;
+  top: 120px;
+  animation-delay: 0.5s;
+}
+
+.step2 {
+  left: 30%;
+  top: 100px;
+  animation-delay: 1s;
+}
+
+.step3 {
+  left: 55%;
+  top: 80px;
+  animation-delay: 1.5s;
+}
+
+.step4 {
+  left: 80%;
+  top: 40px;
+  animation-delay: 2s;
+}
+
+/* Fade animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Circle */
+/* .circle {
+  width: 80px;
+  height: 20px;
+  background: #8DC63F;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  animation: pulse 2s infinite;
+} */
+
+/* Glow */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px #8DC63F;
+  }
+  50% {
+    box-shadow: 0 0 20px #8DC63F;
+  }
+  100% {
+    box-shadow: 0 0 5px #8DC63F;
+  }
+}
+.con{
+    font-size: 50px;
+}
+.video{
+    width: 100%;
+}

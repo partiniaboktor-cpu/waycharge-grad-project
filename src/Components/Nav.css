@@ -108,3 +108,16 @@ text-decoration: none;
     font-size: 20px;
     transition: ease-in 0.2s;
 }
+.menus7{
+    color: var(--Main-text-color);
+    font-size: 18px;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+
+
+}
+.menus7:hover{
+    color: var(--primary-green);
+    font-size: 20px;
+    transition: ease-in 0.2s;
+}

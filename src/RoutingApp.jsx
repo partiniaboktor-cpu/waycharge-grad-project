@@ -3,7 +3,9 @@ import Home from '../src/Pages/Home';
 import Aboutus from './Pages/Aboutus';
 import Mobileapp from './Pages/Mobileapp';
 import Stations from './Pages/Stations';
-
+import Howitworks from './Pages/Howitworks';
+import Contactus from './Pages/Contactus';
+import Careers from './Pages/Careers';
 
 function App() {
   return (
@@ -13,6 +15,10 @@ function App() {
         <Route path="/about" element={<Aboutus />} />
         <Route path="/mobileapp" element={<Mobileapp />} />
         <Route path="/stations" element={<Stations />} />
+        <Route path="/Howitworks" element={<Howitworks />} />
+        <Route path="/Contactus" element={<Contactus />} />
+        <Route path="/Careers" element={<Careers />} />
+
 
 
       </Routes>

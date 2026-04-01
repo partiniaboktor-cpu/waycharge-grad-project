@@ -1,0 +1,42 @@
+.station-paragraph{
+    color: #ffffff;
+    font-size: 20px;
+    font-family: var(--base-font);
+  
+    width: 80%;
+    margin: 0 auto;
+    line-height: 150%;
+    padding-top: 3%;
+}
+
+.downloadnows{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 5%;
+   /* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+width: 100%;
+height: 10vh;
+  box-shadow: 0px 4px 10px rgba(66, 66, 66, 0.15);
+  margin-top: 5%;
+
+}
+.download{
+    color: var(--primary-green);
+    font-size: 30px;
+    font-family: var(--base-font);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+}
+.findus{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 3%;
+}

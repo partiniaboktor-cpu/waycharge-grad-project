@@ -1,0 +1,158 @@
+.contact-btn{
+    /* Glass effect */
+background: #d9d9d90b;
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+width: 120px;
+height: 5vh;
+color:#ffffff;
+font-family: var(--base-font);
+font-size: 20px;
+font-weight: 300;
+margin-top: 8%;
+margin-left: 8%;
+}
+
+.contact-section6 {
+  display: flex;
+  gap: 50px;
+  padding: 80px;
+  color: white;
+  min-height: 100vh;
+}
+
+/* LEFT */
+.contact-left6 {
+  flex: 1;
+  animation: fadeIn6 1s ease;
+}
+
+.contact-tag6 {
+  background: transparent;
+  border: 1px solid #555;
+  color: #ccc;
+  padding: 8px 15px;
+  margin-bottom: 20px;
+}
+
+.contact-title6 {
+  font-size: 60px;
+  color: #8DC63F;
+  margin-bottom: 20px;
+}
+
+.contact-desc6 {
+  color: #ffffff;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 200;
+
+}
+
+/* Cards */
+.info-card6 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #333;
+  margin-bottom: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.info-card6:hover {
+  border-color: #8DC63F;
+  transform: translateX(5px);
+}
+
+.info-card6 span {
+  font-size: 20px;
+}
+
+/* Image */
+.contact-img6 {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* RIGHT */
+.contact-right6 {
+  flex: 1;
+  animation: fadeInUp6 1s ease;
+  margin-top: 10%;
+
+}
+
+/* Form */
+.contact-form6 {
+  border: 1px solid #333;
+  padding: 30px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputs */
+.contact-form6 input,
+.contact-form6 textarea {
+  background: transparent;
+  border: 1px solid #333;
+  padding: 12px;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-form6 input:focus,
+.contact-form6 textarea:focus {
+  border-color: #8DC63F;
+}
+
+/* Textarea */
+.contact-form6 textarea {
+  height: 150px;
+  resize: none;
+}
+
+/* Button */
+.contact-form6 button {
+  background: #444;
+  border: none;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form6 button:hover {
+  background: #8DC63F;
+  color: black;
+}
+
+/* Animations */
+@keyframes fadeIn6 {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp6 {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
