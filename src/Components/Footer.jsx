@@ -48,12 +48,6 @@ const footer = () => {
       </div>
 
       <div className="bottom-footer">
-        {/* <p>© 2026 Way Charge. All rights reserved. Charging the future, one station at a time.</p> */}
-
-        {/* <div className="links">
-          <span>Privacy Policy</span>
-          <span>Terms of Service</span>
-        </div> */}
       </div>
 
     </div>

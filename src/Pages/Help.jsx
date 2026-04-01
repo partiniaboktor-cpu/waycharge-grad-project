@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Nav from '../Components/Nav';
 import '../Pages/Help.css';
+import MainTitle from '../Components/MainTitle';
+import Footer from '../Components/Footer.jsx'
+import { Link } from "react-router-dom";
+
 const Help = () => {
     const [activeIndex, setActiveIndex] = useState(null);
 
@@ -39,6 +43,9 @@ const Help = () => {
     
     <Nav />
      <div className="faqContainer8">
+  <MainTitle 
+    t1='FREQUENTLY ASKED QUESTIONS'
+    />
 
       <p className="faqIntro8">
         Have questions about WayCharge? Our Frequently Asked Questions section
@@ -52,8 +59,12 @@ const Help = () => {
         {/* LEFT MENU */}
 
         <div className="faqMenu8">
-          <button className="faqButton8">Reviews</button>
-          <button className="faqButton8">Services</button>
+<Link to="/Reviews">
+  <button className="faqButton8">Reviews</button>
+</Link>
+<Link to="/Services">
+  <button className="faqButton8">Reviews</button>
+</Link>
           <button className="faqButton8">Bundles</button>
           <button className="faqButton8">Our Team</button>
           <button className="faqButton8">Types of charges</button>
@@ -95,7 +106,7 @@ const Help = () => {
 
     </div>
 
-
+<Footer />
     </> );
 }
  

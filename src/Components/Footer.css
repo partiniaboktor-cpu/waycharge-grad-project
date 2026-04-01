@@ -47,7 +47,6 @@ background: #d9d9d90b;
 backdrop-filter: blur(20px);
 border: 1px solid rgba(255, 255, 255, 0.1);
   padding:15px;
-  border-radius:8px;
   cursor:pointer;
     font-family: var(--base-font);
 

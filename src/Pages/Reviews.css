@@ -1,0 +1,122 @@
+.testimonialsContainer9{
+
+  color:white;
+  padding:80px 10%;
+  font-family:Arial;
+}
+
+/* Title */
+
+.testimonialsTitle9{
+  text-align:center;
+  margin-bottom:50px;
+  animation:fadeIn9 1s ease;
+  color: #cfcfcf;
+  font-weight: 300;
+}
+
+/* Grid */
+
+.testimonialsGrid9{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-bottom:80px;
+}
+
+/* Card */
+
+.testimonialCard9{
+  border:1px solid #333;
+  padding:40px 25px;
+  text-align:center;
+  transition:0.4s;
+  animation:fadeUp9 1s ease;
+}
+
+.testimonialCard9:hover{
+  transform:translateY(-10px) scale(1.03);
+  border-color:#8DC63F;
+  box-shadow:0 10px 30px rgba(126,217,87,0.3);
+}
+
+/* Image */
+
+.testimonialImage9{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  margin-bottom:15px;
+  transition:0.4s;
+}
+
+.testimonialCard9:hover .testimonialImage9{
+  transform:scale(1.1);
+}
+
+/* Name */
+
+.testimonialName9{
+  margin-bottom:5px;
+}
+
+/* Role */
+
+.testimonialRole9{
+  color:#8DC63F;
+  margin-bottom:15px;
+}
+
+/* Text */
+
+.testimonialText9{
+  color:#cfcfcf;
+  line-height:1.6;
+}
+
+/* Quote Section */
+
+.quoteSection9{
+  border:1px solid #333;
+  padding:50px;
+  animation:fadeUp9 1.2s ease;
+}
+
+.quoteIcon9{
+  color:#8DC63F;
+  font-size:60px;
+  margin-bottom:10px;
+}
+
+.quoteTitle9{
+  color:#8DC63F;
+  margin-bottom:20px;
+}
+
+.quoteText9{
+  color:#d0d0d0;
+  line-height:1.7;
+  margin-bottom:15px;
+}
+
+/* Animations */
+
+@keyframes fadeUp9{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn9{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
