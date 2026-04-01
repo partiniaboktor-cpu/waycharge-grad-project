@@ -63,7 +63,7 @@ const Help = () => {
   <button className="faqButton8">Reviews</button>
 </Link>
 <Link to="/Services">
-  <button className="faqButton8">Reviews</button>
+  <button className="faqButton8">Services</button>
 </Link>
           <button className="faqButton8">Bundles</button>
           <button className="faqButton8">Our Team</button>
