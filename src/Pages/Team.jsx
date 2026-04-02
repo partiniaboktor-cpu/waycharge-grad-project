@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import '../Pages/Team.css'
 import partinia from '../Assets/Img/partinia.png'
@@ -7,8 +7,30 @@ import paula from '../Assets/Img/paula.png'
 import marian from '../Assets/Img/marian.png'
 import partinia2 from '../Assets/Img/partinia2.png'
 import Footer from '../Components/Footer.jsx'
+import { supabase } from "../Supabase";
 
 const Team = () => {
+
+const [Team, setTeam] = useState([]);
+useEffect(() => {
+
+  async function getTeamAPI() {
+    const { data, error } = await supabase
+      .from("Team")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setTeam(data);
+      console.log(data);
+    }
+  }
+
+  getTeamAPI();
+
+}, []);
+
     return ( <>
     <Nav />
     

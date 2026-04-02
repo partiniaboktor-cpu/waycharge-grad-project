@@ -53,6 +53,7 @@ body {
   margin-bottom: 2%;
   font-size: 16px;
   font-weight: 100;
+  color: #ccc;
 }
 
 .list12 li {
@@ -61,7 +62,7 @@ body {
 
 .extra12 {
   font-size: 13px;
-  color: #ccc;
+  color: #ffffff;
 }
 
 .bonus12 {
@@ -75,9 +76,12 @@ body {
   background: #8DC63F;
   border: none;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 200;
   cursor: pointer;
   color: #222222;
+  font-size: 18px;
+  margin-top: 6%;
+
 }
 
 .priceBtn12:hover {

@@ -1,11 +1,33 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import '../Pages/Careers.css'
 import MainTitle from '../Components/MainTitle';
 import Title from '../Common/Title-section.jsx';
 import Footer from '../Components/Footer.jsx';
+import { supabase } from "../Supabase";
 
 const Careers = () => {
+
+const [Careers, setCareers] = useState([]);
+useEffect(() => {
+
+  async function getCareersAPI() {
+    const { data, error } = await supabase
+      .from("Careers")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setCareers(data);
+      console.log(data);
+    }
+  }
+
+  getCareersAPI();
+
+}, []);
+
     return ( <>
     
     
@@ -19,15 +41,22 @@ const Careers = () => {
            <MainTitle 
     t1='FIND JOBS IN WAYCHARGE'
     />
+{
+Careers
+.filter(Careers => Careers.id === 1)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobsText7"> {Careers.Description}</h2>
+))
+}
 
-        <p className="jobsText7">
-          Explore new career opportunities with us and become part of a team
-          that is shaping the future of smart mobility. At WayCharge, we are
-          always looking for passionate, innovative, and driven individuals who
-          want to make an impact in the electric vehicle industry.
-        </p>
+{
+Careers
+.filter(Careers => Careers.id === 1)
+.map(Careers => (
+  <h2 key={Careers.id} className="exploreBtn7"> {Careers.buttons}</h2>
+))
+}
 
-        <button className="exploreBtn7">Explore now</button>
       </div>
 
 
@@ -50,85 +79,283 @@ const Careers = () => {
 
           {/* CARD 1 */}
           <div className="jobCard7">
-            <span className="jobTag7">Engineering</span>
-            <h3 className="jobTitle7">Senior Battery Engineer</h3>
-            <p className="jobDesc7">
-              Lead the development of next-generation battery technology for
-              our electric vehicle lineup.
-            </p>
-            <p className="jobLocation7">San Francisco, CA</p>
-            <p className="jobType7">Full-time</p>
-            <a className="applyBtn7">Apply Now →</a>
+{
+Careers
+.filter(Careers => Careers.id === 2)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTag7"> {Careers.buttons}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 2)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTitle7"> {Careers.Title}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 2)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobDesc7"> {Careers.Description_career}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 2)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobLocation7"> {Careers.Location}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 2)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobType7"> {Careers.Time}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 2)
+.map(Careers => (
+  <h2 key={Careers.id} className="applyBtn7"> {Careers.Available}</h2>
+))
+} 
           </div>
 
 
           {/* CARD 2 */}
           <div className="jobCard7">
-            <span className="jobTag7">Operations</span>
-            <h3 className="jobTitle7">Charging Infrastructure Manager</h3>
-            <p className="jobDesc7">
-              Oversee the expansion and maintenance of our nationwide charging
-              network.
-            </p>
-            <p className="jobLocation7">Austin, TX</p>
-            <p className="jobType7">Full-time</p>
-            <a className="applyBtn7">Apply Now →</a>
+{
+Careers
+.filter(Careers => Careers.id === 3)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTag7"> {Careers.buttons}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 3)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTitle7"> {Careers.Title}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 3)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobDesc7"> {Careers.Description_career}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 3)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobLocation7"> {Careers.Location}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 3)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobType7"> {Careers.Time}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 3)
+.map(Careers => (
+  <h2 key={Careers.id} className="applyBtn7"> {Careers.Available}</h2>
+))
+} 
           </div>
 
 
           {/* CARD 3 */}
           <div className="jobCard7">
-            <span className="jobTag7">Engineering</span>
-            <h3 className="jobTitle7">Software Engineer - Energy Systems</h3>
-            <p className="jobDesc7">
-              Build intelligent energy management systems for optimized
-              charging solutions.
-            </p>
-            <p className="jobLocation7">Remote</p>
-            <p className="jobType7">Full-time</p>
-            <a className="applyBtn7">Apply Now →</a>
+{
+Careers
+.filter(Careers => Careers.id === 4)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTag7"> {Careers.buttons}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 4)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTitle7"> {Careers.Title}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 4)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobDesc7"> {Careers.Description_career}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 4)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobLocation7"> {Careers.Location}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 4)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobType7"> {Careers.Time}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 4)
+.map(Careers => (
+  <h2 key={Careers.id} className="applyBtn7"> {Careers.Available}</h2>
+))
+} 
           </div>
 
 
           {/* CARD 4 */}
           <div className="jobCard7">
-            <span className="jobTag7">Design</span>
-            <h3 className="jobTitle7">UX Designer</h3>
-            <p className="jobDesc7">
-              Create intuitive interfaces for our mobile app and in-vehicle
-              charging experience.
-            </p>
-            <p className="jobLocation7">New York, NY</p>
-            <p className="jobType7">Full-time</p>
-            <a className="applyBtn7">Apply Now →</a>
+{
+Careers
+.filter(Careers => Careers.id === 5)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTag7"> {Careers.buttons}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 5)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTitle7"> {Careers.Title}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 5)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobDesc7"> {Careers.Description_career}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 5)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobLocation7"> {Careers.Location}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 5)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobType7"> {Careers.Time}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 5)
+.map(Careers => (
+  <h2 key={Careers.id} className="applyBtn7"> {Careers.Available}</h2>
+))
+} 
           </div>
 
 
           {/* CARD 5 */}
           <div className="jobCard7">
-            <span className="jobTag7">Sales</span>
-            <h3 className="jobTitle7">Sales Representative</h3>
-            <p className="jobDesc7">
-              Drive adoption of electric charging solutions among commercial
-              and residential clients.
-            </p>
-            <p className="jobLocation7">Multiple Locations</p>
-            <p className="jobType7">Full-time</p>
-            <a className="applyBtn7">Apply Now →</a>
+{
+Careers
+.filter(Careers => Careers.id === 6)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTag7"> {Careers.buttons}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 6)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTitle7"> {Careers.Title}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 6)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobDesc7"> {Careers.Description_career}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 6)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobLocation7"> {Careers.Location}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 6)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobType7"> {Careers.Time}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 6)
+.map(Careers => (
+  <h2 key={Careers.id} className="applyBtn7"> {Careers.Available}</h2>
+))
+} 
           </div>
 
 
           {/* CARD 6 */}
           <div className="jobCard7">
-            <span className="jobTag7">Strategy</span>
-            <h3 className="jobTitle7">Sustainability Analyst</h3>
-            <p className="jobDesc7">
-              Analyze environmental impact and develop strategies for
-              carbon-neutral operations.
-            </p>
-            <p className="jobLocation7">Seattle, WA</p>
-            <p className="jobType7">Full-time</p>
-            <a className="applyBtn7">Apply Now →</a>
+{
+Careers
+.filter(Careers => Careers.id === 7)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTag7"> {Careers.buttons}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 7)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobTitle7"> {Careers.Title}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 7)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobDesc7"> {Careers.Description_career}</h2>
+))
+}
+{
+Careers
+.filter(Careers => Careers.id === 7)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobLocation7"> {Careers.Location}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 7)
+.map(Careers => (
+  <h2 key={Careers.id} className="jobType7"> {Careers.Time}</h2>
+))
+}       
+{
+Careers
+.filter(Careers => Careers.id === 7)
+.map(Careers => (
+  <h2 key={Careers.id} className="applyBtn7"> {Careers.Available}</h2>
+))
+} 
           </div>
 
         </div>
