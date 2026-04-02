@@ -1,8 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import './Home.css'
 import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
-import '../Supabase.jsx'
 import DownloadSection from '../Components/DownloadSection.jsx';
 import charger from '../Assets/Img/charger.svg';
 import imggroup from '../Assets/Img/imggroup.svg';
@@ -16,8 +15,30 @@ import checkinicon from '../Assets/Icons/checkIcon.svg'
 import Blog from '../Common/Blogpart.jsx'
 import Footer from '../Components/Footer.jsx'
 import { Link } from "react-router-dom";
+import { supabase } from "../Supabase";
 
 const Home = () => {
+
+const [Home, setHome] = useState([]);
+useEffect(() => {
+
+  async function getHomeAPI() {
+    const { data, error } = await supabase
+      .from("Home")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setHome(data);
+      console.log(data);
+    }
+  }
+
+  getHomeAPI();
+
+}, []);
+
     return ( <>
     <Nav />
 
