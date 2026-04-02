@@ -12,23 +12,23 @@ import { supabase } from "../Supabase";
 
 const Stations = () => {
 
-const [Stations, setStations] = useState([]);
+const [Charging_Stations, setCharging_Stations] = useState([]);
 useEffect(() => {
 
-  async function getStationsAPI() {
+  async function getCharging_StationsAPI() {
     const { data, error } = await supabase
-      .from("Stations")
+      .from("Charging_Stations")
       .select("*");
 
     if (error) {
       console.log(error);
     } else {
-      setStations(data);
+      setCharging_Stations(data);
       console.log(data);
     }
   }
 
-  getStationsAPI();
+  getCharging_StationsAPI();
 
 }, []);
 
@@ -39,14 +39,40 @@ useEffect(() => {
 <MainTitle 
    t1="Our Locations:" 
 />
-<p className='station-paragraph'>WayCharge operates in key high-traffic areas to ensure fast and convenient access whenever you need a charge. Our service is strategically positioned to reach you quickly, whether you’re at work, at a café, or on the road. No fixed stations, no limitations—just smart, mobile charging delivered right to your location.</p>
 
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 1)
+.map(Charging_Stations => (
+  <h2 key={Charging_Stations.id} className='station-paragraph'> {Charging_Stations.Description_en}</h2>
+))
+}
 <Map />
 
 <div className='downloadnows'>
-    <p className='download'>70+ Charging Stations</p>
-    <p className='download'>100+ Active Users</p>
-    <p className='download'>10+ Cities</p>
+    
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 1)
+.map(Charging_Stations => (
+  <h2 key={Charging_Stations.id} className='download'> {Charging_Stations.Titles}</h2>
+))
+}
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 2)
+.map(Charging_Stations => (
+  <h2 key={Charging_Stations.id} className='download'> {Charging_Stations.Titles}</h2>
+))
+}
+
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 3)
+.map(Charging_Stations => (
+  <h2 key={Charging_Stations.id} className='download'> {Charging_Stations.Titles}</h2>
+))
+}
 </div>
 
  <Title 
@@ -56,9 +82,28 @@ useEffect(() => {
 />
 
 <div className='findus'>
-    <img src={thedrive} alt="the drive" />
-    <img src={uvenus} alt="the drive" />
-    <img src={mivida} alt="the drive" />
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 1)
+.map(Charging_Stations => (
+    <img key={Charging_Stations.id} src={Charging_Stations.img} alt="the drive" />
+))
+}
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 2)
+.map(Charging_Stations => (
+    <img key={Charging_Stations.id} src={Charging_Stations.img} alt="the drive" />
+))
+}
+{
+Charging_Stations
+.filter(Charging_Stations => Charging_Stations.id === 3)
+.map(Charging_Stations => (
+    <img key={Charging_Stations.id} src={Charging_Stations.img} alt="the drive" />
+))
+}
+
 </div>
 
 <Footer />
