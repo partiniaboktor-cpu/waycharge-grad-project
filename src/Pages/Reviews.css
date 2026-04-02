@@ -65,6 +65,8 @@
 .testimonialRole9{
   color:#8DC63F;
   margin-bottom:15px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 /* Text */
@@ -72,6 +74,8 @@
 .testimonialText9{
   color:#cfcfcf;
   line-height:1.6;
+  font-size: 18px;
+  font-weight: 200;
 }
 
 /* Quote Section */
@@ -97,6 +101,8 @@
   color:#d0d0d0;
   line-height:1.7;
   margin-bottom:15px;
+  font-weight: 200;
+  font-size: 20px;
 }
 
 /* Animations */

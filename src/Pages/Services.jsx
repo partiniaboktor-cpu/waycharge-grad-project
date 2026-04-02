@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import '../Pages/Services.css'
 import MainTitle from '../Components/MainTitle';
@@ -7,8 +7,29 @@ import rewards from '../Assets/Img/rewards.png'
 import portable from '../Assets/Img/portable.png'
 import availble from '../Assets/Img/available.png'
 import Footer from '../Components/Footer.jsx';
+import { supabase } from "../Supabase";
+
 const Services = () => {
 
+const [Services, setServices] = useState([]);
+useEffect(() => {
+
+  async function getServicesAPI() {
+    const { data, error } = await supabase
+      .from("Services")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setServices(data);
+      console.log(data);
+    }
+  }
+
+  getServicesAPI();
+
+}, []);
 
     return ( <>
     
@@ -31,14 +52,49 @@ const Services = () => {
     </div>
     
 <div className='downloadnow'>
-    <p className='download'>Points</p>
-    <p className='download'>Coffee experience</p>
-    <p className='download'>Delivery chargers</p>
-    <p className='download'>Requesting Chargers</p>
-    <p className='download'>Points</p>
-    <p className='download'>Coffee experience</p>
-    <p className='download'>Delivery chargers</p>
-    <p className='download'>Requesting Chargers</p>
+{
+Services
+.filter(Services => Services.id === 1)
+.map(Services => (
+  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 2)
+.map(Services => (
+  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 3)
+.map(Services => (
+  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 4)
+.map(Services => (
+  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 2)
+.map(Services => (
+  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 1)
+.map(Services => (
+  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
+))
+}
+ 
 </div>
     
 
@@ -49,19 +105,35 @@ const Services = () => {
  
 
         <div className="textBox11">
-          <h2 className="title11">ENJOY COFFEE EXPERIENCE</h2>
-          <p className="desc11">
-            At WayCharge, charging isn’t just a service — it’s a moment.
-            Enjoy a complimentary cup of coffee while you wait.
-          </p>
+{
+Services
+.filter(Services => Services.id === 1)
+.map(Services => (
+  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 1)
+.map(Services => (
+  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
+))
+}
+
         </div>
 
         <div className="imageBox11">
-          <img
-            src={cofee}
+{
+Services
+.filter(Services => Services.id === 1)
+.map(Services => (
+    <img
+           key={Services.id}
+            src={Services.image}
             alt="cofee"
             className="image11"
-          />
+          />))
+}
         </div>
       </div>
 
@@ -70,18 +142,36 @@ const Services = () => {
        
 
         <div className="textBox11">
-          <h2 className="title11">REWARDS & POINTS SYSTEM</h2>
-          <p className="desc11">
-            Earn points with every charging session. Track rewards easily.
-          </p>
+{
+Services
+.filter(Services => Services.id === 2)
+.map(Services => (
+  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 2)
+.map(Services => (
+  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
+))
+}
+        
         </div>
 
         <div className="imageBox11">
-          <img
-            src={rewards}
-            alt="rewards"
+{
+Services
+.filter(Services => Services.id === 2)
+.map(Services => (
+    <img
+           key={Services.id}
+            src={Services.image}
+            alt="cofee"
             className="image11"
-          />
+          />))
+}
+    
         </div>
       </div>
 
@@ -90,18 +180,36 @@ const Services = () => {
        
 
         <div className="textBox11">
-          <h2 className="title11">PORTABLE CHARGERS</h2>
-          <p className="desc11">
-            Request a portable charger and we’ll come to your location.
-          </p>
+{
+Services
+.filter(Services => Services.id === 3)
+.map(Services => (
+  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 3)
+.map(Services => (
+  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
+))
+}
+     
         </div>
 
         <div className="imageBox11">
-          <img
-            src={portable}
-            alt="portable"
+{
+Services
+.filter(Services => Services.id === 3)
+.map(Services => (
+    <img
+           key={Services.id}
+            src={Services.image}
+            alt="cofee"
             className="image11"
-          />
+          />))
+}
+
         </div>
       </div>
 
@@ -110,18 +218,35 @@ const Services = () => {
       
 
         <div className="textBox11">
-          <h2 className="title11">AVAILABLE EVERYWHERE</h2>
-          <p className="desc11">
-            We reach you anywhere — home, work, or on the road.
-          </p>
+{
+Services
+.filter(Services => Services.id === 4)
+.map(Services => (
+  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
+))
+}
+{
+Services
+.filter(Services => Services.id === 4)
+.map(Services => (
+  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
+))
+}
+
         </div>
 
         <div className="imageBox11">
-          <img
-            src={availble}
-            alt="availble"
+{
+Services
+.filter(Services => Services.id === 4)
+.map(Services => (
+    <img
+           key={Services.id}
+            src={Services.image}
+            alt="cofee"
             className="image11"
-          />
+          />))
+}
         </div>
       </div>
 

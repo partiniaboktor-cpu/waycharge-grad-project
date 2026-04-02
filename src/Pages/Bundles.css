@@ -50,7 +50,9 @@ body {
 }
 
 .list12 {
-  padding-left: 18px;
+  margin-bottom: 2%;
+  font-size: 16px;
+  font-weight: 100;
 }
 
 .list12 li {
@@ -68,13 +70,14 @@ body {
 }
 
 .priceBtn12 {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   background: #8DC63F;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  color: #222222;
 }
 
 .priceBtn12:hover {
