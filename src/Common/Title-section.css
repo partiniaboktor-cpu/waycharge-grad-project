@@ -28,6 +28,7 @@
     color: var(--primary-green);
     font-size: var(--text-font);
     margin: 0 20px;
+    text-decoration: none;
 }
 .arrow{
      display: flex;

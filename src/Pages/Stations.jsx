@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav.jsx'
 import MainTitle from '../Components/MainTitle.jsx';
 import '../Pages/Stations.css'
@@ -8,8 +8,30 @@ import thedrive from '../Assets/Img/thedrive.svg';
 import uvenus from '../Assets/Img/u venus.svg';
 import mivida from '../Assets/Img/mivida.svg';
 import Footer from '../Components/Footer.jsx';
+import { supabase } from "../Supabase";
 
 const Stations = () => {
+
+const [Stations, setStations] = useState([]);
+useEffect(() => {
+
+  async function getStationsAPI() {
+    const { data, error } = await supabase
+      .from("Stations")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setStations(data);
+      console.log(data);
+    }
+  }
+
+  getStationsAPI();
+
+}, []);
+
     return ( <>
 
 

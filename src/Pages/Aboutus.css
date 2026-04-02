@@ -187,7 +187,12 @@ backdrop-filter: blur(20px);
 .Find3{
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.Find33{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ccc;
+    font-size: 18px;
+    font-weight: 200;
+}
 @keyframes swing3 {
   from { transform: rotate(-5deg); }
   to { transform: rotate(5deg); }

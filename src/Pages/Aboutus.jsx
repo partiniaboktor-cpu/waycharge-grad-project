@@ -1,11 +1,33 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import './Aboutus.css'
 import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
-import '../Supabase.jsx'
 import Footer from '../Components/Footer.jsx'
+import { supabase } from "../Supabase";
 
 const Aboutus = () => {
+
+const [About, setAbout] = useState([]);
+useEffect(() => {
+
+  async function getAboutAPI() {
+    const { data, error } = await supabase
+      .from("About")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setAbout(data);
+      console.log(data);
+    }
+  }
+
+  getAboutAPI();
+
+}, []);
+
+
     return ( <>
     
         <Nav />
@@ -13,14 +35,40 @@ const Aboutus = () => {
     <div className="banner-container">
       {/* Left Green Block */}
       <div className="green-side">
-        <h2 className="text-white tight-stack">PORTABLE</h2>
-        <h2 className="text-white tight-stack">CHARGES</h2>
+{
+About
+.filter(About => About.id === 7)
+.map(About => (
+  <h2 key={About.id} className="text-white tight-stack"> {About.Title}</h2>
+))
+}
+{
+About
+.filter(About => About.id === 8)
+.map(About => (
+  <h2 key={About.id} className="text-white tight-stack"> {About.Title}</h2>
+))
+}        
+    
       </div>
 
       {/* Right Content Block */}
       <div className="content-side">
-        <p className="sub-header">Electrical Charging power station</p>
-        <h1 className="main-title">ELECTRIC VEHICLE</h1>
+{
+About
+.filter(About => About.id === 1)
+.map(About => (
+  <h2 key={About.id} className="sub-header"> {About.Description}</h2>
+))
+}  
+{
+About
+.filter(About => About.id === 1)
+.map(About => (
+  <h2 key={About.id} className="main-title"> {About.Title}</h2>
+))
+} 
+  
       </div>
     </div>
     
@@ -50,7 +98,13 @@ const Aboutus = () => {
    linkText="View More" 
 />
 
-<p className='aboutus-paragraph'>WayCharge is an innovative portable electric vehicle charging solution designed to make EV charging accessible anywhere, anytime. Built to support the growing shift toward sustainable mobility, WayCharge provides convenient, on-the-go charging while enhancing the user experience with added value—like complimentary coffee during charging sessions. The platform combines practicality, technology, and comfort, ensuring drivers never feel limited by location or infrastructure. WayCharge isn’t just a charger; it’s a smart mobility service designed to power journeys with ease, reliability, and a touch of everyday luxury.</p>
+{
+About
+.filter(About => About.id === 3)
+.map(About => (
+  <h2 key={About.id} className='aboutus-paragraph'> {About.Description}</h2>
+))
+} 
     
 
   <Title 
@@ -59,7 +113,13 @@ const Aboutus = () => {
    linkText="View More" 
 />
   
-  <p className='aboutuss-paragraph'>WayCharge gives you the freedom to charge your electric vehicle anywhere, without depending on fixed stations. It’s portable, convenient, and designed to make charging simple and stress-free. With added comfort like complimentary coffee, WayCharge turns everyday charging into a smarter and more enjoyable experience.</p>
+{
+About
+.filter(About => About.id === 4)
+.map(About => (
+  <h2 key={About.id} className='aboutuss-paragraph'> {About.Description}</h2>
+))
+} 
 
 
 <div className="container3">
@@ -75,8 +135,20 @@ const Aboutus = () => {
         <div className="pin3"></div>
         <div className="card3">
           <div className="icon3">📍</div>
-          <h3 className='Find3'>Find a Station</h3>
-          <p className='Find3'>Use our app to locate the nearest charging station with real-time availability.</p>
+{
+About
+.filter(About => About.id === 5)
+.map(About => (
+  <h2 key={About.id} className='Find3'> {About.Title}</h2>
+))
+} 
+{
+About
+.filter(About => About.id === 5)
+.map(About => (
+  <h2 key={About.id} className='Find33'> {About.Description}</h2>
+))
+} 
         </div>
       </div>
 
@@ -86,8 +158,20 @@ const Aboutus = () => {
         <div className="pin3"></div>
         <div className="card3">
           <div className="icon3">📅</div>
-          <h3 className='Find3'>Easy Booking & Scheduling </h3>
-          <p className='Find3'>Drivers can reserve chargers in advance, avoiding waiting lines.</p>
+{
+About
+.filter(About => About.id === 6)
+.map(About => (
+  <h2 key={About.id} className='Find3'> {About.Title}</h2>
+))
+} 
+{
+About
+.filter(About => About.id === 6)
+.map(About => (
+  <h2 key={About.id} className='Find33'> {About.Description}</h2>
+))
+} 
         </div>
       </div>
 
@@ -97,8 +181,20 @@ const Aboutus = () => {
         <div className="pin3"></div>
         <div className="card3">
           <div className="icon3">💳</div>
-          <h3 className='Find3'>Secure & Seamless Payments </h3>
-          <p className='Find3'>WayCharge integrates multiple payment options so users can pay directly through the app.</p>
+{
+About
+.filter(About => About.id === 9)
+.map(About => (
+  <h2 key={About.id} className='Find3'> {About.Title}</h2>
+))
+} 
+{
+About
+.filter(About => About.id === 9)
+.map(About => (
+  <h2 key={About.id} className='Find33'> {About.Description}</h2>
+))
+} 
         </div>
       </div>
 
@@ -108,8 +204,20 @@ const Aboutus = () => {
         <div className="pin3"></div>
         <div className="card3">
           <div className="icon3">🚗</div>
-          <h3 className='Find3'>Compatible Charging for Every EV </h3>
-          <p className='Find3'>Different electric vehicles use different connectors.</p>
+{
+About
+.filter(About => About.id === 10)
+.map(About => (
+  <h2 key={About.id} className='Find3'> {About.Title}</h2>
+))
+} 
+{
+About
+.filter(About => About.id === 10)
+.map(About => (
+  <h2 key={About.id} className='Find33'> {About.Description}</h2>
+))
+} 
         </div>
       </div>
 

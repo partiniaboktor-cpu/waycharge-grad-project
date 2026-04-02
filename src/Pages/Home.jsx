@@ -48,10 +48,11 @@ const Home = () => {
 
     </div>
 
- <Title 
-   t1="Application" 
-   t2="Application" 
-   linkText="View More" 
+<Title 
+  t1="Application" 
+  t2="Application" 
+  linkText="View More" 
+  linkTo="/mobileapp"
 />
 
 <DownloadSection />
@@ -61,7 +62,8 @@ const Home = () => {
  <Title 
    t1="How it works ?" 
    t2="How it works ?" 
-   linkText="View More" 
+  linkText="View More" 
+    linkTo="/Howitworks"
 />
 
 
@@ -226,6 +228,7 @@ const Home = () => {
    t1="Blogs" 
    t2="Blogs" 
    linkText="View More" 
+  linkTo="/Blog"
 />
 
 <Blog />
