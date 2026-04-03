@@ -141,13 +141,22 @@ Team
       </div>
 
       <div className="bottomSection13">
-        <h2 className="buildText13">
-          We build <span>Waycharge</span>
-        </h2>
+{
+Team
+.filter(Team => Team.id === 1)
+.map(Team => (
+     <h2 key={Team.id} className="buildText13">
+          {Team.Title}
+        </h2>))
+}
+    
+{
+Team
+.filter(Team => Team.id === 1)
+.map(Team => (
+ <p key={Team.id} className="bottomDesc13">{Team.team_description}</p>))
+}
 
-        <p className="bottomDesc13">
-          Lorem ipsum dolor sit amet consectetur. Fringilla massa morbi sit risus purus. Sit enim tristique felis morbi amet augue dignissim adipiscing nibh. Consectetur egestas sit eget ut fringilla congue proin a lacus. Consequat semper dapibus fringilla risus aliquam. Sed libero at interdum lectus molestie. Sagittis eu quisque diam facilisis ut at vehicula dolor nam. Nec eget neque eget tincidunt adipiscing sagittis sit vulputate. Auctor aliquet scelerisque cursus id amet feugiat urna dui. Urna semper ultrices iaculis duis. Pellentesque scelerisque nisl accumsan mus hac ut. Lacinia proin quis pellentesque cras vivamus purus proin cursus. Lacus sed donec eu vitae dui proin integer sit. Mattis dignissim nunc ac fringilla nullam.
-        </p>
       </div>
     </div>
     
