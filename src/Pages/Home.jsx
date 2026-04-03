@@ -39,6 +39,26 @@ useEffect(() => {
 
 }, []);
 
+const [works, setworks] = useState([]);
+useEffect(() => {
+
+  async function getworksAPI() {
+    const { data, error } = await supabase
+      .from("works")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setworks(data);
+      console.log(data);
+    }
+  }
+
+  getworksAPI();
+
+}, []);
+
     return ( <>
     <Nav />
 
@@ -51,8 +71,20 @@ Hero
         <h1 key={Hero.id}  className='title-hero'>{Hero.Title}</h1>
 ))
 }
-        <p className='text-hero-left'>WayCharge | Powering the path to a cleaner tomorrow. <br></br>High-speed EV charging designed for the modern journey. ️<br></br> Charge the way forward.</p>
-        <button className='name-proj'>WayCharge...</button>
+{
+Hero
+.filter(Hero => Hero.id === 1)
+.map(Hero => (
+      <p  key={Hero.id}  className='text-hero-left'>{Hero.Description}</p>
+      ))
+}
+{
+Hero
+.filter(Hero => Hero.id === 1)
+.map(Hero => (
+        <button key={Hero.id} className='name-proj'>{Hero.button}</button>
+      ))
+}  
         </div>
 
 {/* 3d car model */}
@@ -100,18 +132,54 @@ Hero
       <div className="steps-lefts">
 
         <div className="stepss">
-          <div className="circles">1</div>
+{
+works
+.filter(works => works.id === 1)
+.map(works => (
+          <div key={works.id} className="circles">{works.Number}</div>
+))
+}
           <div>
-            <h3 className='step-titless'>Connect</h3>
-            <p className='brief'>Connect charger cable with car & station.</p>
+{
+works
+.filter(works => works.id === 1)
+.map(works => (
+            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
+))
+}
+{
+works
+.filter(works => works.id === 1)
+.map(works => (
+            <p key={works.id} className='brief'>{works.description}</p>
+))
+}
           </div>
         </div>
 
         <div className="stepss">
-          <div className="circles">2</div>
+{
+works
+.filter(works => works.id === 2)
+.map(works => (
+          <div key={works.id} className="circles">{works.Number}</div>
+))
+}
           <div>
-            <h3 className='step-titless'>Start</h3>
-            <p className='brief'>Start charging session by scanning your phone.</p>
+{
+works
+.filter(works => works.id === 2)
+.map(works => (
+            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
+))
+}
+{
+works
+.filter(works => works.id === 2)
+.map(works => (
+            <p key={works.id} className='brief'>{works.description}</p>
+))
+}
           </div>
         </div>
 
@@ -141,18 +209,54 @@ Hero
       <div className="steps-rights">
 
         <div className="stepss">
-          <div className="circles">3</div>
+{
+works
+.filter(works => works.id === 3)
+.map(works => (
+          <div key={works.id} className="circles">{works.Number}</div>
+))
+}
           <div>
-            <h3 className='step-titless'>Connect</h3>
-            <p className='brief'>Blue led light indicates start of charging session.</p>
+{
+works
+.filter(works => works.id === 3)
+.map(works => (
+            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
+))
+}
+{
+works
+.filter(works => works.id === 3)
+.map(works => (
+            <p key={works.id} className='brief'>{works.description}</p>
+))
+}
           </div>
         </div>
 
         <div className="stepss">
-          <div className="circles">4</div>
+{
+works
+.filter(works => works.id === 4)
+.map(works => (
+          <div key={works.id} className="circles">{works.Number}</div>
+))
+}
           <div>
-            <h3 className='step-titless'>Charging complete</h3>
-            <p className='brief'>Stop charging session by using your phone.</p>
+{
+works
+.filter(works => works.id === 4)
+.map(works => (
+            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
+))
+}
+{
+works
+.filter(works => works.id === 4)
+.map(works => (
+            <p key={works.id} className='brief'>{works.description}</p>
+))
+}
           </div>
         </div>
 
