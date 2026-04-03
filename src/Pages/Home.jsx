@@ -19,23 +19,23 @@ import { supabase } from "../Supabase";
 
 const Home = () => {
 
-const [Home, setHome] = useState([]);
+const [Hero, setHero] = useState([]);
 useEffect(() => {
 
-  async function getHomeAPI() {
+  async function getHeroAPI() {
     const { data, error } = await supabase
-      .from("Home")
+      .from("Hero")
       .select("*");
 
     if (error) {
       console.log(error);
     } else {
-      setHome(data);
+      setHero(data);
       console.log(data);
     }
   }
 
-  getHomeAPI();
+  getHeroAPI();
 
 }, []);
 
@@ -44,7 +44,13 @@ useEffect(() => {
 
     <div className='hero'>
         <div className='left-side-hero'>
-        <h1 className='title-hero'>Charge the way forward</h1>
+{
+Hero
+.filter(Hero => Hero.id === 1)
+.map(Hero => (
+        <h1 key={Hero.id}  className='title-hero'>{Hero.Title}</h1>
+))
+}
         <p className='text-hero-left'>WayCharge | Powering the path to a cleaner tomorrow. <br></br>High-speed EV charging designed for the modern journey. ️<br></br> Charge the way forward.</p>
         <button className='name-proj'>WayCharge...</button>
         </div>

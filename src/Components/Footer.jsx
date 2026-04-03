@@ -62,28 +62,91 @@ Footer
           </div>
 
           <div>
-            <h3>24/7</h3>
-            <p>Support</p>
+{
+Footer
+.filter(Footer => Footer.id === 2)
+.map(Footer => (
+ <h3 key={Footer.id}> {Footer.Numbers}</h3>))
+}
+{
+Footer
+.filter(Footer => Footer.id === 2)
+.map(Footer => (
+ <p key={Footer.id}> {Footer.Text}</p>))
+}           
+
           </div>
 
           <div>
-            <h3>50k+</h3>
-            <p>Users</p>
+{
+Footer
+.filter(Footer => Footer.id === 3)
+.map(Footer => (
+ <h3 key={Footer.id}> {Footer.Numbers}</h3>))
+}
+{
+Footer
+.filter(Footer => Footer.id === 3)
+.map(Footer => (
+ <p key={Footer.id}> {Footer.Text}</p>))
+}           
+
           </div>
         </div>
       </div>
 
       <div className="rights-section">
-        <h3 className='Quick Navigation'>Quick Navigation</h3>
+{
+Footer
+.filter(Footer => Footer.id === 2)
+.map(Footer => (
+        <h3 key={Footer.id} className='Quick Navigation'>{Footer.Title}</h3>
+))
+}
 
         <div className="nav-grid">
-
-          <div className="nav-box">📍 About us</div>
-          <div className="nav-box">📱 Mobile app</div>
-          <div className="nav-box">⚡ Stations</div>
-          <div className="nav-box">✈️ How it works?</div>
-          <div className="nav-box">✉️ Contact us</div>
-          <div className="nav-box">❓ Help</div>
+{
+Footer
+.filter(Footer => Footer.id === 4)
+.map(Footer => (
+          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
+))
+}
+{
+Footer
+.filter(Footer => Footer.id === 5)
+.map(Footer => (
+          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
+))
+}
+{
+Footer
+.filter(Footer => Footer.id === 6)
+.map(Footer => (
+          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
+))
+}
+{
+Footer
+.filter(Footer => Footer.id === 7)
+.map(Footer => (
+          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
+))
+}
+{
+Footer
+.filter(Footer => Footer.id === 8)
+.map(Footer => (
+          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
+))
+}
+{
+Footer
+.filter(Footer => Footer.id === 9)
+.map(Footer => (
+          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
+))
+}
 
         </div>
       </div>
