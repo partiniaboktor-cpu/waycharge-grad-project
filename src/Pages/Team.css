@@ -19,6 +19,7 @@
   font-weight: bold;
   animation: slideLeft13 1s ease;
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .role13 {
@@ -28,9 +29,11 @@
 }
 
 .desc13 {
-  max-width: 400px;
+  max-width: 600px;
   opacity: 0.8;
   animation: fadeIn13 1.5s ease;
+  font-weight: 200;
+  font-size: 20px
 }
 
 /* Image */

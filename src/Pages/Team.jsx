@@ -37,43 +37,106 @@ useEffect(() => {
     <div className="container13">
       <div className="topSection13">
         <div className="textSection13">
-          <h1 className="title13">Partinia Emad</h1>
-          <h3 className="role13">Founder</h3>
-          <p className="desc13">
-            Lorem ipsum dolor sit amet consectetur. Sit scelerisque nibh aenean
-            proin amet aliquam varius etiam. Sed ut libero at fermentum amet
-            consectetur lectus faucibus morbi.
-          </p>
+{
+Team
+.filter(Team => Team.id === 1)
+.map(Team => (
+  <h2 key={Team.id} className="title13"> {Team.Name}</h2>
+))
+}
+{
+Team
+.filter(Team => Team.id === 1)
+.map(Team => (
+  <h2 key={Team.id} className="role13"> {Team.Job_title}</h2>
+))
+}
+{
+Team
+.filter(Team => Team.id === 1)
+.map(Team => (
+  <h2 key={Team.id} className="desc13"> {Team.Description}</h2>
+))
+}
         </div>
 
         <div className="imageSection13">
-          <img
-            src={partinia}
+{
+Team
+.filter(Team => Team.id === 1)
+.map(Team => (
+   <img
+          key={Team.id}
+            src={Team.image}
             alt="profile"
             className="mainImage13"
-          />
+          />))
+}
+       
         </div>
       </div>
 
       <div className="teamSection13">
         <div className="card13">
-          <img src={partinia2}alt="" />
-          <p>Partinia Emad</p>
+{
+Team
+.filter(Team => Team.id === 2)
+.map(Team => (
+          <img key={Team.id} src= {Team.image}alt="mypic" />))
+}
+{
+Team
+.filter(Team => Team.id === 2)
+.map(Team => (
+ <p key={Team.id}>{Team.Name}</p>))
+}
+         
         </div>
 
         <div className="card13">
-          <img src={perla} alt="" />
-          <p>Perla Emad</p>
+{
+Team
+.filter(Team => Team.id === 3)
+.map(Team => (
+          <img key={Team.id} src= {Team.image}alt="mypic" />))
+}
+{
+Team
+.filter(Team => Team.id === 3)
+.map(Team => (
+ <p key={Team.id}>{Team.Name}</p>))
+}
+
         </div>
 
         <div className="card13">
-          <img src={marian} alt="" />
-          <p>Marian Naady</p>
+{
+Team
+.filter(Team => Team.id === 4)
+.map(Team => (
+          <img key={Team.id} src= {Team.image}alt="mypic" />))
+}
+{
+Team
+.filter(Team => Team.id === 4)
+.map(Team => (
+ <p key={Team.id}>{Team.Name}</p>))
+}
         </div>
 
         <div className="card13">
-          <img src={paula} alt="" />
-          <p>Paula Emad</p>
+{
+Team
+.filter(Team => Team.id === 5)
+.map(Team => (
+          <img key={Team.id} src= {Team.image}alt="mypic" />))
+}
+{
+Team
+.filter(Team => Team.id === 5)
+.map(Team => (
+ <p key={Team.id}>{Team.Name}</p>))
+}
         </div>
       </div>
 
