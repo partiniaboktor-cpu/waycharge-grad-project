@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import '../Pages/Help.css';
 import MainTitle from '../Components/MainTitle';
 import Footer from '../Components/Footer.jsx'
 import { Link } from "react-router-dom";
+import { supabase } from "../Supabase";
 
 const Help = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -39,6 +40,27 @@ const Help = () => {
     }
   ];
 
+
+const [Help, setHelp] = useState([]);
+useEffect(() => {
+
+  async function getHelpAPI() {
+    const { data, error } = await supabase
+      .from("Help")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setHelp(data);
+      console.log(data);
+    }
+  }
+
+  getHelpAPI();
+
+}, []);
+
     return ( <>
     
     <Nav />
@@ -46,34 +68,62 @@ const Help = () => {
   <MainTitle 
     t1='FREQUENTLY ASKED QUESTIONS'
     />
-
-      <p className="faqIntro8">
-        Have questions about WayCharge? Our Frequently Asked Questions section
-        is here to help. From how the service works to pricing, availability,
-        and safety, you'll find clear and simple answers to guide you.
-      </p>
-
+{
+Help
+.filter(Help => Help.id === 1)
+.map(Help => (
+  <h2 key={Help.id} className="faqIntro8"> {Help.Description}</h2>
+))
+}
 
       <div className="faqContent8">
 
         {/* LEFT MENU */}
 
         <div className="faqMenu8">
+
 <Link to="/Reviews">
-  <button className="faqButton8">Reviews</button>
+{
+Help
+.filter(Help => Help.id === 2)
+.map(Help => (
+  <h2 key={Help.id} className="faqButton8"> {Help.Titles}</h2>
+))
+}
 </Link>
 <Link to="/Services">
-  <button className="faqButton8">Services</button>
+{
+Help
+.filter(Help => Help.id === 3)
+.map(Help => (
+  <h2 key={Help.id} className="faqButton8"> {Help.Titles}</h2>
+))
+}
 </Link>
 <Link to="/Bundles">
-          <button className="faqButton8">Bundles</button>
-</Link>
+{
+Help
+.filter(Help => Help.id === 4)
+.map(Help => (
+  <h2 key={Help.id} className="faqButton8"> {Help.Titles}</h2>
+))
+}</Link>
 <Link to="/Team">
-          <button className="faqButton8">Our Team</button>
-</Link>
+{
+Help
+.filter(Help => Help.id === 5)
+.map(Help => (
+  <h2 key={Help.id} className="faqButton8"> {Help.Titles}</h2>
+))
+}</Link>
 <Link to="/Chargers">
-          <button className="faqButton8">Types of charges</button>
-</Link>
+{
+Help
+.filter(Help => Help.id === 6)
+.map(Help => (
+  <h2 key={Help.id} className="faqButton8"> {Help.Titles}</h2>
+))
+}</Link>
         </div>
 
 
