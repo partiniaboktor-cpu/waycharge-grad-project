@@ -99,3 +99,61 @@ backdrop-filter: blur(20px);
     transform: translateY(0);
   }
 }
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .container14 {
+    padding: 25px;
+  }
+
+  .title14 {
+    font-size: 18px;
+  }
+
+  .img14 {
+    width: 80px;
+  }
+
+  .btn14 {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  .container14 {
+    padding: 20px 15px;
+  }
+
+  .card14 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .img14 {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 6px;
+  }
+
+  .title14 {
+    font-size: 17px;
+  }
+
+  .topText14 {
+    font-size: 13px;
+  }
+
+  .btn14 {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+}

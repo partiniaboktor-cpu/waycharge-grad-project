@@ -126,3 +126,93 @@ backdrop-filter: blur(20px);
   font-weight: 200;
   font-size: 20px;
 }
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .jobsContainer7{
+    padding:60px 6%;
+  }
+
+  .jobsHero7{
+    padding:40px;
+  }
+
+  .jobsTitle7{
+    font-size:34px;
+  }
+
+  .jobsText7{
+    font-size:18px;
+  }
+
+  .exploreBtn7{
+    width:30%;
+    font-size:15px;
+    padding:12px 25px;
+  }
+
+  .jobsGrid7{
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+  }
+
+  .openTitle7{
+    font-size:28px;
+  }
+
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  .jobsContainer7{
+    padding:50px 5%;
+  }
+
+  .jobsHero7{
+    padding:30px 20px;
+  }
+
+  .jobsTitle7{
+    font-size:26px;
+  }
+
+  .jobsText7{
+    font-size:16px;
+    line-height:1.5;
+  }
+
+  .exploreBtn7{
+    width:70%;
+    font-size:14px;
+    padding:12px;
+  }
+
+  .openTitle7{
+    font-size:24px;
+  }
+
+  .openText7{
+    font-size:14px;
+  }
+
+  .jobsGrid7{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .jobTitle7{
+    font-size:18px;
+  }
+
+  .jobDesc7{
+    font-size:13px;
+  }
+
+  .applyBtn7{
+    font-size:16px;
+  }
+
+}
