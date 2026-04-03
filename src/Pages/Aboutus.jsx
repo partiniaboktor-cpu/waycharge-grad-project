@@ -7,6 +7,7 @@ import { supabase } from "../Supabase";
 
 const Aboutus = () => {
 
+
 const [About, setAbout] = useState([]);
 useEffect(() => {
 
@@ -26,7 +27,6 @@ useEffect(() => {
   getAboutAPI();
 
 }, []);
-
 
     return ( <>
     

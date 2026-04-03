@@ -118,3 +118,82 @@ body {
 .card12:nth-child(3) { animation-delay: 0.3s; }
 .card12:nth-child(4) { animation-delay: 0.4s; }
 .card12:nth-child(5) { animation-delay: 0.5s; }
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .container12 {
+    padding: 30px 20px;
+  }
+
+  .title12 {
+    font-size: 22px;
+  }
+
+  .grid12 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .card12 {
+    padding: 18px;
+  }
+
+  .cardTitle12 {
+    font-size: 17px;
+  }
+
+  .list12 {
+    font-size: 15px;
+  }
+
+  .priceBtn12 {
+    width: 90%;
+    font-size: 16px;
+  }
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  .container12 {
+    padding: 20px 15px;
+  }
+
+  .title12 {
+    font-size: 20px;
+  }
+
+  .grid12 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card12 {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .cardTitle12 {
+    font-size: 16px;
+  }
+
+  .subtitle12 {
+    font-size: 14px;
+  }
+
+  .list12 {
+    font-size: 14px;
+  }
+
+  .extra12 {
+    font-size: 12px;
+  }
+
+  .priceBtn12 {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+}

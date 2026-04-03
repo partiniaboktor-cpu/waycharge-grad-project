@@ -16,48 +16,49 @@ import Blog from '../Common/Blogpart.jsx'
 import Footer from '../Components/Footer.jsx'
 import { Link } from "react-router-dom";
 import { supabase } from "../Supabase";
+import Preloader from "./Preloader";
 
 const Home = () => {
 
 const [Hero, setHero] = useState([]);
+const [works, setworks] = useState([]);
+const [loading, setLoading] = useState(true);
+
 useEffect(() => {
 
-  async function getHeroAPI() {
-    const { data, error } = await supabase
+  async function getData() {
+
+    const { data: heroData, error: heroError } = await supabase
       .from("Hero")
       .select("*");
 
-    if (error) {
-      console.log(error);
-    } else {
-      setHero(data);
-      console.log(data);
-    }
-  }
-
-  getHeroAPI();
-
-}, []);
-
-const [works, setworks] = useState([]);
-useEffect(() => {
-
-  async function getworksAPI() {
-    const { data, error } = await supabase
+    const { data: worksData, error: worksError } = await supabase
       .from("works")
       .select("*");
 
-    if (error) {
-      console.log(error);
+    if (heroError) {
+      console.log(heroError);
     } else {
-      setworks(data);
-      console.log(data);
+      setHero(heroData);
     }
+
+    if (worksError) {
+      console.log(worksError);
+    } else {
+      setworks(worksData);
+    }
+
+    setLoading(false);
   }
 
-  getworksAPI();
+  getData();
 
 }, []);
+
+if (loading) {
+  return <Preloader />;
+}
+
 
     return ( <>
     <Nav />
