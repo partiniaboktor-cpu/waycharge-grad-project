@@ -31,3 +31,87 @@ padding-left: 2%;
     font-size: 36px;
     font-weight: 800;
 }
+
+/* Small Cards Container */
+.smallcards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    gap: 2%;
+    margin-top: 3%;
+}
+
+/* Individual Card */
+.first {
+    background: #d9d9d90b; /* Glass effect */
+    backdrop-filter: blur(20px);
+    width: 14%;
+    min-width: 120px; /* Ensure it doesn't get too small */
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    align-content: center;
+    transition: transform 0.3s ease;
+}
+
+.first:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+/* Number */
+.nu {
+    color: var(--primary-green);
+    padding-bottom: 5%;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+/* Button */
+.button-one {
+    color: var(--Main-text-color);
+    padding: 5% 0;
+    font-size: var(--text-font);
+}
+
+/* Responsive Breakpoints */
+
+/* Tablets */
+@media (max-width: 900px) {
+    .first {
+        width: 30%;
+        height: 90px;
+        padding-left: 5%;
+    }
+
+    .nu {
+        font-size: 28px;
+    }
+
+    .button-one {
+        font-size: 14px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .smallcards {
+        gap: 5%;
+    }
+
+    .first {
+        width: 45%;
+        height: 80px;
+        padding-left: 3%;
+    }
+
+    .nu {
+        font-size: 24px;
+    }
+
+    .button-one {
+        font-size: 12px;
+    }
+}
