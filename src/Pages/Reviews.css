@@ -126,3 +126,95 @@
     opacity:1;
   }
 }
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+
+  .testimonialsContainer9 {
+    padding: 60px 5%;
+  }
+
+  .testimonialsTitle9 {
+    font-size: 28px;
+  }
+
+  .testimonialsGrid9 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .testimonialCard9 {
+    padding: 30px 20px;
+  }
+
+  .testimonialImage9 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .testimonialRole9 {
+    font-size: 16px;
+  }
+
+  .testimonialText9 {
+    font-size: 16px;
+  }
+
+  .quoteSection9 {
+    padding: 40px;
+  }
+
+  .quoteIcon9 {
+    font-size: 50px;
+  }
+
+  .quoteText9 {
+    font-size: 16px;
+  }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+
+  .testimonialsContainer9 {
+    padding: 40px 3%;
+  }
+
+  .testimonialsTitle9 {
+    font-size: 24px;
+  }
+
+  .testimonialsGrid9 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .testimonialCard9 {
+    padding: 20px 15px;
+  }
+
+  .testimonialImage9 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testimonialRole9 {
+    font-size: 14px;
+  }
+
+  .testimonialText9 {
+    font-size: 14px;
+  }
+
+  .quoteSection9 {
+    padding: 30px;
+  }
+
+  .quoteIcon9 {
+    font-size: 40px;
+  }
+
+  .quoteText9 {
+    font-size: 14px;
+  }
+}

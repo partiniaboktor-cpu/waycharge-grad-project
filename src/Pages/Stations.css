@@ -40,3 +40,55 @@ height: 10vh;
     flex-direction: row;
     gap: 3%;
 }
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+
+  .station-paragraph {
+    font-size: 18px;
+    width: 90%;
+    padding-top: 2%;
+  }
+
+  .downloadnows {
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .download {
+    font-size: 24px;
+  }
+
+  .findus {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+
+  .station-paragraph {
+    font-size: 16px;
+    width: 95%;
+    padding-top: 2%;
+  }
+
+  .downloadnows {
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .download {
+    font-size: 20px;
+  }
+
+  .findus {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

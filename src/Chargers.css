@@ -132,3 +132,93 @@ body {
     opacity: 1;
   }
 }
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+
+  .chargers13 {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card13 {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .cardImg13 {
+    width: 120px;
+  }
+
+  .cardText13 {
+    font-size: 13px;
+  }
+
+  .gallery13 {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .galleryImg13 {
+    width: 200px;
+  }
+
+  .btn13 {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .bottom13 {
+    height: 200px;
+  }
+
+  .bottomText13 {
+    font-size: 12px;
+    max-width: 90%;
+    text-align: center;
+  }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+
+  .title13 {
+    font-size: 20px;
+  }
+
+  .subtitle13 {
+    font-size: 14px;
+  }
+
+  .card13 {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .cardImg13 {
+    width: 100px;
+  }
+
+  .cardText13 {
+    font-size: 12px;
+  }
+
+  .galleryImg13 {
+    width: 150px;
+  }
+
+  .btn13 {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .bottom13 {
+    height: 150px;
+  }
+
+  .bottomText13 {
+    font-size: 11px;
+  }
+}
