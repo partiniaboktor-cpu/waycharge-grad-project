@@ -15,6 +15,7 @@ import Bundles from './Pages/Bundles';
 import Team from './Pages/Team';
 import Chargers from './Chargers';
 import Chargerdetail from './Pages/Chargerdetail';
+import Chargertype from './Pages/Chargertype';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Team" element={<Team />} />
         <Route path="/Chargers" element={<Chargers />} />
         <Route path="/Chargerdetail" element={<Chargerdetail />} />
+        <Route path="/Chargertype" element={<Chargertype />} />
 
 
 

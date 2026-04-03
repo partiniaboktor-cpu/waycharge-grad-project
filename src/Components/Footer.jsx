@@ -1,23 +1,64 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
 import './Footer.css';
+import { supabase } from "../Supabase";
 
-const footer = () => {
+const Footer = () => {
+
+const [Footer, setFooter] = useState([]);
+useEffect(() => {
+
+  async function getFooterAPI() {
+    const { data, error } = await supabase
+      .from("Footer")
+      .select("*");
+
+    if (error) {
+      console.log(error);
+    } else {
+      setFooter(data);
+      console.log(data);
+    }
+  }
+
+  getFooterAPI();
+
+}, []);
+
     return ( <>
     
   <div className="footer-container">
 
       <div className="lefts-section">
-        <h2 className="title-footer">⚡ WayCharge.</h2>
-
-        <p className="description">
-          Powering your journey with sustainable energy solutions.
-          Find, charge, and continue your adventure.
-        </p>
+{
+Footer
+.filter(Footer => Footer.id === 1)
+.map(Footer => (
+  <h2 key={Footer.id} className="title-footer"> {Footer.Title}</h2>
+))
+}
+{
+Footer
+.filter(Footer => Footer.id === 1)
+.map(Footer => (
+  <p key={Footer.id} className="description"> {Footer.Description}</p>
+))
+}
 
         <div className="stats">
           <div>
-            <h3>500+</h3>
-            <p>Stations</p>
+{
+Footer
+.filter(Footer => Footer.id === 1)
+.map(Footer => (
+ <h3 key={Footer.id}> {Footer.Numbers}</h3>))
+}
+{
+Footer
+.filter(Footer => Footer.id === 1)
+.map(Footer => (
+ <p key={Footer.id}> {Footer.Text}</p>))
+}           
+
           </div>
 
           <div>
@@ -59,4 +100,4 @@ const footer = () => {
     </> );
 }
  
-export default footer ;
+export default Footer ;

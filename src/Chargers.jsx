@@ -96,15 +96,7 @@ const chargers = () => {
       <Link to="/Chargerdetail">
       <button className="btn13">View all chargers</button>
       </Link>
-      {/* Bottom Section
-      <div className="bottom13">
-        <div className="overlay13">
-          <p className="bottomText13">
-            Electric vehicle (EV) charger types are classified by speed and connector,
-            including Level 1, Level 2, and DC Fast Charging.
-          </p>
-        </div>
-      </div> */}
+
 
 <Footer />
 

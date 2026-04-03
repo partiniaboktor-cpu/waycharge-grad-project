@@ -3,8 +3,10 @@ import MainTitle from '../Components/MainTitle';
 import './Howitworks.css'
 import video from '../Assets/Videos/video.png'
 import Footer from '../Components/Footer.jsx'
+
 const howitworks = () => {
 
+  
     return ( <>
     
     <Nav />
