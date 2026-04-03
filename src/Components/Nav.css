@@ -1,136 +1,86 @@
-.logo{
-    width: 100%;
-    cursor: pointer;
+/* Nav container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: relative;
+  /* width: 100%; */
+}
 
+/* Logo */
+.logo {
+  width: 120px;
+  cursor: pointer;
+  transition: width 0.2s ease-in;
 }
-.logo:hover{
-    width: 120%;
-    transition: ease-in 0.2s;
+.logo:hover { width: 140px; }
+
+/* Menu links */
+.menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
 }
-.nav{
-    display: flex;
-    justify-content: center;
+
+/* Your existing menu hover styles */
+.menu1, .menus2, .menus3, .menus4, .menus5, .menus6, .menus7, .menus8 {
+  color: var(--Main-text-color);
+  font-size: 18px;
+  text-shadow: 2px 2px 5px rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s ease-in, font-size 0.2s ease-in;
+}
+.menu1:hover, .menus2:hover, .menus3:hover, .menus4:hover,
+.menus5:hover, .menus6:hover, .menus7:hover, .menus8:hover {
+  color: var(--primary-green);
+  font-size: 20px;
+}
+
+/* Language icon */
+.language { cursor: pointer; width: 30px; }
+
+/* Burger icon */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1001;
+}
+.burger span {
+  height: 3px;
+  background: var(--Main-text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Responsive: full-width mobile menu */
+@media (max-width: 900px) {
+  .burger { display: flex; }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* full width */
+    height: 100vh; /* full height of viewport */
+    flex-direction: column;
+    justify-content: center; /* center vertically */
     align-items: center;
-    align-content: center;
-    flex-direction: row;
-    gap: 15%;
-    width: 100;
-    padding-top: 3%;
- 
-}
-.menu{
-      display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: row;
-    gap: 24px;
-    color: var(--Main-text-color);
-    cursor: pointer;
-}
-.language{
-    cursor: pointer;
-    width: 3%;
-}
-.menu1{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
+    background: #000000; /* dark overlay */
+    gap: 30px;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+  }
 
-}
-.menu1:hover{
-    color: var(--primary-green);
-    font-size: 20px;
-    transition: ease-in 0.2s;
-
-}
-.menus2{
-    color: var(--Main-text-color);
-    font-size: 18px;
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-text-decoration: none;
-}
-.menus2:hover{
-    color: var(--primary-green);
-      font-size: 20px;
-    transition: ease-in 0.2s;
-
-}
-.menus3{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-
-}
-.menus3:hover{
-    color: var(--primary-green);
-    font-size: 20px;
-    transition: ease-in 0.2s;
-}
-.menus4{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-
-
-}
-.menus4:hover{
-    color: var(--primary-green);
-     font-size: 20px;
-    transition: ease-in 0.2s;
-}
-.menus5{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-
-
-}
-.menus5:hover{
-    color: var(--primary-green);
-    font-size: 20px;
-    transition: ease-in 0.2s;
-}
-.menus6{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-
-
-}
-.menus6:hover{
-    color: var(--primary-green);
-    font-size: 20px;
-    transition: ease-in 0.2s;
-}
-.menus7{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-
-
-}
-.menus7:hover{
-    color: var(--primary-green);
-    font-size: 20px;
-    transition: ease-in 0.2s;
-}
-.menus8{
-    color: var(--Main-text-color);
-    font-size: 18px;
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-
-
-}
-.menus8:hover{
-    color: var(--primary-green);
-    font-size: 20px;
-    transition: ease-in 0.2s;
+  .menu.menu-open {
+    transform: translateY(0);
+  }
 }

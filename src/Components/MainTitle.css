@@ -12,3 +12,47 @@
    align-content: center;
    padding-top: 3%;
 }
+/* Title */
+.title4 {
+  font-size: 80px;
+  font-weight: bold;
+  color: var(--primary-green);
+  letter-spacing: 5px;
+  animation: fadeSlide4 1.5s ease forwards;
+  font-family: var(--main-font);
+  -webkit-text-stroke: 2px #8bc34a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Use align-items instead of align-content for single-line centering */
+  padding-top: 3%;
+  text-align: center;
+}
+
+/* Fade and slide animation */
+@keyframes fadeSlide4 {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .title4 {
+    font-size: 60px;
+    padding-top: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title4 {
+    font-size: 40px;
+    padding-top: 1%;
+    -webkit-text-stroke: 1px #8bc34a;
+  }
+}
