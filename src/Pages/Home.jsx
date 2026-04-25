@@ -78,7 +78,7 @@ if (loading) {
                 shadow-intensity="2"
                 exposure="1.5"
                 camera-orbit="45deg 75deg 8m"
-                style={{ width: "100%", height: "100%", background: "transparent", pointerEvents: "none" }}
+                style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
             ></model-viewer>
         </div>
 
@@ -105,7 +105,7 @@ if (loading) {
                 min-camera-orbit="-30deg 77deg auto" 
                 max-camera-orbit="77deg 77deg auto"
                 auto-rotate
-                style={{ width: "100%", height: "100%", background: "transparent", pointerEvents: "none" }}
+                style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
             >
                 <div className="progress-bar hide" slot="progress-bar">
                     <div className="update-bar"></div>
