@@ -63,49 +63,61 @@ if (loading) {
     return ( <>
     <Nav />
 
-    <div className='hero'>
-        <div className='left-side-hero'>
-{
-Hero
-.filter(Hero => Hero.id === 1)
-.map(Hero => (
-        <h1 key={Hero.id}  className='title-hero'>{Hero.Title}</h1>
-))
-}
-{
-Hero
-.filter(Hero => Hero.id === 1)
-.map(Hero => (
-      <p  key={Hero.id}  className='text-hero-left'>{Hero.Description}</p>
-      ))
-}
-{
-Hero
-.filter(Hero => Hero.id === 1)
-.map(Hero => (
-        <button key={Hero.id} className='name-proj'>{Hero.button}</button>
-      ))
-}  
+    <div className='hero-container'>
+        {/* Background Creative Elements */}
+        <div className="hero-bg-glow glow-left"></div>
+        <div className="hero-bg-glow glow-right"></div>
+
+        <div className="hero-model car-3d">
+            <model-viewer
+                src="/3dcar.glb"
+                alt="3D Car"
+                auto-rotate
+                camera-controls
+                disable-zoom
+                shadow-intensity="2"
+                exposure="1.5"
+                camera-orbit="45deg 75deg 8m"
+                style={{ width: "100%", height: "100%", background: "transparent", pointerEvents: "none" }}
+            ></model-viewer>
         </div>
 
-{/* 3d car model */}
- <div style={{ width: "100%", height: "500px" }}>
-      <model-viewer
-        src="/3dcar.glb"
-        alt="3D Car"
-        auto-rotate
-        camera-controls
-        ar
-        shadow-intensity="1"
-        exposure="0.8"
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "transparent"
-        }}
-      ></model-viewer>
-    </div>
+        <div className='hero-text-overlay'>
+            <h1 className='hero-main-title'>
+                <span className="charge-the">CHARGE THE</span>
+                <span className="way-forward">WAY FORWARD</span>
+            </h1>
+            <div className="hero-button-wrapper">
+                <button className='waycharge-btn'>WayCharge</button>
+            </div>
+        </div>
 
+        <div className="hero-model charger-3d">
+            <model-viewer 
+                src="/charger.glb" 
+                ar 
+                ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                disable-zoom
+                tone-mapping="neutral" 
+                shadow-intensity="2" 
+                exposure="1.2"
+                min-camera-orbit="-30deg 77deg auto" 
+                max-camera-orbit="77deg 77deg auto"
+                auto-rotate
+                style={{ width: "100%", height: "100%", background: "transparent", pointerEvents: "none" }}
+            >
+                <div className="progress-bar hide" slot="progress-bar">
+                    <div className="update-bar"></div>
+                </div>
+                <button slot="ar-button" id="ar-button">
+                    View in your space
+                </button>
+                <div id="ar-prompt">
+                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="hand icon" />
+                </div>
+            </model-viewer>
+        </div>
     </div>
 
 <Title 

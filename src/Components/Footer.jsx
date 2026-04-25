@@ -36,6 +36,7 @@ Footer
   <h2 key={Footer.id} className="title-footer"> {Footer.Title}</h2>
 ))
 }
+{/* <img className="title-footer" src={logo} alt="logo" /> */}
 {
 Footer
 .filter(Footer => Footer.id === 1)

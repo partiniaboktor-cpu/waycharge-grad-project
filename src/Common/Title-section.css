@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    /* margin-top: 10%; */
 }
 .header-title2{
     color: var(--Main-text-color);
@@ -47,7 +47,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 /* Main Header */
