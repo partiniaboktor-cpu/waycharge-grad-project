@@ -40,7 +40,7 @@ Footer
 ))
 }
 
-        <div className="stats">
+{/* <div className="stats">
           <div>
 {
 Footer
@@ -88,7 +88,7 @@ Footer
 }           
 
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="rights-section">

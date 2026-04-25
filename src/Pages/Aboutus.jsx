@@ -75,21 +75,35 @@ About
 
     {/* 3d model */}
 
-     <div style={{ width: "100%", height: "500px" }}>
-      <model-viewer
-        src="/station.glb"
-        alt="3D Car"
-        auto-rotate
-        camera-controls
-        ar
-        shadow-intensity="1"
-        exposure="0.8"
+     <div className="about-3d-container">
+      <model-viewer 
+        src="fast_charging_station.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        disable-zoom
+        tone-mapping="neutral" 
+        poster="poster.webp" 
+        shadow-intensity="1" 
+        camera-orbit="0deg 75deg 4.5m"
+        min-field-of-view="23.59deg"
         style={{
           width: "100%",
           height: "100%",
           background: "transparent",
+          touchAction: "pan-y"
         }}
-      ></model-viewer>
+      >
+        <div className="progress-bar hide" slot="progress-bar">
+            <div className="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">
+            View in your space
+        </button>
+        <div id="ar-prompt">
+            <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="hand icon" />
+        </div>
+      </model-viewer>
     </div>
     
 <Title 
@@ -129,95 +143,49 @@ About
         <div className="slider-dot3 right3"></div>
       </div>
 
-      {/* Card 1 */}
-      <div className="card-wrapper3 card-03">
-        <div className="string3"></div>
-        <div className="pin3"></div>
-        <div className="card3">
-          <div className="icon3">📍</div>
-{
-About
-.filter(About => About.id === 5)
-.map(About => (
-  <h2 key={About.id} className='Find3'> {About.Title}</h2>
-))
-} 
-{
-About
-.filter(About => About.id === 5)
-.map(About => (
-  <h2 key={About.id} className='Find33'> {About.Description}</h2>
-))
-} 
+      <div className="cards-flex-wrapper">
+        {/* Card 1 */}
+        <div className="card-wrapper3">
+          <div className="string3"></div>
+          <div className="pin3"></div>
+          <div className="card3">
+            <div className="icon3">📍</div>
+            {About.filter(a => a.id === 5).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
+            {About.filter(a => a.id === 5).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+          </div>
         </div>
-      </div>
 
-      {/* Card 2 */}
-      <div className="card-wrapper3 card-13">
-        <div className="string3"></div>
-        <div className="pin3"></div>
-        <div className="card3">
-          <div className="icon3">📅</div>
-{
-About
-.filter(About => About.id === 6)
-.map(About => (
-  <h2 key={About.id} className='Find3'> {About.Title}</h2>
-))
-} 
-{
-About
-.filter(About => About.id === 6)
-.map(About => (
-  <h2 key={About.id} className='Find33'> {About.Description}</h2>
-))
-} 
+        {/* Card 2 */}
+        <div className="card-wrapper3">
+          <div className="string3"></div>
+          <div className="pin3"></div>
+          <div className="card3">
+            <div className="icon3">📅</div>
+            {About.filter(a => a.id === 6).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
+            {About.filter(a => a.id === 6).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+          </div>
         </div>
-      </div>
 
-      {/* Card 3 */}
-      <div className="card-wrapper3 card-23">
-        <div className="string3"></div>
-        <div className="pin3"></div>
-        <div className="card3">
-          <div className="icon3">💳</div>
-{
-About
-.filter(About => About.id === 9)
-.map(About => (
-  <h2 key={About.id} className='Find3'> {About.Title}</h2>
-))
-} 
-{
-About
-.filter(About => About.id === 9)
-.map(About => (
-  <h2 key={About.id} className='Find33'> {About.Description}</h2>
-))
-} 
+        {/* Card 3 */}
+        <div className="card-wrapper3">
+          <div className="string3"></div>
+          <div className="pin3"></div>
+          <div className="card3">
+            <div className="icon3">💳</div>
+            {About.filter(a => a.id === 9).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
+            {About.filter(a => a.id === 9).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+          </div>
         </div>
-      </div>
 
-      {/* Card 4 */}
-      <div className="card-wrapper3 card-33">
-        <div className="string3"></div>
-        <div className="pin3"></div>
-        <div className="card3">
-          <div className="icon3">🚗</div>
-{
-About
-.filter(About => About.id === 10)
-.map(About => (
-  <h2 key={About.id} className='Find3'> {About.Title}</h2>
-))
-} 
-{
-About
-.filter(About => About.id === 10)
-.map(About => (
-  <h2 key={About.id} className='Find33'> {About.Description}</h2>
-))
-} 
+        {/* Card 4 */}
+        <div className="card-wrapper3">
+          <div className="string3"></div>
+          <div className="pin3"></div>
+          <div className="card3">
+            <div className="icon3">🚗</div>
+            {About.filter(a => a.id === 10).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
+            {About.filter(a => a.id === 10).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+          </div>
         </div>
       </div>
 

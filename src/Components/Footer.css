@@ -13,7 +13,6 @@ border: 1px solid rgba(255, 255, 255, 0.1);
   width: 180px;
   height: auto;
   margin-bottom: 20px;
-  margin-left: 5%;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -28,15 +27,20 @@ border: 1px solid rgba(255, 255, 255, 0.1);
   font-size: var(--title-font);
 }
 
-.description{
-  color:#9a9a9a;
-  max-width:350px;
+.description {
+  max-width: 600px;
+  color: #ffffff;
+  margin-bottom: 80px;
+  line-height: 40px;
+  /* padding-left: 6%; */
+  font-family: var(--base-font);
+
 }
 
 .stats{
   display:flex;
   gap:40px;
-  margin-top:30px;
+  /* margin-top:30px; */
 }
 
 .stats h3{

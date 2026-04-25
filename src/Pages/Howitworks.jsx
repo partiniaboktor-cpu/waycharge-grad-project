@@ -17,7 +17,7 @@ const howitworks = () => {
 
 <section className="how-section">
 
-      <p className="description">
+      <p className="descriptions">
         WayCharge works in three simple steps: request, connect, and charge.
         Through the app, you choose your location and request a portable
         charger.
