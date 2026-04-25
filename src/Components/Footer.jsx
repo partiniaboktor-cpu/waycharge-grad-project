@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Footer.css';
+import wholoelogo from '../Assets/Img/wholologo.svg';
 import { supabase } from "../Supabase";
 
 const Footer = () => {
@@ -29,13 +30,7 @@ useEffect(() => {
   <div className="footer-container">
 
       <div className="lefts-section">
-{
-Footer
-.filter(Footer => Footer.id === 1)
-.map(Footer => (
-  <h2 key={Footer.id} className="title-footer"> {Footer.Title}</h2>
-))
-}
+<img className="footer-logo" src={wholoelogo} alt="WayCharge Logo" />
 {/* <img className="title-footer" src={logo} alt="logo" /> */}
 {
 Footer

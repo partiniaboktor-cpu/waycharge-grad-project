@@ -144,7 +144,7 @@ if (loading) {
       {/* LEFT SIDE */}
       <div className="steps-lefts">
 
-        <div className="stepss">
+        <div className="stepss step-anim-1">
 {
 works
 .filter(works => works.id === 1)
@@ -170,7 +170,7 @@ works
           </div>
         </div>
 
-        <div className="stepss">
+        <div className="stepss step-anim-2">
 {
 works
 .filter(works => works.id === 2)
@@ -200,19 +200,22 @@ works
 
 
       {/* CENTER IMAGE */}
-     <div style={{ width: "100%", height: "500px" }}>
+     <div className="charger-3d-container">
       <model-viewer
         src="/charger.glb"
-        alt="3D Car"
+        alt="3D Charger"
         auto-rotate
         camera-controls
+        disable-zoom
         ar
-        shadow-intensity="1"
-        exposure="0.8"
+        shadow-intensity="2"
+        exposure="1.2"
+        camera-orbit="0deg 75deg 6m"
         style={{
           width: "100%",
           height: "100%",
-          background: "transparent"
+          background: "transparent",
+          touchAction: "pan-y"
         }}
       ></model-viewer>
     </div>
@@ -221,7 +224,7 @@ works
       {/* RIGHT SIDE */}
       <div className="steps-rights">
 
-        <div className="stepss">
+        <div className="stepss step-anim-3">
 {
 works
 .filter(works => works.id === 3)
@@ -247,7 +250,7 @@ works
           </div>
         </div>
 
-        <div className="stepss">
+        <div className="stepss step-anim-4">
 {
 works
 .filter(works => works.id === 4)

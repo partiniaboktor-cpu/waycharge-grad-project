@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../Components/DownloadSection.css';
 import apple from '../Assets/Icons/apple.svg'
 import play from '../Assets/Icons/play.svg'
-import iphone from '../Assets/Img/iphone.png'
+import iphone from '../Assets/Img/app.png'
 import { supabase } from "../Supabase";
 
 const Appsec = () => {
@@ -30,58 +30,36 @@ useEffect(() => {
 
     return ( <>
     
-<section className="app">
-      <div className="hero-content">
-        
+<section className="download-app-section">
+      <div className="download-container">
+        <h2 className="download-title">
+          NOW YOU CAN DOWNLOAD OUR APP <span className="highlight-green">"WAYCHARGE"</span> TO BE ABLE TO:
+        </h2>
 
-{
-Application
-.filter(app => app.id === 1)
-.map(app => (
-      <h1 key={app.id} className="hero-title">
-         {app.Title}
-        </h1>
-))
-}
-    
-{
-Application
-.filter(app => app.id === 1)
-.map(app => (
-         <p key={app.id} className="hero-text">
-          {app.Description}
-        </p>
-))
-}
-    
-
-        <div className="buttons">
-{
-Application
-.filter(app => app.id === 1)
-.map(app => (
-     <button key={app.id} className="btn apple">
-            {app.Download}
-          </button>
-))
-}
-          
-{
-Application
-.filter(app => app.id === 2)
-.map(app => (
-     <button key={app.id} className="btn apple">
-            {app.Download}
-          </button>
-))
-}
-    
+        <div className="store-buttons">
+          <a href="#" className="store-btn">
+            <img src={apple} alt="Download on the App store" />
+            <div className="btn-text">
+              <span className="small">Download on the</span>
+              <span className="large">App store</span>
+            </div>
+          </a>
+          <a href="#" className="store-btn">
+            <img src={play} alt="Get it on Google play" />
+            <div className="btn-text">
+              <span className="small">Get it on</span>
+              <span className="large">Google play</span>
+            </div>
+          </a>
         </div>
 
-      </div>
+        <p className="download-slogan">
+          Take Charge of the Road. Your EV journey just got smarter.
+        </p>
 
-      <div className="hero-image">
-        <img src={iphone} alt="app preview" />
+        <div className="app-preview-container">
+          <img src={iphone} alt="WayCharge App Preview" className="app-preview-img" />
+        </div>
       </div>
     </section>
     
