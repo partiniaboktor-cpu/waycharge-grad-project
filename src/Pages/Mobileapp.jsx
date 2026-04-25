@@ -155,7 +155,7 @@ Application
 <DownloadSection />
     
 
-<div className='sec2'>
+{/* <div className='sec2'>
     {
 Application
 .filter(app => app.id === 2)
@@ -175,7 +175,7 @@ Application
 ))
 } 
    
-</div>
+</div> */}
 
 <Footer />
 
