@@ -39,6 +39,7 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
+      <div className="global-bg-texture"></div>
       <AppContent />
     </BrowserRouter>
   );
