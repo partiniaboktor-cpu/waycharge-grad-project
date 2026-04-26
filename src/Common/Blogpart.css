@@ -1,69 +1,37 @@
-/* The Container */
-.gallery {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 10px;      /* Space between images */
-  max-width: 1000px;
-  margin: auto;
-  margin-top: 5%;
-}
-
-/* Each Box */
-.item {
+/* The Scroll Section Wrapper */
+.blog-scroll-section {
   position: relative;
-  flex: 1 1 calc(25% - 10px); /* Default: 4 items per row */
-  height: 200px;
-  border-radius: 8px;
-  overflow: hidden;
+  height: 300vh; /* Enough space to scroll while sticky */
 }
 
-/* Image behavior */
-.item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Keeps the car from looking squished */
-}
-
-/* Specific Sizes */
-.large {
-  flex: 1 1 calc(50% - 10px); /* Takes up half the row */
-  height: 410px;              /* Double height */
-}
-
-.medium {
-  flex: 1 1 calc(50% - 10px);
-}
-
-/* The Date Tag */
-.date {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 4px;
+/* The Sticky Viewport */
+.blog-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Hide the scrollbar and overflowing items */
 }
 
 /* The Container */
 .gallery {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 10px;       /* Space between images */
-  max-width: 1000px;
-  margin: auto;
-  margin-top: 5%;
+  flex-wrap: nowrap; /* Keep them all in a single row */
+  gap: 20px;      /* Space between images */
+  padding-left: 5vw; /* Initial offset so it's not strictly on the edge */
+  padding-right: 5vw; /* Extra padding at the end so it stops fully visible */
 }
 
 /* Each Box */
 .item {
   position: relative;
-  flex: 1 1 calc(25% - 10px); /* Default: 4 items per row */
-  height: 200px;
-  border-radius: 8px;
+  flex: 0 0 450px; /* Fixed width for each card so they don't shrink */
+  height: 350px;
+  border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .item:hover {
@@ -74,48 +42,39 @@
 .item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Keeps the car from looking squished */
-}
-
-/* Specific Sizes */
-.large {
-  flex: 1 1 calc(50% - 10px); /* Takes up half the row */
-  height: 410px;              /* Double height */
-}
-
-.medium {
-  flex: 1 1 calc(50% - 10px);
+  object-fit: cover;
 }
 
 /* The Date Tag */
 .date {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 500;
 }
 
 /* Responsive Breakpoints */
 
-/* Tablets: 2 columns */
+/* Tablets */
 @media (max-width: 900px) {
-  .item, .medium {
-    flex: 1 1 calc(50% - 10px);
-  }
-  .large {
-    flex: 1 1 100%;
-    height: 300px; /* Adjust height for smaller screens */
+  .item {
+    flex: 0 0 350px;
+    height: 280px;
   }
 }
 
-/* Mobile: 1 column */
+/* Mobile */
 @media (max-width: 600px) {
-  .item, .medium, .large {
-    flex: 1 1 100%;
-    height: 200px; /* Standard height for mobile */
+  .item {
+    flex: 0 0 280px;
+    height: 220px;
+  }
+  .blog-scroll-section {
+    height: 200vh; /* Shorter scroll height for mobile */
   }
 }
