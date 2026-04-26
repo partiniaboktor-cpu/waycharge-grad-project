@@ -20,6 +20,8 @@ import Team from './Pages/Team';
 import Chargers from './Chargers';
 import Chargerdetail from './Pages/Chargerdetail';
 import Chargertype from './Pages/Chargertype';
+import ErrorPage from './Pages/ErrorPage';
+import ErrorBoundary from './Components/ErrorBoundary';
 
 function AppRoutes() {
 
@@ -61,6 +63,7 @@ function AppRoutes() {
       <Route path="/Chargers" element={<Chargers />} />
       <Route path="/Chargerdetail" element={<Chargerdetail />} />
       <Route path="/Chargertype" element={<Chargertype />} />
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
@@ -68,7 +71,9 @@ function AppRoutes() {
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <ErrorBoundary>
+        <AppRoutes />
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }
