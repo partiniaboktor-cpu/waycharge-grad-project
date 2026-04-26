@@ -8,18 +8,31 @@ import { supabase } from "../Supabase";
 const Nav = () => {
   const [NavData, setNavData] = useState([]);
   const [isOpen, setIsOpen] = useState(false); // burger menu state
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     async function getNavAPI() {
       const { data, error } = await supabase.from("Home").select("*");
       if (error) console.log(error);
       else setNavData(data);
     }
     getNavAPI();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className='nav-container'>
+    <nav className={`nav-container ${scrolled ? 'scrolled' : ''}`}>
       <Link to="/">
         <img className='logo' src={wholoelogo} alt="logo" />
       </Link>

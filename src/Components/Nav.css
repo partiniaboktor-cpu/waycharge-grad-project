@@ -1,20 +1,40 @@
-/* Nav container */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  position: relative;
-  /* width: 100%; */
+  padding: 30px 50px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 3%;
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Logo */
+.nav-container.scrolled {
+  padding: 15px 50px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
 .logo {
   width: 120px;
   cursor: pointer;
-  transition: width 0.2s ease-in;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.logo:hover { width: 140px; }
+
+.scrolled .logo {
+  width: 100px;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
 
 /* Menu links */
 .menu {
@@ -23,18 +43,37 @@
   align-items: center;
 }
 
-/* Your existing menu hover styles */
 .menu1, .menus2, .menus3, .menus4, .menus5, .menus6, .menus7, .menus8 {
   color: var(--Main-text-color);
-  font-size: 18px;
-  text-shadow: 2px 2px 5px rgba(255,255,255,0.3);
+  font-size: 16px;
   text-decoration: none;
-  transition: color 0.2s ease-in, font-size 0.2s ease-in;
+  position: relative;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding: 5px 0;
 }
+
+.menu1::after, .menus2::after, .menus3::after, .menus4::after,
+.menus5::after, .menus6::after, .menus7::after, .menus8::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-green);
+  transition: width 0.3s ease;
+}
+
 .menu1:hover, .menus2:hover, .menus3:hover, .menus4:hover,
 .menus5:hover, .menus6:hover, .menus7:hover, .menus8:hover {
   color: var(--primary-green);
-  font-size: 20px;
+}
+
+.menu1:hover::after, .menus2:hover::after, .menus3:hover::after, .menus4:hover::after,
+.menus5:hover::after, .menus6:hover::after, .menus7:hover::after, .menus8:hover::after {
+  width: 100%;
 }
 
 /* Language icon */
