@@ -9,186 +9,77 @@ import Footer from '../Components/Footer.jsx'
 import { supabase } from "../Supabase";
 
 const Reviews = () => {
+  const [lang, setLang] = useState('en');
+  const [reviewsData, setReviewsData] = useState([]);
 
-const [Reviews, setReviews] = useState([]);
-useEffect(() => {
+  const images = {
+    1: sarah,
+    2: diana,
+    3: alex
+  };
 
-  async function getReviewsAPI() {
-    const { data, error } = await supabase
-      .from("Reviews")
-      .select("*");
+  useEffect(() => {
+    async function getReviewsAPI() {
+      const { data, error } = await supabase
+        .from("testimonials")
+        .select("*")
+        .order("id", { ascending: true });
 
-    if (error) {
-      console.log(error);
-    } else {
-      setReviews(data);
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        setReviewsData(data);
+      }
     }
-  }
 
-  getReviewsAPI();
+    getReviewsAPI();
+  }, []);
 
-}, []);
+  const firstRow = reviewsData.find(r => r.id === 1) || {};
 
-    return ( <>
-    
-    <Nav />
+  return ( 
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
 
-<div className="testimonialsContainer9">
+      <div className="testimonialsContainer9" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        <MainTitle 
+          t1={lang === 'en' ? (firstRow.section_title_en || 'Testimonials') : (firstRow.section_title_ar || 'آراء العملاء')}
+        />
 
-<MainTitle 
-t1='Testimonials'
-/>
+        <h2 className="testimonialsTitle9">
+          {lang === 'en' ? (firstRow.subtitle_en || 'What our customers are saying') : (firstRow.subtitle_ar || 'ماذا يقول عملاؤنا')}
+        </h2>
 
-      <h2 className="testimonialsTitle9">What our customers are saying</h2>
-
-      <div className="testimonialsGrid9">
-
-        {/* Card 1 */}
-        <div className="testimonialCard9">
-{
-Reviews
-.filter(Reviews => Reviews.id === 1)
-.map(Reviews => (
-     <img
-            key={Reviews.id}
-            src= {Reviews.image}
-            className="testimonialImage9"
-            alt="customer"
-          />))
-}  
-{
-Reviews
-.filter(Reviews => Reviews.id === 1)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialName9"> {Reviews.Name}</h2>
-))
-}
-{
-Reviews
-.filter(Reviews => Reviews.id === 1)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialRole9"> {Reviews.job_description}</h2>
-))
-}
-   {
-Reviews
-.filter(Reviews => Reviews.id === 1)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialText9"> {Reviews.review_en}</h2>
-))
-}    
-
-      
+        <div className="testimonialsGrid9">
+          {reviewsData.map(review => (
+            <div key={review.id} className="testimonialCard9">
+              <img
+                src={images[review.id]}
+                className="testimonialImage9"
+                alt="customer"
+              />
+              <h2 className="testimonialName9">{lang === 'en' ? review.name_en : review.name_ar}</h2>
+              <h2 className="testimonialRole9">{lang === 'en' ? review.role_en : review.role_ar}</h2>
+              <h2 className="testimonialText9">{lang === 'en' ? review.review_en : review.review_ar}</h2>
+            </div>
+          ))}
         </div>
 
-        {/* Card 2 */}
-        <div className="testimonialCard9">
-       {
-Reviews
-.filter(Reviews => Reviews.id === 2)
-.map(Reviews => (
-     <img
-            key={Reviews.id}
-            src= {Reviews.image}
-            className="testimonialImage9"
-            alt="customer"
-          />))
-}  
-
-{
-Reviews
-.filter(Reviews => Reviews.id === 2)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialName9"> {Reviews.Name}</h2>
-))
-}
-{
-Reviews
-.filter(Reviews => Reviews.id === 2)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialRole9"> {Reviews.job_description}</h2>
-))
-}
-{
-Reviews
-.filter(Reviews => Reviews.id === 2)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialText9"> {Reviews.review_en}</h2>
-))
-}   
+        {/* Quote Section */}
+        <div className="quoteSection9">
+          <div className="quoteIcon9">❝❝</div>
+          <h2 className="quoteTitle9">
+            {lang === 'en' ? firstRow.highlight_title_en : firstRow.highlight_title_ar}
+          </h2>
+          <h2 className="quoteText9">
+            {lang === 'en' ? firstRow.highlight_text_en : firstRow.highlight_text_ar}
+          </h2>
         </div>
-
-        {/* Card 3 */}
-        <div className="testimonialCard9">
-{
-Reviews
-.filter(Reviews => Reviews.id === 3)
-.map(Reviews => (
-     <img
-            key={Reviews.id}
-            src= {Reviews.image}
-            className="testimonialImage9"
-            alt="customer"
-          />))
-}  
-     
-{
-Reviews
-.filter(Reviews => Reviews.id === 3)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialName9"> {Reviews.Name}</h2>
-))
-}
-{
-Reviews
-.filter(Reviews => Reviews.id === 3)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialRole9"> {Reviews.job_description}</h2>
-))
-}
-   {
-Reviews
-.filter(Reviews => Reviews.id === 3)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="testimonialText9"> {Reviews.review_en}</h2>
-))
-}  
-        </div>
-
       </div>
-
-
-      {/* Quote Section */}
-
-      <div className="quoteSection9">
-
-        <div className="quoteIcon9">❝❝</div>
-
-{
-Reviews
-.filter(Reviews => Reviews.id === 4)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="quoteTitle9"> {Reviews.job_description}</h2>
-))
-}    
-
       
-{
-Reviews
-.filter(Reviews => Reviews.id === 4)
-.map(Reviews => (
-  <h2 key={Reviews.id} className="quoteText9"> {Reviews.review_en}</h2>
-))
-}  
-      
-
-      </div>
-
-    </div>
-<Footer />
-    
-    </> );
+      <Footer />
+    </> 
+  );
 }
  
 export default Reviews;
