@@ -97,7 +97,7 @@ const Services = () => {
         ))}
       </div>
 
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

@@ -52,7 +52,7 @@ const Blog = () => {
         </div>
       ))}
 
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

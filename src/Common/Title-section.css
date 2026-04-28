@@ -54,7 +54,7 @@
 .header-title {
     color: var(--primary-light-green);
     font-size: 3rem; /* 300% */
-    margin-top: 10%;
+    margin-top: 6%;
     display: flex;
     justify-content: center;
     align-items: center;

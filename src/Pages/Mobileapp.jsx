@@ -3,7 +3,7 @@ import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
 import '../Supabase.jsx'
 import './Mobileapp.css'
-import mobileapp from '../Assets/Img/mobileapp.svg'
+import mobileapp from '../Assets/Img/download_new.png'
 import DownloadSection from '../Components/DownloadSection.jsx'
 import Footer from '../Components/Footer.jsx';
 import MainTitle from '../Components/MainTitle.jsx';
@@ -46,7 +46,7 @@ const Mobileapp = () => {
 
           {/* Phone */}
           <div className="phone4">
-            <img src={mobileapp} alt="phone" />
+            <img src={mobileapp} alt="phone" style={{ width: '100%', height: 'auto', maxWidth: '600px' }} />
           </div>
 
           {/* Right Buttons */}
@@ -83,7 +83,7 @@ const Mobileapp = () => {
 
       <DownloadSection lang={lang} />
       
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

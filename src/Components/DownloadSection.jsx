@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import '../Components/DownloadSection.css';
 import apple from '../Assets/Icons/apple.svg'
 import play from '../Assets/Icons/play.svg'
-import iphone from '../Assets/Img/app.png'
+import download_new from '../Assets/Img/download_new.png'
 import { supabase } from "../Supabase";
+import { motion } from "framer-motion";
 
 const Appsec = ({ lang = 'en' }) => {
   const [appContent, setAppContent] = useState([]);
@@ -26,7 +27,19 @@ const Appsec = ({ lang = 'en' }) => {
 
   return (
     <>
-      <section className="download-app-section" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+      <motion.section 
+        className="download-app-section" 
+        dir={lang === 'ar' ? 'rtl' : 'ltr'}
+        initial={{ x: 300, opacity: 0, rotate: 10 }}
+        whileInView={{ x: 0, opacity: 1, rotate: 0 }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 100, 
+          damping: 20, 
+          duration: 0.8 
+        }}
+        viewport={{ once: true }}
+      >
         <div className="download-container">
           {appContent.filter(app => app.id === 1).map(app => (
             <h2 key={app.id} className="download-title">
@@ -63,10 +76,10 @@ const Appsec = ({ lang = 'en' }) => {
           ))}
 
           <div className="app-preview-container">
-            <img src={iphone} alt="WayCharge App Preview" className="app-preview-img" />
+            <img src={download_new} alt="WayCharge App Preview" className="app-preview-img" />
           </div>
         </div>
-      </section>
+      </motion.section>
     </> 
   );
 }

@@ -84,7 +84,7 @@ useEffect(() => {
       </div>
     </div>
 
-<Footer />
+<Footer lang={lang} />
 
     </> );
 }

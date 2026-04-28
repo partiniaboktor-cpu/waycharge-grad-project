@@ -14,7 +14,6 @@ import Help from './Pages/Help';
 import Reviews from './Pages/Reviews';
 import Services from './Pages/Services';
 import Blog from './Pages/Blog';
-import Blogdetail from './Pages/Blogdetail';
 import Bundles from './Pages/Bundles';
 import Team from './Pages/Team';
 import Chargers from './Chargers';
@@ -22,6 +21,7 @@ import Chargerdetail from './Pages/Chargerdetail';
 import Chargertype from './Pages/Chargertype';
 import ErrorPage from './Pages/ErrorPage';
 import ErrorBoundary from './Components/ErrorBoundary';
+import ElectricEffects from "./Components/ElectricEffects";
 
 function AppRoutes() {
 
@@ -57,7 +57,6 @@ function AppRoutes() {
       <Route path="/Reviews" element={<Reviews />} />
       <Route path="/Services" element={<Services />} />
       <Route path="/Blog" element={<Blog />} />
-      <Route path="/Blogdetail" element={<Blogdetail />} />
       <Route path="/Bundles" element={<Bundles />} />
       <Route path="/Team" element={<Team />} />
       <Route path="/Chargers" element={<Chargers />} />
@@ -71,6 +70,7 @@ function AppRoutes() {
 function App() {
   return (
     <BrowserRouter>
+      <ElectricEffects />
       <ErrorBoundary>
         <AppRoutes />
       </ErrorBoundary>

@@ -3,160 +3,60 @@ import './Footer.css';
 import wholoelogo from '../Assets/Img/wholologo.svg';
 import { supabase } from "../Supabase";
 
-const Footer = () => {
+const Footer = ({ lang = 'en' }) => {
+  const [footerData, setFooterData] = useState([]);
 
-const [Footer, setFooter] = useState([]);
-useEffect(() => {
+  useEffect(() => {
+    async function getFooterAPI() {
+      const { data, error } = await supabase
+        .from("footer_content")
+        .select("*")
+        .order("id", { ascending: true });
 
-  async function getFooterAPI() {
-    const { data, error } = await supabase
-      .from("Footer")
-      .select("*");
-
-    if (error) {
-      console.log(error);
-    } else {
-      setFooter(data);
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        setFooterData(data);
+      }
     }
-  }
 
-  getFooterAPI();
+    getFooterAPI();
+  }, []);
 
-}, []);
+  const firstRow = footerData.find(f => f.id === 1) || {};
+  const navItems = footerData.filter(f => f.nav_item_en);
 
-    return ( <>
-    
-  <div className="footer-container">
-
+  return ( 
+    <div className="footer-container" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <div className="lefts-section">
-<img className="footer-logo" src={wholoelogo} alt="WayCharge Logo" />
-{/* <img className="title-footer" src={logo} alt="logo" /> */}
-{
-Footer
-.filter(Footer => Footer.id === 1)
-.map(Footer => (
-  <p key={Footer.id} className="description"> {Footer.Description}</p>
-))
-}
-
-{/* <div className="stats">
-          <div>
-{
-Footer
-.filter(Footer => Footer.id === 1)
-.map(Footer => (
- <h3 key={Footer.id}> {Footer.Numbers}</h3>))
-}
-{
-Footer
-.filter(Footer => Footer.id === 1)
-.map(Footer => (
- <p key={Footer.id}> {Footer.Text}</p>))
-}           
-
-          </div>
-
-          <div>
-{
-Footer
-.filter(Footer => Footer.id === 2)
-.map(Footer => (
- <h3 key={Footer.id}> {Footer.Numbers}</h3>))
-}
-{
-Footer
-.filter(Footer => Footer.id === 2)
-.map(Footer => (
- <p key={Footer.id}> {Footer.Text}</p>))
-}           
-
-          </div>
-
-          <div>
-{
-Footer
-.filter(Footer => Footer.id === 3)
-.map(Footer => (
- <h3 key={Footer.id}> {Footer.Numbers}</h3>))
-}
-{
-Footer
-.filter(Footer => Footer.id === 3)
-.map(Footer => (
- <p key={Footer.id}> {Footer.Text}</p>))
-}           
-
-          </div>
-        </div> */}
+        <img className="footer-logo" src={wholoelogo} alt="WayCharge Logo" />
+        <p className="description">
+          {lang === 'en' ? firstRow.description_en : firstRow.description_ar}
+        </p>
       </div>
 
       <div className="rights-section">
-{
-Footer
-.filter(Footer => Footer.id === 2)
-.map(Footer => (
-        <h3 key={Footer.id} className='Quick Navigation'>{Footer.Title}</h3>
-))
-}
+        <h3 className='Quick Navigation'>
+          {lang === 'en' ? firstRow.section_title_en : firstRow.section_title_ar}
+        </h3>
 
         <div className="nav-grid">
-{
-Footer
-.filter(Footer => Footer.id === 4)
-.map(Footer => (
-          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
-))
-}
-{
-Footer
-.filter(Footer => Footer.id === 5)
-.map(Footer => (
-          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
-))
-}
-{
-Footer
-.filter(Footer => Footer.id === 6)
-.map(Footer => (
-          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
-))
-}
-{
-Footer
-.filter(Footer => Footer.id === 7)
-.map(Footer => (
-          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
-))
-}
-{
-Footer
-.filter(Footer => Footer.id === 8)
-.map(Footer => (
-          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
-))
-}
-{
-Footer
-.filter(Footer => Footer.id === 9)
-.map(Footer => (
-          <div key={Footer.id} className="nav-box">{Footer.Text}</div>
-))
-}
-
+          {navItems.map(item => (
+            <div key={item.id} className="nav-box">
+              {lang === 'en' ? item.nav_item_en : item.nav_item_ar}
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="bottom-footer">
+        {/* Optional: Add extra links and copyright if needed in your CSS layout */}
+        <p style={{ marginTop: '20px', fontSize: '14px', color: '#888' }}>
+          {lang === 'en' ? firstRow.copyright_en : firstRow.copyright_ar}
+        </p>
       </div>
-
     </div>
-    
-    
-    
-    
-    
-    </> );
+  );
 }
  
-export default Footer ;
+export default Footer;

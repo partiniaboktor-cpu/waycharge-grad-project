@@ -23,65 +23,65 @@ const Blogpart = () => {
         <div className="blog-sticky-container">
           <motion.div style={{ x }} className="gallery">
             <div className="item">
-                <Link to="/Blogdetail">
+
               <img src={blog1} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 06, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+
               <img src={blog2} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 06, 2022</span>
             </div>
 
             <div className="item">
-               <Link to="/Blogdetail">
+
               <img src={blog3} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 06, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+
               <img src={blog4} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 06, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+
                   <img src={blog5} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 06, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+
               <img src={blog6} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 06, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+    
               <img src={blog1} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 07, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+
               <img src={blog2} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 08, 2022</span>
             </div>
 
             <div className="item">
-              <Link to="/Blogdetail">
+
               <img src={blog3} alt="EV Car" />
-              </Link>
+
               <span className="date">Sep 09, 2022</span>
             </div>
           </motion.div>

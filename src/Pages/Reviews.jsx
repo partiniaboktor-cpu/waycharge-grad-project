@@ -77,7 +77,7 @@ const Reviews = () => {
         </div>
       </div>
       
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

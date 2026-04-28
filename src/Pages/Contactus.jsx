@@ -106,7 +106,7 @@ const Contactus = () => {
         </div>
       </section>
       
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

@@ -2,210 +2,80 @@ import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import MainTitle from '../Components/MainTitle';
 import '../Pages/Chargerdetail.css'
-import chargerfive from '../Assets/Img/chargerfive.png'
 import Footer from '../Components/Footer.jsx'
 import { supabase } from "../Supabase";
 import { Link } from "react-router-dom";
 
+import chargerone from '../Assets/Img/chargerone.png';
+import chargertwo from '../Assets/Img/chargertwo.png';
+import chargerfour from '../Assets/Img/chargerfour.png';
+import chargerfive from '../Assets/Img/chargerfive.png';
+import charger6 from '../Assets/Img/charger6.png';
+
 const Chargerdetail = () => {
+  const [lang, setLang] = useState('en');
+  const [drawings, setDrawings] = useState([]);
 
-const [Chargerdetail, setChargerdetail] = useState([]);
-useEffect(() => {
+  useEffect(() => {
+    async function getChargerdetailAPI() {
+      const { data, error } = await supabase
+        .from("drawing_types")
+        .select("*")
+        .order("id", { ascending: true });
 
-  async function getChargerdetailAPI() {
-    const { data, error } = await supabase
-      .from("Chargerdetail")
-      .select("*");
-
-    if (error) {
-      console.log(error);
-    } else {
-      setChargerdetail(data);
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        setDrawings(data);
+        console.log(data);
+      }
     }
-  }
 
-  getChargerdetailAPI();
+    getChargerdetailAPI();
+  }, []);
 
-}, []);
+  const row1 = drawings.find(d => d.id === 1) || {};
+  const fallbackImages = [chargerone, chargertwo, chargerfour, chargerfive, charger6];
 
-    return ( <>
-    
-    <Nav />
-    <MainTitle 
-    t1='TYPES OF DRAWINGS'
-    />
-    <div className="container14">
+  return (
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
+      
+      <MainTitle 
+        t1={lang === 'en' ? (row1.section_title_en || 'TYPES OF DRAWINGS') : (row1.section_title_ar || 'أنواع الشواحن')} 
+      />
 
-      {/* Header */}
-      <div className="header14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 1)
-.map(Chargerdetail => (
-   <p key={Chargerdetail.id} className="topText14">
-          {Chargerdetail.Description}
-        </p>))
-}
-     
-      </div>
-
-      {/* Card 1 */}
-      <div className="card14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-        <img key={Chargerdetail.id} src={Chargerdetail.image} alt="" className="img14" />
-))
-}
-        <div className="content14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-          <h2 key={Chargerdetail.id} className="title14">{Chargerdetail.Charger_type})</h2>
-))
-}
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-<Link to="/chargertype">
-  <button key={Chargerdetail.id} className="btn14">
-    {Chargerdetail.buttons}
-  </button>
-</Link>))
-}
+      <div className="container14" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        <div className="header14">
+          <p className="topText14">
+            {lang === 'en' ? row1.description_en : row1.description_ar}
+          </p>
         </div>
+
+        {drawings.map((item, index) => (
+          <div key={item.id} className="card14">
+            <img 
+              src={item.image || fallbackImages[index % fallbackImages.length]} 
+              alt="Charger" 
+              className="img14" 
+            />
+            <div className="content14">
+              <h2 className="title14">
+                {lang === 'en' ? item.item_title_en : item.item_title_ar}
+              </h2>
+              <Link to="/chargertype">
+                <button className="btn14">
+                  {lang === 'en' ? item.action_text_en : item.action_text_ar}
+                </button>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Card 2 */}
-      <div className="card14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-        <img key={Chargerdetail.id} src={Chargerdetail.image} alt="" className="img14" />
-))
+      <Footer />
+    </>
+  );
 }
-        <div className="content14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-          <h2 key={Chargerdetail.id} className="title14">{Chargerdetail.Charger_type})</h2>
-))
-}
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-<Link to="/chargertype">
-  <button key={Chargerdetail.id} className="btn14">
-    {Chargerdetail.buttons}
-  </button>
-</Link>))
-}
-        </div>
-      </div>
 
-      {/* Card 3 */}
-      <div className="card14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-        <img key={Chargerdetail.id} src={Chargerdetail.image} alt="" className="img14" />
-))
-}
-        <div className="content14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-          <h2 key={Chargerdetail.id} className="title14">{Chargerdetail.Charger_type})</h2>
-))
-}
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-<Link to="/chargertype">
-  <button key={Chargerdetail.id} className="btn14">
-    {Chargerdetail.buttons}
-  </button>
-</Link>))
-}
-        </div>
-      </div>
-
-      {/* Card 4 */}
-      <div className="card14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-        <img key={Chargerdetail.id} src={Chargerdetail.image} alt="" className="img14" />
-))
-}
-        <div className="content14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-          <h2 key={Chargerdetail.id} className="title14">{Chargerdetail.Charger_type})</h2>
-))
-}
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-<Link to="/chargertype">
-  <button key={Chargerdetail.id} className="btn14">
-    {Chargerdetail.buttons}
-  </button>
-</Link>))
-}
-        </div>
-      </div>
-
-      {/* Card 5 */}
-      <div className="card14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-        <img key={Chargerdetail.id} src={Chargerdetail.image} alt="" className="img14" />
-))
-}
-        <div className="content14">
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-          <h2 key={Chargerdetail.id} className="title14">{Chargerdetail.Charger_type})</h2>
-))
-}
-{
-Chargerdetail
-.filter(Chargerdetail => Chargerdetail.id === 2)
-.map(Chargerdetail => (
-<Link to="/chargertype">
-  <button key={Chargerdetail.id} className="btn14">
-    {Chargerdetail.buttons}
-  </button>
-</Link>))
-}
-        </div>
-      </div>
-
-
-    </div>
-
-<Footer />
-
-    </> );
-}
- 
 export default Chargerdetail;

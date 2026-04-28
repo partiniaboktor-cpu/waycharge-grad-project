@@ -73,7 +73,7 @@ const Howitworks = () => {
         </video>
       </div>
 
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

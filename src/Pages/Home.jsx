@@ -271,7 +271,7 @@ const Home = () => {
       <Blog lang={lang} />
           
       <DownloadSection lang={lang} />
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }

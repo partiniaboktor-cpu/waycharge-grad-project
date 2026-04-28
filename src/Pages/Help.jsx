@@ -90,13 +90,20 @@ const Help = () => {
         <div className="faqContent8">
           {/* LEFT MENU */}
           <div className="faqMenu8">
-            {categories.map((cat, idx) => (
-              <Link key={idx} to={`/${cat.en.replace(/\s+/g, '')}`}>
-                <h2 className="faqButton8">
-                  {lang === 'en' ? cat.en : cat.ar}
-                </h2>
-              </Link>
-            ))}
+            {categories.map((cat, idx) => {
+              let toPath = `/${cat.en.replace(/\s+/g, '')}`;
+              const catLower = cat.en.toLowerCase();
+              if (catLower.includes('types of charger') || catLower.includes('Chargers')) toPath = '/Chargers';
+              if (catLower.includes('our team')) toPath = '/Team';
+
+              return (
+                <Link key={idx} to={toPath}>
+                  <h2 className="faqButton8">
+                    {lang === 'en' ? cat.en : cat.ar}
+                  </h2>
+                </Link>
+              );
+            })}
           </div>
 
           {/* FAQ LIST */}
@@ -130,7 +137,7 @@ const Help = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer lang={lang} />
     </> 
   );
 }
