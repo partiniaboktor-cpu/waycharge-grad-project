@@ -2,9 +2,9 @@
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px 0;
-  background: #4d4d4d41;
+  background: var(--primary-light-green);
   backdrop-filter: blur(20px);
-  color: #ffffff;
+  color: var(--Main-text-color);
   font-family: var(--base-font);
   text-align: center;
   overflow: hidden;

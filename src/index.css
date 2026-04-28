@@ -19,10 +19,17 @@
   --text-font: 20px;
 }
 
+[data-theme='light'] {
+  --bg-dark: #f0f2f5;
+  --bg-dark2: #ffffff;
+  --Main-text-color: #1a1a1a;
+  --light-text: #1a1a1a88;
+}
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body{

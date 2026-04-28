@@ -9,6 +9,16 @@ const Nav = ({ onLanguageToggle }) => {
   const [NavData, setNavData] = useState([]);
   const [isOpen, setIsOpen] = useState(false); // burger menu state
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +64,12 @@ const Nav = ({ onLanguageToggle }) => {
         <Link to="/Contactus"className='menus5'>Contact us</Link>
         <Link to="/Careers" className='menus7'>Careers</Link>
         <Link to="/help" className='menus6'>Help</Link>
-        <img className='language' src={language} alt="language" onClick={onLanguageToggle} style={{ cursor: onLanguageToggle ? 'pointer' : 'default' }} />
+        <div className="nav-controls">
+          <button className="theme-toggle" onClick={toggleTheme} title="Toggle Theme">
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+          <img className='language' src={language} alt="language" onClick={onLanguageToggle} style={{ cursor: onLanguageToggle ? 'pointer' : 'default' }} />
+        </div>
       </div>
     </nav>
   );

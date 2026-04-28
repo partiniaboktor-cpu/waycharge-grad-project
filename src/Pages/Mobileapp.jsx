@@ -3,7 +3,7 @@ import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
 import '../Supabase.jsx'
 import './Mobileapp.css'
-import mobileapp from '../Assets/Img/download_new.png'
+import mobileapp from '../Assets/Img/mobileapp.svg'
 import DownloadSection from '../Components/DownloadSection.jsx'
 import Footer from '../Components/Footer.jsx';
 import MainTitle from '../Components/MainTitle.jsx';

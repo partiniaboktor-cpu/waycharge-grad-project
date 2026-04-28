@@ -1,9 +1,4 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-}
+/* Remove local body styles to use Index.css globals */
 
 /* Container */
 .container14 {
@@ -20,7 +15,7 @@ body {
 }
 
 .topText14 {
-  color: #ccc;
+  color: var(--light-text);
   font-size: 14px;
 }
 
@@ -29,9 +24,11 @@ body {
   display: flex;
   align-items: center;
 /* Glass effect */
-background: #d9d9d90b;
+background: var(--bg-dark2);
 backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(141, 198, 63, 0.1);
+color: var(--Main-text-color);
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 8px;

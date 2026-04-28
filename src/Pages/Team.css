@@ -1,6 +1,6 @@
 /* Container */
 .container13 {
-  color: white;
+  color: var(--Main-text-color);
   padding: 40px;
   font-family: Arial, sans-serif;
   animation: fadeIn13 1s ease-in;

@@ -51,9 +51,9 @@ const Footer = ({ lang = 'en' }) => {
 
       <div className="bottom-footer">
         {/* Optional: Add extra links and copyright if needed in your CSS layout */}
-        <p style={{ marginTop: '20px', fontSize: '14px', color: '#888' }}>
+        {/* <p style={{ marginTop: '20px', fontSize: '14px', color: '#888' }}>
           {lang === 'en' ? firstRow.copyright_en : firstRow.copyright_ar}
-        </p>
+        </p> */}
       </div>
     </div>
   );

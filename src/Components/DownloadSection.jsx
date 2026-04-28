@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../Components/DownloadSection.css';
 import apple from '../Assets/Icons/apple.svg'
 import play from '../Assets/Icons/play.svg'
-import download_new from '../Assets/Img/download_new.png'
+import download_new from '../Assets/Img/download-new.png'
 import { supabase } from "../Supabase";
 import { motion } from "framer-motion";
 

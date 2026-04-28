@@ -1,9 +1,9 @@
 .footer-container{
     /* Glass effect */
-background: #d9d9d90b;
-backdrop-filter: blur(20px);
-border: 1px solid rgba(255, 255, 255, 0.1);
-  color:white;
+  background: var(--bg-dark2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(141, 198, 63, 0.1);
+  color: var(--Main-text-color);
   padding:60px;
   height: 250px;
   margin-top: 5%;
@@ -29,7 +29,7 @@ border: 1px solid rgba(255, 255, 255, 0.1);
 
 .description {
   max-width: 600px;
-  color: #ffffff;
+  color: var(--Main-text-color);
   margin-bottom: 80px;
   line-height: 40px;
   /* padding-left: 6%; */
@@ -180,10 +180,10 @@ footer {
 
 /* Footer Container */
 .footer-container {
-  background: #d9d9d90b; /* Glass effect */
+  background: var(--bg-dark2); /* Dynamic Glass effect */
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  border: 1px solid rgba(141, 198, 63, 0.1);
+  color: var(--Main-text-color);
   padding: 60px 80px;
   margin-top: 5%;
   font-family: var(--base-font);
