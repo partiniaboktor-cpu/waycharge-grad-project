@@ -91,10 +91,17 @@ const Help = () => {
           {/* LEFT MENU */}
           <div className="faqMenu8">
             {categories.map((cat, idx) => {
-              let toPath = `/${cat.en.replace(/\s+/g, '')}`;
-              const catLower = cat.en.toLowerCase();
-              if (catLower.includes('types of charger') || catLower.includes('Chargers')) toPath = '/Chargers';
-              if (catLower.includes('our team')) toPath = '/Team';
+              const categoryName = String(cat.en || '');
+              const catLower = categoryName.toLowerCase().trim();
+              let toPath = `/${categoryName.replace(/\s+/g, '')}`;
+              
+              if (catLower.includes('charger') || catLower.includes('drawing') || catLower.includes('type')) {
+                toPath = '/Chargers';
+              } else if (catLower.includes('team')) {
+                toPath = '/Team';
+              }
+
+              console.log(`Mapping category "${categoryName}" to path: ${toPath}`);
 
               return (
                 <Link key={idx} to={toPath}>
