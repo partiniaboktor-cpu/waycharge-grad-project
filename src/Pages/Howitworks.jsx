@@ -1,70 +1,81 @@
+import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import MainTitle from '../Components/MainTitle';
 import './Howitworks.css'
 import video from '../Assets/Videos/video.png'
 import Footer from '../Components/Footer.jsx'
+import { supabase } from "../Supabase";
 
-const howitworks = () => {
+const Howitworks = () => {
+  const [lang, setLang] = useState('en');
+  const [howData, setHowData] = useState([]);
 
-  
-    return ( <>
-    
-    <Nav />
-    
-    <MainTitle 
-    t1="HOW WAYCHARGE WORKS" 
-    />
+  useEffect(() => {
+    async function getHowDataAPI() {
+      const { data, error } = await supabase
+        .from("how_it_works")
+        .select("*")
+        .order("id", { ascending: true });
 
-<section className="how-section">
+      if (error) {
+        console.log(error);
+      } else {
+        setHowData(data);
+      }
+    }
 
-      <p className="descriptions">
-        WayCharge works in three simple steps: request, connect, and charge.
-        Through the app, you choose your location and request a portable
-        charger.
-      </p>
+    getHowDataAPI();
+  }, []);
 
-      <div className="timeline">
-        <svg className="path" viewBox="0 0 1000 200">
-          <path
-            d="M0,150 C150,50 300,200 450,120 C600,50 750,180 1000,40"
-            fill="transparent"
-            stroke="#8DC63F"
-            strokeWidth="4"
-            className="draw-path"
-          />
-        </svg>
+  // Safe checks for the first element
+  const mainData = howData.find(item => item.id === 1) || {};
 
-        <div className="step step1">
-          <h3 className='con'>Connect</h3>
-          <p >Connect charger cable with car & station.</p>
+  return ( 
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
+      
+      <MainTitle 
+        t1={lang === 'en' ? (mainData.section_title_en || "HOW WAYCHARGE WORKS") : (mainData.section_title_ar || "كيف يعمل WayCharge")} 
+      />
+
+      <section className="how-section">
+        <p className="descriptions" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+          {lang === 'en' ? mainData.section_description_en : mainData.section_description_ar}
+        </p>
+
+        <div className="timeline" dir="ltr">
+          <svg className="path" viewBox="0 0 1000 200">
+            <path
+              d="M0,150 C150,50 300,200 450,120 C600,50 750,180 1000,40"
+              fill="transparent"
+              stroke="#8DC63F"
+              strokeWidth="4"
+              className="draw-path"
+            />
+          </svg>
+
+          {howData.map((step, index) => (
+            <div key={step.id} className={`step step${index + 1}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+              <h3 className={index === 0 ? 'con' : ''}>
+                {lang === 'en' ? step.title_en : step.title_ar}
+              </h3>
+              <p>
+                {lang === 'en' ? step.description_en : step.description_ar}
+              </p>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div className="step step2">
-          <h3>Request</h3>
-          <p>Choose location & request charger.</p>
-        </div>
-
-        <div className="step step3">
-          <h3>Start</h3>
-          <p>Scan your phone to start charging.</p>
-        </div>
-
-        <div className="step step4">
-          <h3>Charge</h3>
-          <p>Your car charges instantly.</p>
-        </div>
+      <div>
+        <video className='video' width="600" controls>
+          <source src={video} type="video/mp4" />
+        </video>
       </div>
-    </section>
 
-
-<div>
-      <video className='video' width="600" controls>
-        <source  src={video} type="video/mp4" />
-      </video>
-    </div>
-
-<Footer />
-    </> );
+      <Footer />
+    </> 
+  );
 }
  
-export default howitworks;
+export default Howitworks;

@@ -19,371 +19,261 @@ import { supabase } from "../Supabase";
 import Preloader from "./Preloader";
 
 const Home = () => {
+  const [lang, setLang] = useState('en');
+  const [landingData, setLandingData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const [Hero, setHero] = useState([]);
-const [works, setworks] = useState([]);
-const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    async function getData() {
+      const { data, error } = await supabase
+        .from("landing_page_content")
+        .select("*")
+        .order("id", { ascending: true });
 
-useEffect(() => {
+      if (error) {
+        console.log(error);
+      } else {
+        setLandingData(data);
+      }
 
-  async function getData() {
-
-    const { data: heroData, error: heroError } = await supabase
-      .from("Hero")
-      .select("*");
-
-    const { data: worksData, error: worksError } = await supabase
-      .from("works")
-      .select("*");
-
-    if (heroError) {
-      console.log(heroError);
-    } else {
-      setHero(heroData);
+      setLoading(false);
     }
 
-    if (worksError) {
-      console.log(worksError);
-    } else {
-      setworks(worksData);
-    }
+    getData();
+  }, []);
 
-    setLoading(false);
+  if (loading) {
+    return <Preloader />;
   }
 
-  getData();
+  const row1 = landingData.find(d => d.id === 1) || {};
+  const row2 = landingData.find(d => d.id === 2) || {};
+  const row7 = landingData.find(d => d.id === 7) || {};
+  const row8 = landingData.find(d => d.id === 8) || {};
+  const row9 = landingData.find(d => d.id === 9) || {};
+  const row10 = landingData.find(d => d.id === 10) || {};
 
-}, []);
+  return ( 
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
 
-if (loading) {
-  return <Preloader />;
-}
-
-
-    return ( <>
-    <Nav />
-
-    <div className='hero-container'>
-        {/* Background Creative Elements */}
+      <div className='hero-container' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
         <div className="hero-bg-glow glow-left"></div>
         <div className="hero-bg-glow glow-right"></div>
 
         <div className="hero-model car-3d">
-            <model-viewer
-                src="/3dcar.glb"
-                alt="3D Car"
-                auto-rotate
-                camera-controls
-                disable-zoom
-                shadow-intensity="2"
-                exposure="1.5"
-                camera-orbit="45deg 75deg 8m"
-                style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
-            ></model-viewer>
+          <model-viewer
+            src="/3dcar.glb"
+            alt="3D Car"
+            auto-rotate
+            camera-controls
+            disable-zoom
+            shadow-intensity="2"
+            exposure="1.5"
+            camera-orbit="45deg 75deg 8m"
+            style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
+          ></model-viewer>
         </div>
 
         <div className='hero-text-overlay'>
-            <h1 className='hero-main-title'>
-                <span className="charge-the">CHARGE THE</span>
-                <span className="way-forward">WAY FORWARD</span>
-            </h1>
-            <div className="hero-button-wrapper">
-                <button className='waycharge-btn'>WayCharge</button>
-            </div>
+          <h1 className='hero-main-title'>
+            <span className="charge-the">
+              {lang === 'en' 
+                ? row1.section_title_en?.split(' ').slice(0, 2).join(' ') 
+                : row1.section_title_ar?.split(' ').slice(0, 1).join(' ')}
+            </span>
+            <span className="way-forward">
+              {lang === 'en' 
+                ? row1.section_title_en?.split(' ').slice(2).join(' ') 
+                : row1.section_title_ar?.split(' ').slice(1).join(' ')}
+            </span>
+          </h1>
+          <div className="hero-button-wrapper">
+            <button className='waycharge-btn'>WayCharge</button>
+          </div>
         </div>
 
         <div className="hero-model charger-3d">
-            <model-viewer 
-                src="/charger.glb" 
-                ar 
-                ar-modes="webxr scene-viewer quick-look" 
-                camera-controls 
-                disable-zoom
-                tone-mapping="neutral" 
-                shadow-intensity="2" 
-                exposure="1.2"
-                min-camera-orbit="-30deg 77deg auto" 
-                max-camera-orbit="77deg 77deg auto"
-                auto-rotate
-                style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
-            >
-                <div className="progress-bar hide" slot="progress-bar">
-                    <div className="update-bar"></div>
+          <model-viewer 
+            src="/charger.glb" 
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            disable-zoom
+            tone-mapping="neutral" 
+            shadow-intensity="2" 
+            exposure="1.2"
+            min-camera-orbit="-30deg 77deg auto" 
+            max-camera-orbit="77deg 77deg auto"
+            auto-rotate
+            style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
+          >
+            <div className="progress-bar hide" slot="progress-bar">
+              <div className="update-bar"></div>
+            </div>
+            <button slot="ar-button" id="ar-button">
+              View in your space
+            </button>
+            <div id="ar-prompt">
+              <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="hand icon" />
+            </div>
+          </model-viewer>
+        </div>
+      </div>
+
+      <Title 
+        t1={lang === 'en' ? (row10.subtitle_en || 'Application') : (row10.subtitle_ar || 'التطبيق')} 
+        t2={lang === 'en' ? (row10.subtitle_en || 'Application') : (row10.subtitle_ar || 'التطبيق')} 
+        linkText={lang === 'en' ? 'View More' : 'عرض المزيد'} 
+        linkTo="/mobileapp"
+      />
+
+      <DownloadSection lang={lang} />
+
+      <Title 
+        t1={lang === 'en' ? (row2.section_title_en || 'How it works ?') : (row2.section_title_ar || 'كيف يعمل؟')} 
+        t2={lang === 'en' ? (row2.section_title_en || 'How it works ?') : (row2.section_title_ar || 'كيف يعمل؟')} 
+        linkText={lang === 'en' ? 'View More' : 'عرض المزيد'} 
+        linkTo="/Howitworks"
+      />
+
+      <div className="steps-containerss" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        {/* LEFT SIDE */}
+        <div className="steps-lefts">
+          {[2, 3].map((id, index) => {
+            const step = landingData.find(d => d.id === id);
+            if (!step) return null;
+            return (
+              <div key={step.id} className={`stepss step-anim-${index + 1}`}>
+                <div className="circles">{index + 1}</div>
+                <div>
+                  <h3 className='step-titless'>{lang === 'en' ? step.title_en : step.title_ar}</h3>
+                  <p className='brief'>{lang === 'en' ? step.description_en : step.description_ar}</p>
                 </div>
-                <button slot="ar-button" id="ar-button">
-                    View in your space
-                </button>
-                <div id="ar-prompt">
-                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="hand icon" />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* CENTER IMAGE */}
+        <div className="charger-3d-container">
+          <model-viewer
+            src="/charger.glb"
+            alt="3D Charger"
+            auto-rotate
+            camera-controls
+            disable-zoom
+            ar
+            shadow-intensity="2"
+            exposure="1.2"
+            camera-orbit="0deg 75deg 6m"
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "transparent",
+              touchAction: "pan-y"
+            }}
+          ></model-viewer>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="steps-rights">
+          {[4, 12].map((id, index) => {
+            const step = landingData.find(d => d.id === id);
+            if (!step) return null;
+            return (
+              <div key={step.id} className={`stepss step-anim-${index + 3}`}>
+                <div className="circles">{index + 3}</div>
+                <div>
+                  <h3 className='step-titless'>{lang === 'en' ? step.title_en : step.title_ar}</h3>
+                  <p className='brief'>{lang === 'en' ? step.description_en : step.description_ar}</p>
                 </div>
-            </model-viewer>
-        </div>
-    </div>
-
-<Title 
-  t1="Application" 
-  t2="Application" 
-  linkText="View More" 
-  linkTo="/mobileapp"
-/>
-
-<DownloadSection />
-
-
-
- <Title 
-   t1="How it works ?" 
-   t2="How it works ?" 
-  linkText="View More" 
-    linkTo="/Howitworks"
-/>
-
-
- <div className="steps-containerss">
-      
-      {/* LEFT SIDE */}
-      <div className="steps-lefts">
-
-        <div className="stepss step-anim-1">
-{
-works
-.filter(works => works.id === 1)
-.map(works => (
-          <div key={works.id} className="circles">{works.Number}</div>
-))
-}
-          <div>
-{
-works
-.filter(works => works.id === 1)
-.map(works => (
-            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
-))
-}
-{
-works
-.filter(works => works.id === 1)
-.map(works => (
-            <p key={works.id} className='brief'>{works.description}</p>
-))
-}
-          </div>
-        </div>
-
-        <div className="stepss step-anim-2">
-{
-works
-.filter(works => works.id === 2)
-.map(works => (
-          <div key={works.id} className="circles">{works.Number}</div>
-))
-}
-          <div>
-{
-works
-.filter(works => works.id === 2)
-.map(works => (
-            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
-))
-}
-{
-works
-.filter(works => works.id === 2)
-.map(works => (
-            <p key={works.id} className='brief'>{works.description}</p>
-))
-}
-          </div>
-        </div>
-
-      </div>
-
-
-      {/* CENTER IMAGE */}
-     <div className="charger-3d-container">
-      <model-viewer
-        src="/charger.glb"
-        alt="3D Charger"
-        auto-rotate
-        camera-controls
-        disable-zoom
-        ar
-        shadow-intensity="2"
-        exposure="1.2"
-        camera-orbit="0deg 75deg 6m"
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "transparent",
-          touchAction: "pan-y"
-        }}
-      ></model-viewer>
-    </div>
-
-
-      {/* RIGHT SIDE */}
-      <div className="steps-rights">
-
-        <div className="stepss step-anim-3">
-{
-works
-.filter(works => works.id === 3)
-.map(works => (
-          <div key={works.id} className="circles">{works.Number}</div>
-))
-}
-          <div>
-{
-works
-.filter(works => works.id === 3)
-.map(works => (
-            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
-))
-}
-{
-works
-.filter(works => works.id === 3)
-.map(works => (
-            <p key={works.id} className='brief'>{works.description}</p>
-))
-}
-          </div>
-        </div>
-
-        <div className="stepss step-anim-4">
-{
-works
-.filter(works => works.id === 4)
-.map(works => (
-          <div key={works.id} className="circles">{works.Number}</div>
-))
-}
-          <div>
-{
-works
-.filter(works => works.id === 4)
-.map(works => (
-            <h3 key={works.id} className='step-titless'>{works.Title}</h3>
-))
-}
-{
-works
-.filter(works => works.id === 4)
-.map(works => (
-            <p key={works.id} className='brief'>{works.description}</p>
-))
-}
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-<section className='charging-stations'>
-
-<div className='contetnt-charging'>
-  <div className='dot'>
-  <img src={imggroup} alt="imgggroup" />
-  <img className='dotss' src={dot} alt="imgggroup" />
-
-  </div>
-
-<div className='nos'>
-  <h2 className='number-one'>52+</h2>
-  <h2 className='number-one'>100</h2>
-  <h2 className='number-one'>1000</h2>
-</div>
-
-<div className='nos'>
-  <h2 className='text-ones'>Charging stations</h2>
-  <h2 className='text-ones'>Charging points</h2>
-  <h2 className='text-ones'>Charging points</h2>
-</div>
-
-</div>
-
-</section>
-
- <Smallcard />
-
-
- <Title 
-   t1="Mission & vission" 
-   t2="Mission & vission" 
-   linkText="View More" 
-/>
-
-
-<div className="features-section">
-
-      {/* LEFT IMAGE */}
-      <div className="features-image">
-        <img src={charger2} alt="charger2" />
-      </div>
-
-      {/* RIGHT FEATURES */}
-      <div className="features-grid">
-
-        <div className="feature-card">
-          <div className="icon-box">
-            <img src={locationicon} alt="icon"/>
-          </div>
-          <h3 className='Track'>Find a Station</h3>
-          <p className='Track'>
-            Use our app to locate the nearest charging station with real-time
-            availability.
-          </p>
-        </div>
-
-        <div className="feature-card">
-          <div className="icon-box">
-            <img src={phoneicon} alt="icon"/>
-          </div>
-          <h3 className='Track'>Connect & pay</h3>
-          <p className='Track'>
-            Simply scan the QR code and start charging with seamless payment
-            integration.
-          </p>
-        </div>
-
-        <div className="feature-card">
-          <div className="icon-box">
-            <img src={lighteniceon} alt="icon"/>
-          </div>
-          <h3 className='Track'>Fast Charging</h3>
-          <p className='Track' >
-            Enjoy ultra-fast charging speeds with our advanced DC fast charging
-            technology.
-          </p>
-        </div>
-
-        <div className="feature-card">
-          <div className="icon-box">
-            <img src={checkinicon} alt="icon"/>
-          </div>
-          <h3 className='Track'>Track & go</h3>
-          <p className='Track'>
-            Monitor your charging progress in real-time and get notified when
-            complete.
-          </p>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </div>
 
- <Title 
-   t1="Blogs" 
-   t2="Blogs" 
-   linkText="View More" 
-  linkTo="/Blog"
-/>
+      <section className='charging-stations'>
+        <div className='contetnt-charging'>
+          <div className='dot'>
+            <img src={imggroup} alt="imgggroup" />
+            <img className='dotss' src={dot} alt="imgggroup" />
+          </div>
 
-<Blog />
-    
-<DownloadSection />
-<Footer />
+          <div className='nos'>
+            {landingData.filter(d => d.id === 5 || d.id === 11 || d.id === 6).sort((a,b) => {
+              const order = {5: 1, 11: 2, 6: 3};
+              return order[a.id] - order[b.id];
+            }).map(stat => (
+              <h2 key={`val-${stat.id}`} className='number-one'>{lang === 'en' ? stat.title_en : stat.title_ar}</h2>
+            ))}
+          </div>
 
-    </> );
+          <div className='nos'>
+            {landingData.filter(d => d.id === 5 || d.id === 11 || d.id === 6).sort((a,b) => {
+              const order = {5: 1, 11: 2, 6: 3};
+              return order[a.id] - order[b.id];
+            }).map(stat => (
+              <h2 key={`lbl-${stat.id}`} className='text-ones'>{lang === 'en' ? stat.subtitle_en : stat.subtitle_ar}</h2>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Smallcard />
+
+      <Title 
+        t1={lang === 'en' ? (row7.section_title_en || 'Mission & Vision') : (row7.section_title_ar || 'المهمة والرؤية')} 
+        t2={lang === 'en' ? (row7.section_title_en || 'Mission & Vision') : (row7.section_title_ar || 'المهمة والرؤية')} 
+        linkText={lang === 'en' ? 'View More' : 'عرض المزيد'} 
+      />
+
+      <div className="features-section" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        <div className="features-image">
+          <img src={charger2} alt="charger2" />
+        </div>
+
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="icon-box"><img src={locationicon} alt="icon"/></div>
+            <h3 className='Track'>{lang === 'en' ? row7.title_en : row7.title_ar}</h3>
+            <p className='Track'>{lang === 'en' ? row7.description_en : row7.description_ar}</p>
+          </div>
+
+          <div className="feature-card">
+            <div className="icon-box"><img src={phoneicon} alt="icon"/></div>
+            <h3 className='Track'>{lang === 'en' ? row7.meta_en : row7.meta_ar}</h3>
+            <p className='Track'>{lang === 'en' ? "Simply scan the QR code and start charging with seamless payment integration." : "ببساطة، امسح رمز الاستجابة السريعة وابدأ الشحن بتكامل دفع سلس."}</p>
+          </div>
+
+          <div className="feature-card">
+            <div className="icon-box"><img src={lighteniceon} alt="icon"/></div>
+            <h3 className='Track'>{lang === 'en' ? row8.title_en : row8.title_ar}</h3>
+            <p className='Track'>{lang === 'en' ? row8.description_en : row8.description_ar}</p>
+          </div>
+
+          <div className="feature-card">
+            <div className="icon-box"><img src={checkinicon} alt="icon"/></div>
+            <h3 className='Track'>{lang === 'en' ? row8.meta_en : row8.meta_ar}</h3>
+            <p className='Track'>{lang === 'en' ? "Monitor your charging progress in real-time and get notified when complete." : "راقب تقدم الشحن الخاص بك في الوقت الفعلي واحصل على إشعار عند الانتهاء."}</p>
+          </div>
+        </div>
+      </div>
+
+      <Title 
+        t1={lang === 'en' ? (row9.section_title_en || 'Blogs') : (row9.section_title_ar || 'المدونة')} 
+        t2={lang === 'en' ? (row9.section_title_en || 'Blogs') : (row9.section_title_ar || 'المدونة')} 
+        linkText={lang === 'en' ? 'View More' : 'عرض المزيد'} 
+        linkTo="/Blog"
+      />
+
+      <Blog lang={lang} />
+          
+      <DownloadSection lang={lang} />
+      <Footer />
+    </> 
+  );
 }
  
 export default Home;

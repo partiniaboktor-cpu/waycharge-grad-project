@@ -7,119 +7,53 @@ import Footer from '../Components/Footer.jsx'
 import { supabase } from "../Supabase";
 
 const Blogdetail = () => {
+  const [lang, setLang] = useState('en');
+  const [insightData, setInsightData] = useState({});
 
-const [Blog_posts, setBlog_posts] = useState([]);
-useEffect(() => {
+  useEffect(() => {
+    async function getInsightData() {
+      const { data, error } = await supabase
+        .from("insights_posts")
+        .select("*")
+        .eq("id", 1)
+        .single();
 
-  async function getBlog_poststAPI() {
-    const { data, error } = await supabase
-      .from("Blog_posts")
-      .select("*");
-
-    if (error) {
-      console.log(error);
-    } else {
-      setBlog_posts(data);
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        setInsightData(data);
+      }
     }
-  }
 
-  getBlog_poststAPI();
+    getInsightData();
+  }, []);
 
-}, []);
+  return (  
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
+      
+      <MainTitle 
+        t1={lang === 'en' ? (insightData.section_title_en || 'CHARGING INSIGHTS') : (insightData.section_title_ar || 'رؤى الشحن')}
+      />
+      
+      <div>
+        <img className="blogdetail-image" src={blog1} alt="EV Car" />
+      </div>
 
-    return (  <>
-    <Nav />
-    
-    <MainTitle 
-    t1='CHARGING INSIGHTS'
-    />
-    
-  <div >
-      <img class="blogdetail-image" src={blog1} alt="EV Car" />
-    </div>
+      <div className='bigbox' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        <div className='blog-box'>
+          <h2 className='blog-title'>
+            {lang === 'en' ? insightData.post_title_en : insightData.post_title_ar}
+          </h2>
+          <h2 className='blog-paragraph' style={{ whiteSpace: 'pre-line' }}>
+            {lang === 'en' ? insightData.post_content_en : insightData.post_content_ar}
+          </h2>
+        </div>
+      </div>
 
-
-
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
-
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 5)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 5)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 6)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 6)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
-
-<Footer />
-
-
-
-    </>);
+      <Footer />
+    </>
+  );
 }
  
 export default Blogdetail;

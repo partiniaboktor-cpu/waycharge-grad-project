@@ -5,7 +5,7 @@ import language from '../Assets/Icons/language.svg';
 import { Link } from "react-router-dom";
 import { supabase } from "../Supabase";
 
-const Nav = () => {
+const Nav = ({ onLanguageToggle }) => {
   const [NavData, setNavData] = useState([]);
   const [isOpen, setIsOpen] = useState(false); // burger menu state
   const [scrolled, setScrolled] = useState(false);
@@ -54,7 +54,7 @@ const Nav = () => {
         <Link to="/Contactus"className='menus5'>Contact us</Link>
         <Link to="/Careers" className='menus7'>Careers</Link>
         <Link to="/help" className='menus6'>Help</Link>
-        <img className='language' src={language} alt="language" />
+        <img className='language' src={language} alt="language" onClick={onLanguageToggle} style={{ cursor: onLanguageToggle ? 'pointer' : 'default' }} />
       </div>
     </nav>
   );

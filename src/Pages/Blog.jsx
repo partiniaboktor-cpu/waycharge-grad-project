@@ -7,113 +7,54 @@ import MainTitle from '../Components/MainTitle';
 import { supabase } from "../Supabase";
 
 const Blog = () => {
+  const [lang, setLang] = useState('en');
+  const [blogData, setBlogData] = useState([]);
 
-const [Blog_posts, setBlog_posts] = useState([]);
-useEffect(() => {
+  useEffect(() => {
+    async function getBlogDataAPI() {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .order("id", { ascending: true });
 
-  async function getBlog_poststAPI() {
-    const { data, error } = await supabase
-      .from("Blog_posts")
-      .select("*");
-
-    if (error) {
-      console.log(error);
-    } else {
-      setBlog_posts(data);
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        setBlogData(data);
+      }
     }
-  }
 
-  getBlog_poststAPI();
+    getBlogDataAPI();
+  }, []);
 
-}, []);
-    
-    return ( <>
-    
-    <Nav />
+  const firstRow = blogData.find(b => b.id === 1) || {};
 
-    <MainTitle 
-    t1='BEST OF THE WEEK'
-    />
+  return ( 
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
 
-    <Blogpart />
-    
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
+      <MainTitle 
+        t1={lang === 'en' ? (firstRow.section_title_en || 'BEST OF THE WEEK') : (firstRow.section_title_ar || 'الأفضل هذا الأسبوع')}
+      />
 
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 5)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 5)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 6)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 6)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
-<div className='bigbox'>
-    <div className='blog-box'>
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-title'> {Blog_posts.post_title_en}</h2>
-))
-}
-{
-Blog_posts
-.filter(Blog_posts => Blog_posts.id === 4)
-.map(Blog_posts => (
-  <h2 key={Blog_posts.id} className='blog-paragraph'> {Blog_posts.Description_en}</h2>
-))
-}
-    </div>
-</div>
+      <Blogpart lang={lang} />
+      
+      {blogData.map((blog) => (
+        <div key={blog.id} className='bigbox' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+          <div className='blog-box'>
+            <h2 className='blog-title'>
+              {lang === 'en' ? blog.post_title_en : blog.post_title_ar}
+            </h2>
+            <h2 className='blog-paragraph'>
+              {lang === 'en' ? blog.post_content_en : blog.post_content_ar}
+            </h2>
+          </div>
+        </div>
+      ))}
 
-<Footer />
-    </> );
+      <Footer />
+    </> 
+  );
 }
  
 export default Blog;

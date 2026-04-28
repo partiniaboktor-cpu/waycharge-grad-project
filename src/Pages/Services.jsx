@@ -10,251 +10,96 @@ import Footer from '../Components/Footer.jsx';
 import { supabase } from "../Supabase";
 
 const Services = () => {
+  const [lang, setLang] = useState('en');
+  const [servicesData, setServicesData] = useState([]);
 
-const [Services, setServices] = useState([]);
-useEffect(() => {
+  const images = {
+    1: cofee,
+    2: rewards,
+    3: portable,
+    4: availble
+  };
 
-  async function getServicesAPI() {
-    const { data, error } = await supabase
-      .from("Services")
-      .select("*");
+  useEffect(() => {
+    async function getServicesAPI() {
+      const { data, error } = await supabase
+        .from("services_content")
+        .select("*")
+        .order("id", { ascending: true });
 
-    if (error) {
-      console.log(error);
-    } else {
-      setServices(data);
-      console.log(data);
+      if (error) {
+        console.log(error);
+      } else {
+        setServicesData(data);
+      }
     }
-  }
 
-  getServicesAPI();
+    getServicesAPI();
+  }, []);
 
-}, []);
+  const firstRow = servicesData.find(s => s.id === 1) || {};
 
-    return ( <>
-    
-    <Nav />
-    <div className="container10">
-      <h1 className="title10">
-
-     <MainTitle 
-     t1='WAYCHARGE SERVICES'
-     />
-      </h1>
-
-      <div className="iconsRow10">
-        <div className="iconBox10">💰</div>
-        <div className="iconBox10">☕</div>
-        <div className="iconBox10">🚚</div>
-        <div className="iconBox10">🍲</div>
-        <div className="iconBox10">💵</div>
-      </div>
-    </div>
-    
-<div className='downloadnow'>
-{
-Services
-.filter(Services => Services.id === 1)
-.map(Services => (
-  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 2)
-.map(Services => (
-  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 3)
-.map(Services => (
-  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 4)
-.map(Services => (
-  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 2)
-.map(Services => (
-  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 1)
-.map(Services => (
-  <h2 key={Services.id} className='download'> {Services.Service_type}</h2>
-))
-}
- 
-</div>
-    
-
-<div className="container11">
-
-      {/* Section 1 */}
-      <div className="section11">
- 
-
-        <div className="textBox11">
-{
-Services
-.filter(Services => Services.id === 1)
-.map(Services => (
-  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 1)
-.map(Services => (
-  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
-))
-}
-
-        </div>
-
-        <div className="imageBox11">
-{
-Services
-.filter(Services => Services.id === 1)
-.map(Services => (
-    <img
-           key={Services.id}
-            src={Services.image}
-            alt="cofee"
-            className="image11"
-          />))
-}
-        </div>
-      </div>
-
-      {/* Section 2 */}
-      <div className="section11 reverse11">
-       
-
-        <div className="textBox11">
-{
-Services
-.filter(Services => Services.id === 2)
-.map(Services => (
-  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 2)
-.map(Services => (
-  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
-))
-}
-        
-        </div>
-
-        <div className="imageBox11">
-{
-Services
-.filter(Services => Services.id === 2)
-.map(Services => (
-    <img
-           key={Services.id}
-            src={Services.image}
-            alt="cofee"
-            className="image11"
-          />))
-}
-    
-        </div>
-      </div>
-
-      {/* Section 3 */}
-      <div className="section11">
-       
-
-        <div className="textBox11">
-{
-Services
-.filter(Services => Services.id === 3)
-.map(Services => (
-  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 3)
-.map(Services => (
-  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
-))
-}
-     
-        </div>
-
-        <div className="imageBox11">
-{
-Services
-.filter(Services => Services.id === 3)
-.map(Services => (
-    <img
-           key={Services.id}
-            src={Services.image}
-            alt="cofee"
-            className="image11"
-          />))
-}
-
-        </div>
-      </div>
-
-      {/* Section 4 */}
-      <div className="section11 reverse11">
+  return ( 
+    <>
+      <Nav onLanguageToggle={() => setLang(prev => prev === 'en' ? 'ar' : 'en')} />
       
+      <div className="container10">
+        <h1 className="title10">
+          <MainTitle 
+            t1={lang === 'en' ? (firstRow.section_title_en || 'WAYCHARGE SERVICES') : (firstRow.section_title_ar || 'خدمات WayCharge')}
+          />
+        </h1>
 
-        <div className="textBox11">
-{
-Services
-.filter(Services => Services.id === 4)
-.map(Services => (
-  <h2 key={Services.id} className="title11"> {Services.Service_title}</h2>
-))
-}
-{
-Services
-.filter(Services => Services.id === 4)
-.map(Services => (
-  <h2 key={Services.id} className="desc11"> {Services.description}</h2>
-))
-}
-
-        </div>
-
-        <div className="imageBox11">
-{
-Services
-.filter(Services => Services.id === 4)
-.map(Services => (
-    <img
-           key={Services.id}
-            src={Services.image}
-            alt="cofee"
-            className="image11"
-          />))
-}
+        <div className="iconsRow10">
+          <div className="iconBox10">💰</div>
+          <div className="iconBox10">☕</div>
+          <div className="iconBox10">🚚</div>
+          <div className="iconBox10">🍲</div>
+          <div className="iconBox10">💵</div>
         </div>
       </div>
+      
+      <div className='downloadnow' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        {[1, 2, 3, 4, 2, 1].map((id, index) => {
+          const service = servicesData.find(s => s.id === id);
+          return service ? (
+            <h2 key={`${id}-${index}`} className='download'>
+              {lang === 'en' ? service.item_title_en : service.item_title_ar}
+            </h2>
+          ) : null;
+        })}
+      </div>
+      
+      <div className="container11">
+        {servicesData.map((service, index) => (
+          <div 
+            key={service.id} 
+            className={`section11 ${index % 2 !== 0 ? 'reverse11' : ''}`} 
+            dir={lang === 'ar' ? 'rtl' : 'ltr'}
+          >
+            <div className="textBox11">
+              <h2 className="title11">
+                {lang === 'en' ? service.item_title_en : service.item_title_ar}
+              </h2>
+              <h2 className="desc11" style={{ whiteSpace: 'pre-line' }}>
+                {lang === 'en' ? service.description_en : service.description_ar}
+              </h2>
+            </div>
 
-    </div>
+            <div className="imageBox11">
+              <img
+                src={images[service.id]}
+                alt={service.item_title_en}
+                className="image11"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
 
-
-<Footer />
-    </> );
+      <Footer />
+    </> 
+  );
 }
  
 export default Services;

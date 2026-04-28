@@ -8,24 +8,23 @@ import { supabase } from "../Supabase";
 const Aboutus = () => {
 
 
-const [About, setAbout] = useState([]);
-useEffect(() => {
+const [aboutData, setAboutData] = useState([]);
 
+useEffect(() => {
   async function getAboutAPI() {
     const { data, error } = await supabase
-      .from("About")
+      .from("about-us")
       .select("*");
 
     if (error) {
       console.log(error);
     } else {
-      setAbout(data);
+      setAboutData(data);
       console.log(data);
     }
   }
 
   getAboutAPI();
-
 }, []);
 
     return ( <>
@@ -35,40 +34,22 @@ useEffect(() => {
     <div className="banner-container">
       {/* Left Green Block */}
       <div className="green-side">
-{
-About
-.filter(About => About.id === 7)
-.map(About => (
-  <h2 key={About.id} className="text-white tight-stack"> {About.Title}</h2>
-))
-}
-{
-About
-.filter(About => About.id === 8)
-.map(About => (
-  <h2 key={About.id} className="text-white tight-stack"> {About.Title}</h2>
-))
-}        
-    
+        {aboutData.filter(a => a.id === 4).map(a => (
+          <React.Fragment key={a.id}>
+            <h2 className="text-white tight-stack"> {a.section_title}</h2>
+            <h2 className="text-white tight-stack"> {a.subtitle}</h2>
+          </React.Fragment>
+        ))}
       </div>
 
       {/* Right Content Block */}
       <div className="content-side">
-{
-About
-.filter(About => About.id === 1)
-.map(About => (
-  <h2 key={About.id} className="sub-header"> {About.Description}</h2>
-))
-}  
-{
-About
-.filter(About => About.id === 1)
-.map(About => (
-  <h2 key={About.id} className="main-title"> {About.Title}</h2>
-))
-} 
-  
+        {aboutData.filter(a => a.id === 1).map(a => (
+          <React.Fragment key={a.id}>
+            <h2 className="sub-header"> {a.subtitle}</h2>
+            <h2 className="main-title"> {a.section_title}</h2>
+          </React.Fragment>
+        ))}
       </div>
     </div>
     
@@ -106,34 +87,28 @@ About
       </model-viewer>
     </div>
     
-<Title 
-   t1="About us" 
-   t2="Abouts us" 
-   linkText="View More" 
-/>
-
-{
-About
-.filter(About => About.id === 3)
-.map(About => (
-  <h2 key={About.id} className='aboutus-paragraph'> {About.Description}</h2>
-))
-} 
+{aboutData.filter(a => a.id === 2).map(a => (
+  <React.Fragment key={a.id}>
+    <Title 
+       t1={a.section_title} 
+       t2={a.section_title} 
+       linkText="View More" 
+    />
+    <h2 className='aboutus-paragraph'> {a.description}</h2>
+  </React.Fragment>
+))}
     
 
-  <Title 
-   t1="Why choose us ?" 
-   t2="Why choose us ?" 
-   linkText="View More" 
-/>
-  
-{
-About
-.filter(About => About.id === 4)
-.map(About => (
-  <h2 key={About.id} className='aboutuss-paragraph'> {About.Description}</h2>
-))
-} 
+{aboutData.filter(a => a.id === 3).map(a => (
+  <React.Fragment key={a.id}>
+    <Title 
+       t1={a.section_title} 
+       t2={a.section_title} 
+       linkText="View More" 
+    />
+    <h2 className='aboutuss-paragraph'> {a.description}</h2>
+  </React.Fragment>
+))} 
 
 
 <div className="container3">
@@ -150,8 +125,8 @@ About
           <div className="pin3"></div>
           <div className="card3">
             <div className="icon3">📍</div>
-            {About.filter(a => a.id === 5).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
-            {About.filter(a => a.id === 5).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+            {aboutData.filter(a => a.id === 4).map(a => <h2 key={a.id} className='Find3'>{a.feature_title}</h2>)}
+            {aboutData.filter(a => a.id === 4).map(a => <h2 key={a.id} className='Find33'>{a.feature_description}</h2>)}
           </div>
         </div>
 
@@ -161,8 +136,8 @@ About
           <div className="pin3"></div>
           <div className="card3">
             <div className="icon3">📅</div>
-            {About.filter(a => a.id === 6).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
-            {About.filter(a => a.id === 6).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+            {aboutData.filter(a => a.id === 5).map(a => <h2 key={a.id} className='Find3'>{a.feature_title}</h2>)}
+            {aboutData.filter(a => a.id === 5).map(a => <h2 key={a.id} className='Find33'>{a.feature_description}</h2>)}
           </div>
         </div>
 
@@ -172,8 +147,8 @@ About
           <div className="pin3"></div>
           <div className="card3">
             <div className="icon3">💳</div>
-            {About.filter(a => a.id === 9).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
-            {About.filter(a => a.id === 9).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+            {aboutData.filter(a => a.id === 6).map(a => <h2 key={a.id} className='Find3'>{a.feature_title}</h2>)}
+            {aboutData.filter(a => a.id === 6).map(a => <h2 key={a.id} className='Find33'>{a.feature_description}</h2>)}
           </div>
         </div>
 
@@ -183,8 +158,8 @@ About
           <div className="pin3"></div>
           <div className="card3">
             <div className="icon3">🚗</div>
-            {About.filter(a => a.id === 10).map(a => <h2 key={a.id} className='Find3'>{a.Title}</h2>)}
-            {About.filter(a => a.id === 10).map(a => <h2 key={a.id} className='Find33'>{a.Description}</h2>)}
+            {aboutData.filter(a => a.id === 7).map(a => <h2 key={a.id} className='Find3'>{a.feature_title}</h2>)}
+            {aboutData.filter(a => a.id === 7).map(a => <h2 key={a.id} className='Find33'>{a.feature_description}</h2>)}
           </div>
         </div>
       </div>
