@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
+import ScrollRevealText from "../Animations/ScrollRevealText.jsx";
 import '../Pages/Services.css'
 import MainTitle from '../Components/MainTitle';
 import cofee from '../Assets/Img/cofee.png'
@@ -82,7 +83,7 @@ const Services = () => {
                 {lang === 'en' ? service.item_title_en : service.item_title_ar}
               </h2>
               <h2 className="desc11" style={{ whiteSpace: 'pre-line' }}>
-                {lang === 'en' ? service.description_en : service.description_ar}
+                <ScrollRevealText text={lang === 'en' ? service.description_en : service.description_ar} />
               </h2>
             </div>
 

@@ -32,35 +32,9 @@ margin-left: 8%;
 /* layout */
 
 .faqContent8{
-  display:flex;
-  gap:60px;
-}
-
-/* left menu */
-
-.faqMenu8{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-.faqButton8{
-  background:transparent;
-  border:1px solid #444;
-  color:white;
-  padding:12px 20px;
-  cursor:pointer;
-  transition:0.3s;
-  font-size: 20px;
-  text-decoration: none;
-  width: 80%;
-}
-
-.faqButton8:hover{
-  background:#8DC63F;
-  color:black;
-  transform:translateX(8px);
-    text-decoration: none;
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* FAQ list */
@@ -180,39 +154,11 @@ margin-left: 8%;
   }
 
   .faqContent8 {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .faqMenu8 {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .faqButton8 {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .faqList8 {
-    gap: 12px;
-  }
-
-  .faqItem8 {
-    font-size: 14px;
-  }
-
-  .faqQuestion8 {
-    padding: 12px 15px;
-  }
-
-  .faqAnswer8 {
-    padding: 0 15px;
   }
 
   .faqActive8 .faqAnswer8 {
-    max-height: 90px;
+    max-height: 200px;
     padding: 10px 15px;
   }
 }

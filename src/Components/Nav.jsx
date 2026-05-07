@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import './Nav.css';
 import wholoelogo from '../Assets/Img/wholologo.svg';
 import language from '../Assets/Icons/language.svg';
@@ -10,6 +11,7 @@ const Nav = ({ onLanguageToggle }) => {
   const [isOpen, setIsOpen] = useState(false); // burger menu state
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -63,7 +65,31 @@ const Nav = ({ onLanguageToggle }) => {
         <Link to="/Howitworks" className='menus4'>How it works?</Link>
         <Link to="/Contactus"className='menus5'>Contact us</Link>
         <Link to="/Careers" className='menus7'>Careers</Link>
-        <Link to="/help" className='menus6'>Help</Link>
+        
+        <div 
+          className="dropdown-wrapper"
+          onMouseEnter={() => setIsHelpOpen(true)}
+          onMouseLeave={() => setIsHelpOpen(false)}
+        >
+          <Link to="/help" className='menus6'>Help</Link>
+          <AnimatePresence>
+            {isHelpOpen && (
+              <motion.div 
+                className="dropdown-menu"
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Link to="/Services" className="dropdown-item">Services</Link>
+                <Link to="/Bundles" className="dropdown-item">Bundles</Link>
+                <Link to="/Chargertype" className="dropdown-item">Charger Types</Link>
+                <Link to="/Team" className="dropdown-item">Our Team</Link>
+                <Link to="/Reviews" className="dropdown-item">Reviews</Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         <div className="nav-controls">
           <button className="theme-toggle" onClick={toggleTheme} title="Toggle Theme">
             {theme === 'dark' ? '☀️' : '🌙'}

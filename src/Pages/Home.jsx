@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import AnimatedCounter from "../Animations/AnimatedCounter";
+import ScrollRevealText from "../Animations/ScrollRevealText";
 import './Home.css'
 import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
@@ -139,24 +142,56 @@ const Home = () => {
 
       <div className="steps-containerss" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
         {/* LEFT SIDE */}
-        <div className="steps-lefts">
+        <motion.div 
+          className="steps-lefts"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.3 } },
+            hidden: {}
+          }}
+        >
           {[2, 3].map((id, index) => {
             const step = landingData.find(d => d.id === id);
             if (!step) return null;
             return (
-              <div key={step.id} className={`stepss step-anim-${index + 1}`}>
-                <div className="circles">{index + 1}</div>
+              <motion.div 
+                key={step.id} 
+                className="stepss"
+                variants={{
+                  hidden: { opacity: 0, x: lang === 'ar' ? 50 : -50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+              >
+                <motion.div 
+                  className="circles"
+                  whileHover={{ scale: 1.1, backgroundColor: "var(--primary-green)", color: "#fff" }}
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {index + 1}
+                </motion.div>
                 <div>
                   <h3 className='step-titless'>{lang === 'en' ? step.title_en : step.title_ar}</h3>
-                  <p className='brief'>{lang === 'en' ? step.description_en : step.description_ar}</p>
+                  <p className='brief'>
+                    <ScrollRevealText text={lang === 'en' ? step.description_en : step.description_ar} />
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* CENTER IMAGE */}
-        <div className="charger-3d-container">
+        <motion.div 
+          className="charger-3d-container"
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <model-viewer
             src="/charger.glb"
             alt="3D Charger"
@@ -174,24 +209,50 @@ const Home = () => {
               touchAction: "pan-y"
             }}
           ></model-viewer>
-        </div>
+        </motion.div>
 
         {/* RIGHT SIDE */}
-        <div className="steps-rights">
+        <motion.div 
+          className="steps-rights"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.3, delayChildren: 0.6 } },
+            hidden: {}
+          }}
+        >
           {[4, 12].map((id, index) => {
             const step = landingData.find(d => d.id === id);
             if (!step) return null;
             return (
-              <div key={step.id} className={`stepss step-anim-${index + 3}`}>
-                <div className="circles">{index + 3}</div>
+              <motion.div 
+                key={step.id} 
+                className="stepss"
+                variants={{
+                  hidden: { opacity: 0, x: lang === 'ar' ? -50 : 50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+              >
+                <motion.div 
+                  className="circles"
+                  whileHover={{ scale: 1.1, backgroundColor: "var(--primary-green)", color: "#fff" }}
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {index + 3}
+                </motion.div>
                 <div>
                   <h3 className='step-titless'>{lang === 'en' ? step.title_en : step.title_ar}</h3>
-                  <p className='brief'>{lang === 'en' ? step.description_en : step.description_ar}</p>
+                  <p className='brief'>
+                    <ScrollRevealText text={lang === 'en' ? step.description_en : step.description_ar} />
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       <section className='charging-stations'>
@@ -206,7 +267,9 @@ const Home = () => {
               const order = {5: 1, 11: 2, 6: 3};
               return order[a.id] - order[b.id];
             }).map(stat => (
-              <h2 key={`val-${stat.id}`} className='number-one'>{lang === 'en' ? stat.title_en : stat.title_ar}</h2>
+              <h2 key={`val-${stat.id}`} className='number-one'>
+                <AnimatedCounter value={lang === 'en' ? stat.title_en : stat.title_ar} />
+              </h2>
             ))}
           </div>
 
@@ -230,35 +293,86 @@ const Home = () => {
       />
 
       <div className="features-section" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-        <div className="features-image">
+        <motion.div 
+          className="features-image"
+          initial={{ opacity: 0, x: lang === 'ar' ? 50 : -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <img src={charger2} alt="charger2" />
-        </div>
+        </motion.div>
 
-        <div className="features-grid">
-          <div className="feature-card">
+        <motion.div 
+          className="features-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.2 } },
+            hidden: {}
+          }}
+        >
+          <motion.div 
+            className="feature-card"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+          >
             <div className="icon-box"><img src={locationicon} alt="icon"/></div>
             <h3 className='Track'>{lang === 'en' ? row7.title_en : row7.title_ar}</h3>
-            <p className='Track'>{lang === 'en' ? row7.description_en : row7.description_ar}</p>
-          </div>
+            <p className='Track'>
+              <ScrollRevealText text={lang === 'en' ? row7.description_en : row7.description_ar} />
+            </p>
+          </motion.div>
 
-          <div className="feature-card">
+          <motion.div 
+            className="feature-card"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+          >
             <div className="icon-box"><img src={phoneicon} alt="icon"/></div>
             <h3 className='Track'>{lang === 'en' ? row7.meta_en : row7.meta_ar}</h3>
-            <p className='Track'>{lang === 'en' ? "Simply scan the QR code and start charging with seamless payment integration." : "ببساطة، امسح رمز الاستجابة السريعة وابدأ الشحن بتكامل دفع سلس."}</p>
-          </div>
+            <p className='Track'>
+              <ScrollRevealText text={lang === 'en' ? "Simply scan the QR code and start charging with seamless payment integration." : "ببساطة، امسح رمز الاستجابة السريعة وابدأ الشحن بتكامل دفع سلس."} />
+            </p>
+          </motion.div>
 
-          <div className="feature-card">
+          <motion.div 
+            className="feature-card"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+          >
             <div className="icon-box"><img src={lighteniceon} alt="icon"/></div>
             <h3 className='Track'>{lang === 'en' ? row8.title_en : row8.title_ar}</h3>
-            <p className='Track'>{lang === 'en' ? row8.description_en : row8.description_ar}</p>
-          </div>
+            <p className='Track'>
+              <ScrollRevealText text={lang === 'en' ? row8.description_en : row8.description_ar} />
+            </p>
+          </motion.div>
 
-          <div className="feature-card">
+          <motion.div 
+            className="feature-card"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+          >
             <div className="icon-box"><img src={checkinicon} alt="icon"/></div>
             <h3 className='Track'>{lang === 'en' ? row8.meta_en : row8.meta_ar}</h3>
-            <p className='Track'>{lang === 'en' ? "Monitor your charging progress in real-time and get notified when complete." : "راقب تقدم الشحن الخاص بك في الوقت الفعلي واحصل على إشعار عند الانتهاء."}</p>
-          </div>
-        </div>
+            <p className='Track'>
+              <ScrollRevealText text={lang === 'en' ? "Monitor your charging progress in real-time and get notified when complete." : "راقب تقدم الشحن الخاص بك في الوقت الفعلي واحصل على إشعار عند الانتهاء."} />
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
 
       <Title 

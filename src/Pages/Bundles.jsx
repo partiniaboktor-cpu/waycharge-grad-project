@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AnimatedCounter from "../Animations/AnimatedCounter.jsx";
 import Nav from '../Components/Nav';
 import '../Pages/Bundles.css'
 import MainTitle from '../Components/MainTitle';
@@ -76,7 +77,9 @@ useEffect(() => {
             )}
 
             { (lang === 'en' ? plan.price_en : plan.price_ar) && (
-              <h2 className="priceBtn12">{lang === 'en' ? plan.price_en : plan.price_ar}</h2>
+              <h2 className="priceBtn12">
+                <AnimatedCounter value={lang === 'en' ? plan.price_en : plan.price_ar} />
+              </h2>
             )}
           </div>
         ))}

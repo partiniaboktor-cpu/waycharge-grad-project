@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Aboutus.css'
 import Nav from '../Components/Nav';
+import ScrollRevealText from "../Animations/ScrollRevealText.jsx";
 import Title from '../Common/Title-section.jsx';
 import Footer from '../Components/Footer.jsx'
 import { supabase } from "../Supabase";
@@ -94,7 +95,9 @@ useEffect(() => {
        t2={a.section_title} 
        linkText="View More" 
     />
-    <h2 className='aboutus-paragraph'> {a.description}</h2>
+    <h2 className='aboutus-paragraph'> 
+      <ScrollRevealText text={a.description} />
+    </h2>
   </React.Fragment>
 ))}
     
@@ -106,7 +109,9 @@ useEffect(() => {
        t2={a.section_title} 
        linkText="View More" 
     />
-    <h2 className='aboutuss-paragraph'> {a.description}</h2>
+    <h2 className='aboutuss-paragraph'> 
+      <ScrollRevealText text={a.description} />
+    </h2>
   </React.Fragment>
 ))} 
 

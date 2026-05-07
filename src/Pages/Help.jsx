@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
+import ScrollRevealText from "../Animations/ScrollRevealText.jsx";
 import '../Pages/Help.css';
 import MainTitle from '../Components/MainTitle';
 import Footer from '../Components/Footer.jsx'
@@ -84,35 +85,10 @@ const Help = () => {
         />
 
         <h2 className="faqIntro8" style={{ whiteSpace: 'pre-line' }}>
-          {lang === 'en' ? firstRow.description_en : firstRow.description_ar}
+          <ScrollRevealText text={lang === 'en' ? firstRow.description_en : firstRow.description_ar} />
         </h2>
 
         <div className="faqContent8">
-          {/* LEFT MENU */}
-          <div className="faqMenu8">
-            {categories.map((cat, idx) => {
-              const categoryName = String(cat.en || '');
-              const catLower = categoryName.toLowerCase().trim();
-              let toPath = `/${categoryName.replace(/\s+/g, '')}`;
-              
-              if (catLower.includes('charger') || catLower.includes('drawing') || catLower.includes('type')) {
-                toPath = '/Chargers';
-              } else if (catLower.includes('team')) {
-                toPath = '/Team';
-              }
-
-              console.log(`Mapping category "${categoryName}" to path: ${toPath}`);
-
-              return (
-                <Link key={idx} to={toPath}>
-                  <h2 className="faqButton8">
-                    {lang === 'en' ? cat.en : cat.ar}
-                  </h2>
-                </Link>
-              );
-            })}
-          </div>
-
           {/* FAQ LIST */}
           <div className="faqList8">
             {validFaqs.map((item, index) => {

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import AnimatedCounter from "../Animations/AnimatedCounter.jsx";
 import Nav from '../Components/Nav.jsx'
+import ScrollRevealText from "../Animations/ScrollRevealText.jsx";
 import MainTitle from '../Components/MainTitle.jsx';
 import '../Pages/Stations.css'
 import Map from '../Common/Map.jsx'; 
@@ -47,7 +49,7 @@ const Stations = () => {
         />
 
         <h2 className='station-paragraph'>
-          {lang === 'en' ? row1.description_en : row1.description_ar}
+          <ScrollRevealText text={lang === 'en' ? row1.description_en : row1.description_ar} />
         </h2>
 
         <Map />
@@ -55,9 +57,11 @@ const Stations = () => {
         <div className='downloadnows'>
           {stats.map(stat => (
             <h2 key={stat.id} className='download'>
-              {lang === 'en' 
-                ? `${stat.stat_value_en} ${stat.stat_title_en}` 
-                : `${stat.stat_value_ar} ${stat.stat_title_ar}`}
+              <AnimatedCounter 
+                value={lang === 'en' 
+                  ? `${stat.stat_value_en} ${stat.stat_title_en}` 
+                  : `${stat.stat_value_ar} ${stat.stat_title_ar}`} 
+              />
             </h2>
           ))}
         </div>

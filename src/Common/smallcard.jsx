@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AnimatedCounter from '../Animations/AnimatedCounter';
 import './Smallcard.css'
 
 
@@ -9,23 +10,23 @@ const smallcard = () => {
 
     <div className='first'>
     <p className='button-one'>Locations</p>
-    <h1 className='nu'>10,250</h1>
+    <h1 className='nu'><AnimatedCounter value="10,250" /></h1>
     </div>
 
  <div className='first'>
     <p className='button-one'>Total chargers</p>
-    <h1 className='nu'>10,250</h1>
+    <h1 className='nu'><AnimatedCounter value="10,250" /></h1>
     </div>
 
      <div className='first'>
     <p className='button-one'>Level 2 chargers</p>
-    <h1 className='nu'>10,250</h1>
+    <h1 className='nu'><AnimatedCounter value="10,250" /></h1>
     </div>
 
 
      <div className='first'>
     <p className='button-one'>Dc fast chargers</p>
-    <h1 className='nu'>10,250</h1>
+    <h1 className='nu'><AnimatedCounter value="10,250" /></h1>
     </div>
 
 </section>
