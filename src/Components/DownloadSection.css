@@ -2,8 +2,10 @@
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px 0;
-  background: var(--primary-light-green);
-  backdrop-filter: blur(20px);
+  background: linear-gradient(180deg, transparent 0%, rgba(141, 198, 63, 0.03) 50%, transparent 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   color: var(--Main-text-color);
   font-family: var(--base-font);
   text-align: center;

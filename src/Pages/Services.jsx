@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
 import ScrollRevealText from "../Animations/ScrollRevealText.jsx";
+import GradualBlur from "../Animations/GradualBlur.jsx";
 import '../Pages/Services.css'
 import MainTitle from '../Components/MainTitle';
 import cofee from '../Assets/Img/cofee.png'
@@ -87,13 +88,13 @@ const Services = () => {
               </h2>
             </div>
 
-            <div className="imageBox11">
+            <GradualBlur className="imageBox11">
               <img
                 src={images[service.id]}
                 alt={service.item_title_en}
                 className="image11"
               />
-            </div>
+            </GradualBlur>
           </div>
         ))}
       </div>

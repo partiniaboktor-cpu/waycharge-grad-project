@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Aboutus.css'
 import Nav from '../Components/Nav';
 import ScrollRevealText from "../Animations/ScrollRevealText.jsx";
+import GradualBlur from "../Animations/GradualBlur.jsx";
 import Title from '../Common/Title-section.jsx';
 import Footer from '../Components/Footer.jsx'
 import { supabase } from "../Supabase";
@@ -57,7 +58,7 @@ useEffect(() => {
 
     {/* 3d model */}
 
-     <div className="about-3d-container">
+     <GradualBlur className="about-3d-container">
       <model-viewer 
         src="fast_charging_station.glb" 
         ar 
@@ -86,7 +87,7 @@ useEffect(() => {
             <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="hand icon" />
         </div>
       </model-viewer>
-    </div>
+    </GradualBlur>
     
 {aboutData.filter(a => a.id === 2).map(a => (
   <React.Fragment key={a.id}>

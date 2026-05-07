@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedCounter from "../Animations/AnimatedCounter";
 import ScrollRevealText from "../Animations/ScrollRevealText";
+import GradualBlur from "../Animations/GradualBlur";
 import './Home.css'
 import Nav from '../Components/Nav';
 import Title from '../Common/Title-section.jsx';
@@ -64,7 +65,7 @@ const Home = () => {
         <div className="hero-bg-glow glow-left"></div>
         <div className="hero-bg-glow glow-right"></div>
 
-        <div className="hero-model car-3d">
+        <GradualBlur className="hero-model car-3d">
           <model-viewer
             src="/3dcar.glb"
             alt="3D Car"
@@ -76,7 +77,7 @@ const Home = () => {
             camera-orbit="45deg 75deg 8m"
             style={{ width: "100%", height: "100%", background: "transparent", touchAction: "pan-y" }}
           ></model-viewer>
-        </div>
+        </GradualBlur>
 
         <div className='hero-text-overlay'>
           <h1 className='hero-main-title'>
@@ -96,7 +97,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="hero-model charger-3d">
+        <GradualBlur className="hero-model charger-3d" delay={0.5}>
           <model-viewer 
             src="/charger.glb" 
             ar 
@@ -121,7 +122,7 @@ const Home = () => {
               <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="hand icon" />
             </div>
           </model-viewer>
-        </div>
+        </GradualBlur>
       </div>
 
       <Title 
@@ -185,13 +186,7 @@ const Home = () => {
         </motion.div>
 
         {/* CENTER IMAGE */}
-        <motion.div 
-          className="charger-3d-container"
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
+        <GradualBlur className="charger-3d-container">
           <model-viewer
             src="/charger.glb"
             alt="3D Charger"
@@ -209,7 +204,7 @@ const Home = () => {
               touchAction: "pan-y"
             }}
           ></model-viewer>
-        </motion.div>
+        </GradualBlur>
 
         {/* RIGHT SIDE */}
         <motion.div 
@@ -293,15 +288,9 @@ const Home = () => {
       />
 
       <div className="features-section" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-        <motion.div 
-          className="features-image"
-          initial={{ opacity: 0, x: lang === 'ar' ? 50 : -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <GradualBlur className="features-image">
           <img src={charger2} alt="charger2" />
-        </motion.div>
+        </GradualBlur>
 
         <motion.div 
           className="features-grid"
