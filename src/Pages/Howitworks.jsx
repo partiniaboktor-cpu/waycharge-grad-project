@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Nav from '../Components/Nav';
+import CinematicStoryboard from "../Components/CinematicStoryboard";
 import MainTitle from '../Components/MainTitle';
 import './Howitworks.css'
-import video from '../Assets/Videos/video.png'
 import Footer from '../Components/Footer.jsx'
 import { supabase } from "../Supabase";
 
@@ -67,11 +67,7 @@ const Howitworks = () => {
         </div>
       </section>
 
-      <div>
-        <video className='video' width="600" controls>
-          <source src={video} type="video/mp4" />
-        </video>
-      </div>
+      <CinematicStoryboard />
 
       <Footer lang={lang} />
     </> 

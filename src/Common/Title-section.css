@@ -78,15 +78,21 @@
 /* View more link */
 .view-more {
     color: var(--primary-green);
-    font-size: var(--text-font);
-    margin: 0 20px;
+    font-size: 14px; /* Reduced from 20px */
+    margin: 0 15px;
     text-decoration: none;
-    transition: color 0.2s ease-in;
+    transition: all 0.3s ease;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: rgba(141, 198, 63, 0.05);
 }
 
 .view-more:hover {
-    color: var(--primary-light-green);
+    color: white;
+    background: var(--primary-green);
 }
+
+
 
 /* Arrow container */
 .arrow {
